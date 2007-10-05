@@ -60,6 +60,8 @@ namespace Ensurance
 
         #endregion
 
+/*        #region CollectionEnsure
+
         #region AllItemsAreInstancesOfType
 
         /// <summary>
@@ -622,5 +624,7 @@ namespace Ensurance
         }
 
         #endregion
+
+        #endregion*/
     }
 }

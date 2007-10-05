@@ -35,7 +35,9 @@ namespace Ensurance.MessageWriters
     /// of individual message components to form the standard message
     /// format of NUnit assertion failure messages.
     /// </summary>
+#if !DEBUG
     [DebuggerNonUserCode]
+#endif
     public class TextMessageWriter : MessageWriter
     {
         #region Message Formats and Constants

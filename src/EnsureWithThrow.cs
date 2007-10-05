@@ -32,7 +32,9 @@ namespace Ensurance
     /// <summary>
     /// 
     /// </summary>
+#if !DEBUG
     [DebuggerNonUserCode]
+#endif
     public class EnsureWithThrow : EnsureBase<EnsureWithThrow>, IEnsuranceHandler
     {
         #region Private Members

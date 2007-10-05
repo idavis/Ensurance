@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,24 +19,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
-using System.Collections;
 using Ensurance.Constraints;
 using Ensurance.SyntaxHelpers;
 
-namespace Ensurance
+namespace Ensurance.Tests
 {
-    /// <summary>
-    /// EnsuranceHelper is an optional base class for user tests,
-    /// allowing the use of shorter names for constraints and
-    /// asserts and avoiding conflict with the definition of 
-    /// <see cref="Is"/>, from which it inherits much of its
-    /// behavior, in certain mock object frameworks.
-    /// </summary>
-    public class EnsuranceHelper<T> : ConstraintBuilder where T : IEnsuranceHandler
+    public class EnsuranceHelper : Ensure
     {
-        #region Expect
+        #region EnsuranceHelper.Expect
 
         /// <summary>
         /// Apply a constraint to an actual value, succeeding if the constraint
@@ -46,7 +40,7 @@ namespace Ensurance
         /// <param name="actual">The actual value to test</param>
         public static void Expect( object actual, Constraint constraint )
         {
-            EnsureBase<T>.That( actual, constraint, null, null );
+            That( actual, constraint, null, null );
         }
 
         /// <summary>
@@ -59,7 +53,7 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         public static void Expect( object actual, Constraint constraint, string message )
         {
-            EnsureBase<T>.That( actual, constraint, message, null );
+            That( actual, constraint, message, null );
         }
 
         /// <summary>
@@ -73,7 +67,7 @@ namespace Ensurance
         /// <param name="args">Arguments to be used in formatting the message</param>
         public static void Expect( object actual, Constraint constraint, string message, params object[] args )
         {
-            EnsureBase<T>.That( actual, constraint, message, args );
+            That( actual, constraint, message, args );
         }
 
         /// <summary>
@@ -86,7 +80,7 @@ namespace Ensurance
         /// <param name="args">Arguments to be used in formatting the message</param>
         public static void Expect( bool condition, string message, params object[] args )
         {
-            EnsureBase<T>.That( condition, Is.True, message, args );
+            That( condition, Is.True, message, args );
         }
 
         /// <summary>
@@ -98,7 +92,7 @@ namespace Ensurance
         /// <param name="message">The message to display if the condition is false</param>
         public static void Expect( bool condition, string message )
         {
-            EnsureBase<T>.That( condition, Is.True, message, null );
+            That( condition, Is.True, message, null );
         }
 
         /// <summary>
@@ -108,21 +102,7 @@ namespace Ensurance
         /// <param name="condition">The evaluated condition</param>
         public static void Expect( bool condition )
         {
-            EnsureBase<T>.That( condition, Is.True, null, null );
-        }
-
-        #endregion
-
-        #region Map
-
-        /// <summary>
-        /// Returns a ListMapper based on a collection.
-        /// </summary>
-        /// <param name="original">The original collection</param>
-        /// <returns></returns>
-        public ListMapper Map( ICollection original )
-        {
-            return new ListMapper( original );
+            That( condition, Is.True, null, null );
         }
 
         #endregion

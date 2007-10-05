@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using Ensurance.Constraints;
+using Ensurance.MessageWriters;
 using Ensurance.SyntaxHelpers;
 
 namespace Ensurance
@@ -33,7 +34,9 @@ namespace Ensurance
     /// <summary>
     /// 
     /// </summary>
+#if !DEBUG
     [DebuggerNonUserCode]
+#endif
     public class Ensure : EnsureBase<Ensure>, IEnsuranceHandler
     {
         #region Constructors
@@ -57,7 +60,14 @@ namespace Ensurance
         /// <value>The handler.</value>
         public static IEnsuranceResponsibilityChainLink Handler
         {
-            get { return _handler; }
+            get
+            {
+                if(_handler == null)
+                {
+                    _handler = new ExceptionEnsuranceHandler();
+                }
+                 return _handler;
+            }
         }
 
         /// <summary>
@@ -138,7 +148,7 @@ namespace Ensurance
         /// <param name="args">The args.</param>
         private static void Handle( Constraint constraint, string message, params object[] args )
         {
-            _handler.Handle( constraint, message, args );
+            Handler.Handle( constraint, message, args );
         }
     }
 }

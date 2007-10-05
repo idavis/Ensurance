@@ -38,7 +38,9 @@ namespace Ensurance.MessageWriters
     /// of a message, allowing implementations to tailor the
     /// presentation as needed.
     /// </summary>
+#if !DEBUG
     [DebuggerNonUserCode]
+#endif
     public abstract class MessageWriter : IEnsuranceResponsibilityChainLink
     {
         protected IEnsuranceResponsibilityChainLink _successor;

@@ -25,7 +25,9 @@ using Ensurance.Constraints;
 
 namespace Ensurance.MessageWriters
 {
+#if !DEBUG
     [DebuggerNonUserCode]
+#endif
     public class DebuggerEnsuranceHandler : IEnsuranceResponsibilityChainLink
     {
         private IEnsuranceResponsibilityChainLink _successor;

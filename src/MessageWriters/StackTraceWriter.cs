@@ -33,7 +33,9 @@ namespace Ensurance.MessageWriters
     /// <summary>
     /// 
     /// </summary>
+#if !DEBUG
     [DebuggerNonUserCode]
+#endif
     public class StackTraceWriter : TextMessageWriter
     {
         /// <summary>
