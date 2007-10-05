@@ -96,6 +96,8 @@
     <Compile Include="Constraints\SameAsConstraint.cs" />
     <Compile Include="Constraints\StringConstraints.cs" />
     <Compile Include="Constraints\TypeConstraints.cs" />
+    <Compile Include="EnsuranceHandlerContainer.cs" />
+    <Compile Include="EnsureWithDebugging.cs" />
     <Compile Include="EnsureWithThrow.cs" />
     <Compile Include="IConstraint.cs" />
     <Compile Include="IEnsuranceHandler.cs" />

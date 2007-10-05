@@ -32,11 +32,11 @@ namespace Ensurance
 
         public partial class With
         {
-            #region Nested type: Throw
+            #region Nested type: Debugging
 #if !DEBUG
             [System.Diagnostics.DebuggerNonUserCode]
 #endif
-            public partial class Throw : EnsuranceHandlerContainer<ExceptionEnsuranceHandler>
+            public partial class Debugging : EnsuranceHandlerContainer<DebuggerEnsuranceHandler>
             {
             }
 
