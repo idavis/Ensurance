@@ -22,7 +22,6 @@
 
 #endregion
 
-using System.ComponentModel;
 using System.Reflection;
 using Ensurance;
 using Ensurance.Constraints;
@@ -30,11 +29,7 @@ using log4net;
 
 namespace ExtendingFluentInterface
 {
-    // 1. Declare your class and implement IEnsuranceHandler. This is not actually
-    // necessary, except that it makes sure that you have at least implemented one
-    // 'Handle' method guiding you to make the static one. The issue is that in a 
-    // static API, there is not ability to make virtual calls. The EnsureBase<T> class
-    // has to make assumptions concerning your code and this is just a way to guide you.
+    // 1. Declare your class and implement IEnsuranceHandler.
 
     // 2. Declare a preprocessor to make your code non user if you do not want
     // debugging to enter your code
@@ -47,13 +42,10 @@ namespace ExtendingFluentInterface
         // 3. Create a logger for use in this class
         private static readonly ILog log = LogManager.GetLogger( MethodBase.GetCurrentMethod().DeclaringType );
 
-        // 4. Implement the interface explicitly. If you like you can add the
-        // EditorBrowsable attribute to hide the call from Intellisense. This will
-        // be called automatically.
+        // 4. Implement the interface explicitly.
 
         #region IEnsuranceHandler Members
 
-        [EditorBrowsable( EditorBrowsableState.Never )]
         void IEnsuranceHandler.Handle( Constraint constraint, string message, params object[] args )
         {
             // 5. Do your logging.

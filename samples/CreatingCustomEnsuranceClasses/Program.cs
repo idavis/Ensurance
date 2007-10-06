@@ -60,7 +60,6 @@ namespace CreatingCustomEnsuranceClasses
             {
                 EnsureWithLogAndThrow.Greater( args.Length, 0, "The number of arguments was not greater than {0}", 0 );
             }
-
             catch (EnsuranceException ex)
             {
                 Console.WriteLine( ex );
