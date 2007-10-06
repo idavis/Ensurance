@@ -43,7 +43,6 @@
     <Compile Include="ArrayEqualsFailureMessageFixture.cs" />
     <Compile Include="ArrayEqualsFixture.cs" />
     <Compile Include="ArrayNotEqualFixture.cs" />
-    <Compile Include="AssertSyntaxTests.cs" />
     <Compile Include="CollectionAdapter.cs" />
     <Compile Include="CollectionAssertTest.cs" />
     <Compile Include="ConditionAssertTests.cs" />
@@ -60,9 +59,12 @@
     <Compile Include="Constraints\StringConstraintTests.cs" />
     <Compile Include="Constraints\TypeConstraintTests.cs" />
     <Compile Include="EnsuranceHelper.cs" />
+    <Compile Include="EnsureFilesTests.cs" />
+    <Compile Include="EnsurePredicateTests.cs" />
+    <Compile Include="EnsureStringsTests.cs" />
+    <Compile Include="EnsureSyntaxTests.cs" />
     <Compile Include="EnsureTest.cs" />
     <Compile Include="EqualsFixture.cs" />
-    <Compile Include="FileAssertTests.cs" />
     <Compile Include="GreaterEqualFixture.cs" />
     <Compile Include="GreaterFixture.cs" />
     <Compile Include="LessEqualFixture.cs" />
@@ -80,7 +82,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SameFixture.cs" />
-    <Compile Include="StringAssertTests.cs" />
     <Compile Include="TypeAssertTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -34,7 +34,8 @@ namespace Ensurance.Tests.Constraints
         [TestMethod, ExpectedException( typeof (ArgumentNullException) )]
         public void NullGivesError()
         {
-            Ensure.That( null, Matcher );
+            object actual = null;
+            Ensure.That( actual, Matcher );
         }
 
         [TestMethod, ExpectedException( typeof (ArgumentNullException) )]

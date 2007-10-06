@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,6 +19,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
@@ -3854,6 +3856,138 @@ namespace Ensurance
         public static void IsSubsetOf(ICollection subset, ICollection superset, string message, params object[] args)
         {
             That(subset, new CollectionSubsetConstraint(superset), message, args);
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Predicates
+
+        #region IsTrue
+
+        /// <summary>
+        /// Asserts that a predicate is true. If the predicate is false the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary>
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="input">The input for the predicate.</param>
+        /// <param name="message">The message to display if the predicate is false</param>
+        /// <param name="args">Arguments to be used in formatting the message</param>
+        static public void IsTrue<TInput>( Predicate<TInput> predicate, TInput input, string message, params object[] args)
+        {
+            That<TInput>(predicate, input, message, args);
+        }
+
+        /// <summary>
+        /// Asserts that a condition is true. If the condition is false the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary>
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="input">The input for the predicate.</param>
+        /// <param name="message">The message to display if the condition is false</param>
+        static public void IsTrue<TInput>( Predicate<TInput> predicate, TInput input, string message)
+        {
+            That<TInput>(predicate, input, message, null);
+        }
+
+        /// <summary>
+        /// Asserts that a condition is true. If the condition is false the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary>
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="input">The input for the predicate.</param>
+        static public void IsTrue<TInput>( Predicate<TInput> predicate, TInput input )
+        {
+            That<TInput>(predicate, input, string.Empty, null);
+        }
+
+        #endregion
+
+        #region IsFalse
+
+        /// <summary>
+        /// Asserts that a condition is false. If the condition is true the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary>
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="input">The input for the predicate.</param>
+        /// <param name="message">The message to display if the condition is true</param>
+        /// <param name="args">Arguments to be used in formatting the message</param>
+        static public void IsFalse<TInput>( Predicate<TInput> predicate, TInput input, string message, params object[] args)
+        {
+            if ( predicate == null )
+            {
+                throw new ArgumentNullException( "predicate", "The predicate must not be null" );
+            }
+            That( predicate( input ), Is.False, message, args );
+        }
+
+        /// <summary>
+        /// Asserts that a condition is false. If the condition is true the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary>
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="input">The input for the predicate.</param>
+        /// <param name="message">The message to display if the condition is true</param>
+        static public void IsFalse<TInput>( Predicate<TInput> predicate, TInput input, string message)
+        {
+            IsFalse( predicate, input, message, null );
+        }
+
+        /// <summary>
+        /// Asserts that a condition is false. If the condition is true the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary>
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="input">The input for the predicate.</param>
+        static public void IsFalse<TInput>( Predicate<TInput> predicate, TInput input )
+        {
+            IsFalse( predicate, input, string.Empty, null );
+        }
+
+        #endregion
+
+        #region That
+
+        /// <summary>
+        /// Asserts that a condition is true. If the condition is false the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary> 
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="input">The input for the predicate.</param>
+        /// <param name="message">The message to display if the condition is false</param>
+        /// <param name="args">Arguments to be used in formatting the message</param>
+        public static void That<TInput>( Predicate<TInput> predicate, TInput input, string message, params object[] args)
+        {
+            if ( predicate == null )
+            {
+                throw new ArgumentNullException( "predicate", "The predicate must not be null" );
+            }
+            That(predicate(input), message, args);
+        }
+
+        /// <summary>
+        /// Asserts that a condition is true. If the condition is false the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary>
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="message">The message to display if the condition is false</param>
+        /// <param name="input">The input for the predicate.</param>
+        public static void That<TInput>( Predicate<TInput> predicate, TInput input, string message)
+        {
+            That<TInput>(predicate, input, message, null);
+        }
+
+        /// <summary>
+        /// Asserts that a condition is true. If the condition is false the method throws
+        /// an <see cref="EnsuranceException"/>.
+        /// </summary>
+        /// <param name="predicate">The condition to be evaluated.</param>
+        /// <param name="input">The input for the predicate.</param>
+        public static void That<TInput>( Predicate<TInput> predicate, TInput input )
+        {
+            That<TInput>(predicate, input, string.Empty, null);
         }
 
         #endregion
