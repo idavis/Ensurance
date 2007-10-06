@@ -50,14 +50,16 @@ namespace Ensurance.Tests
         [TestMethod]
         public void IsNull()
         {
+            object actual = null;
+
             // Classic syntax
-            Ensure.IsNull( null );
+            Ensure.IsNull( actual );
 
             // Helper syntax
-            Ensure.That( null, Is.Null );
+            Ensure.That( actual, Is.Null );
 
             // Inherited syntax
-            EnsuranceHelper.Expect( null, Null );
+            EnsuranceHelper.Expect( actual, Null );
         }
 
         [TestMethod]

@@ -267,28 +267,31 @@ namespace Ensurance.Tests
         /// <summary>
         ///A test for IsFalse (Predicate&lt;T&gt;, T)
         ///</summary>
-        [TestMethod, ExpectedException( typeof (EnsuranceException) )]
+        [TestMethod, ExpectedException( typeof (ArgumentNullException) )]
         public void IsFalseWithNullPredicateFailsTest()
         {
-            Ensure.IsFalse( null, true );
+            Predicate<bool> actual = null;
+            Ensure.IsFalse( actual, true );
         }
 
         /// <summary>
         ///A test for IsTrue (Predicate&lt;T&gt;, T)
         ///</summary>
-        [TestMethod, ExpectedException( typeof (EnsuranceException) )]
+        [TestMethod, ExpectedException( typeof (ArgumentNullException) )]
         public void IsTrueWithNullPredicateFailsTest()
         {
-            Ensure.IsTrue( null, false );
+            Predicate<bool> actual = null;
+            Ensure.IsTrue( actual, false );
         }
 
         /// <summary>
         ///A test for That (Predicate&lt;T&gt;, T)
         ///</summary>
-        [TestMethod, ExpectedException( typeof (EnsuranceException) )]
+        [TestMethod, ExpectedException( typeof (ArgumentNullException) )]
         public void ThatWithNullPredicateFailsTest()
         {
-            Ensure.That( null, false );
+            Predicate<bool> actual = null;
+            Ensure.That( actual, false );
         }
 
         #endregion

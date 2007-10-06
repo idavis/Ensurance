@@ -3876,7 +3876,7 @@ namespace Ensurance
         /// <param name="args">Arguments to be used in formatting the message</param>
         static public void IsTrue<TInput>( Predicate<TInput> predicate, TInput input, string message, params object[] args)
         {
-            That<TInput>(predicate, input, message, args);
+            That(predicate, input, message, args);
         }
 
         /// <summary>
@@ -3888,7 +3888,7 @@ namespace Ensurance
         /// <param name="message">The message to display if the condition is false</param>
         static public void IsTrue<TInput>( Predicate<TInput> predicate, TInput input, string message)
         {
-            That<TInput>(predicate, input, message, null);
+            That(predicate, input, message, null);
         }
 
         /// <summary>
@@ -3899,7 +3899,7 @@ namespace Ensurance
         /// <param name="input">The input for the predicate.</param>
         static public void IsTrue<TInput>( Predicate<TInput> predicate, TInput input )
         {
-            That<TInput>(predicate, input, string.Empty, null);
+            That(predicate, input, string.Empty, null);
         }
 
         #endregion
@@ -3976,7 +3976,7 @@ namespace Ensurance
         /// <param name="input">The input for the predicate.</param>
         public static void That<TInput>( Predicate<TInput> predicate, TInput input, string message)
         {
-            That<TInput>(predicate, input, message, null);
+            That(predicate, input, message, null);
         }
 
         /// <summary>
@@ -3987,7 +3987,7 @@ namespace Ensurance
         /// <param name="input">The input for the predicate.</param>
         public static void That<TInput>( Predicate<TInput> predicate, TInput input )
         {
-            That<TInput>(predicate, input, string.Empty, null);
+            That(predicate, input, string.Empty, null);
         }
 
         #endregion
