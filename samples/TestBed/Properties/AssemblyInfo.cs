@@ -28,25 +28,22 @@ using log4net.Config;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-
-[assembly : AssemblyTitle( "ExtendingFluentInterface" )]
+[assembly : AssemblyTitle( "TestBed" )]
 [assembly : AssemblyDescription( "" )]
 [assembly : AssemblyConfiguration( "" )]
-[assembly : AssemblyCompany( "" )]
-[assembly : AssemblyProduct( "ExtendingFluentInterface" )]
-[assembly : AssemblyCopyright( "Copyright ©  2007" )]
+[assembly : AssemblyCompany( "Organization" )]
+[assembly : AssemblyProduct( "TestBed" )]
+[assembly : AssemblyCopyright( "Copyright © Organization 2007" )]
 [assembly : AssemblyTrademark( "" )]
 [assembly : AssemblyCulture( "" )]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
-
 [assembly : ComVisible( false )]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-
-[assembly : Guid( "850e3a1c-f676-4016-a085-867409a50347" )]
+[assembly : Guid( "d7263ad0-5e59-472f-8eda-4efd501eb3bf" )]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -54,9 +51,7 @@ using log4net.Config;
 //      Minor Version 
 //      Build Number
 //      Revision
-
 //
-
 [assembly : AssemblyVersion( "1.0.0.0" )]
 [assembly : AssemblyFileVersion( "1.0.0.0" )]
 [assembly : XmlConfigurator( ConfigFileExtension = "config" )]

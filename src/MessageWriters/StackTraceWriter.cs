@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,6 +19,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
@@ -36,6 +38,7 @@ namespace Ensurance.MessageWriters
 #if !DEBUG
     [DebuggerNonUserCode]
 #endif
+
     public class StackTraceWriter : TextMessageWriter
     {
         /// <summary>
@@ -59,7 +62,7 @@ namespace Ensurance.MessageWriters
         /// <code>
         /// if( successor != null)
         /// {
-        /// successor.Handle( constraint, message, args );
+        ///     successor.Handle( constraint, message, args );
         /// }
         /// </code>
         /// So that the downstream handler can have a chance to process the failure.
@@ -97,9 +100,9 @@ namespace Ensurance.MessageWriters
                     StackFrame stackFrame = stackTrace.GetFrame( currentFrame );
                     typeName = stackFrame.GetMethod().ReflectedType.FullName;
                     // Once we have found a method that is not within the calling type we break;
-                } while ( typeName.Contains( "Ensurance." ) );
-
-                preamble.AppendFormat( "Ensured:{0}", Environment.NewLine );
+                } while ( typeName.Contains( "Ensurance." ) ||
+                          typeName.Contains( "System." ) ||
+                          typeName.Contains( "Microsoft." ) );
 
                 // get the last Ensure call
                 CreatePreambleStringForMethod( stackTrace.GetFrame( currentFrame - 1 ), preamble );
@@ -132,6 +135,8 @@ namespace Ensurance.MessageWriters
             {
                 return;
             }
+
+            typeName = typeName.Replace( "EnsureBase`1", "Ensure" );
 
             // log Namespace, Class and Method Name
             preamble.AppendFormat( "at\t{0}.{1}( ", typeName, stackFrameMethod.Name );

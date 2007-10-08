@@ -17,10 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatingCustomEnsuranceClas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendingFluentInterface", "samples\ExtendingFluentInterface\ExtendingFluentInterface.csproj", "{371B822D-251D-48E5-8086-EC3090F55ED6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBed", "samples\TestBed\TestBed.csproj", "{98A0ED29-9138-4581-9CAA-D17FB057B8AA}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = Ensurance.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -51,6 +50,12 @@ Global
 		{371B822D-251D-48E5-8086-EC3090F55ED6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{371B822D-251D-48E5-8086-EC3090F55ED6}.Shipping|Any CPU.ActiveCfg = Release|Any CPU
 		{371B822D-251D-48E5-8086-EC3090F55ED6}.Shipping|Any CPU.Build.0 = Release|Any CPU
+		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Shipping|Any CPU.ActiveCfg = Release|Any CPU
+		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Shipping|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +63,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C311DA05-DD13-4CD6-A0FD-05E5870F901A} = {3305C892-6414-49E7-93D0-80D76897B0B4}
 		{371B822D-251D-48E5-8086-EC3090F55ED6} = {3305C892-6414-49E7-93D0-80D76897B0B4}
+		{98A0ED29-9138-4581-9CAA-D17FB057B8AA} = {3305C892-6414-49E7-93D0-80D76897B0B4}
 	EndGlobalSection
 EndGlobal
