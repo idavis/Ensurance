@@ -22,7 +22,8 @@
 
 #endregion
 
-using Ensurance.ResponsibilityChainLinks;
+using System.Diagnostics;
+using Ensurance.ResponsibilityChainLinks.Logging;
 
 namespace Ensurance
 {
@@ -32,11 +33,12 @@ namespace Ensurance
 
         public partial class With
         {
-            #region Nested type: Debugging
+            #region Nested type: Throw
+
 #if !DEBUG
-            [System.Diagnostics.DebuggerNonUserCode]
+            [DebuggerNonUserCode]
 #endif
-            public partial class Debugging : EnsuranceHandlerContainer<DebuggerEnsuranceHandler>
+            public partial class Logging : EnsuranceHandlerContainer<LoggingEnsuranceHandler>
             {
             }
 

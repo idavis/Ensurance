@@ -23,8 +23,9 @@
 using System.Globalization;
 using System.IO;
 using Ensurance.Constraints;
+using Ensurance.MessageWriters;
 
-namespace Ensurance.MessageWriters
+namespace Ensurance.ResponsibilityChainLinks
 {
     /// <summary>
     /// 
@@ -35,6 +36,7 @@ namespace Ensurance.MessageWriters
         /// Handles an Ensurance failure for the given constraint. Implementors
         /// should always call 
         /// <code>
+        /// IEnsuranceResponsibilityChainLink handler = successor;
         /// if( successor != null)
         /// {
         ///     successor.Handle( constraint, message, args );

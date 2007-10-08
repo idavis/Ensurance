@@ -26,7 +26,7 @@ using System.ComponentModel;
 using System.Reflection;
 using Ensurance;
 using Ensurance.Constraints;
-using Ensurance.MessageWriters;
+using Ensurance.ResponsibilityChainLinks;
 using log4net;
 
 namespace CreatingCustomEnsuranceClasses

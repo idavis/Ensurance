@@ -26,7 +26,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using Ensurance.Constraints;
-using Ensurance.MessageWriters;
+using Ensurance.ResponsibilityChainLinks;
 using Ensurance.SyntaxHelpers;
 
 namespace Ensurance

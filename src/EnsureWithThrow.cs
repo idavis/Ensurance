@@ -22,7 +22,7 @@
 
 #endregion
 
-using Ensurance.MessageWriters;
+using Ensurance.ResponsibilityChainLinks;
 
 namespace Ensurance
 {

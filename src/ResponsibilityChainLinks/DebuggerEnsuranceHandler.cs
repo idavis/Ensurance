@@ -23,7 +23,7 @@
 using System.Diagnostics;
 using Ensurance.Constraints;
 
-namespace Ensurance.MessageWriters
+namespace Ensurance.ResponsibilityChainLinks
 {
 #if !DEBUG
     [DebuggerNonUserCode]
@@ -48,9 +48,10 @@ namespace Ensurance.MessageWriters
         /// Handles an Ensurance failure for the given constraint. Implementors
         /// should always call
         /// <code>
+        /// IEnsuranceResponsibilityChainLink handler = successor;
         /// if( successor != null)
         /// {
-        /// successor.Handle( constraint, message, args );
+        ///     successor.Handle( constraint, message, args );
         /// }
         /// </code>
         /// So that the downstream handler can have a chance to process the failure.
