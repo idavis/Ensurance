@@ -25,7 +25,7 @@
 using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using Ensurance.Constraints;
@@ -40,6 +40,7 @@ namespace Ensurance
 #if !DEBUG
     [DebuggerNonUserCode]
 #endif
+
     [EditorBrowsable( EditorBrowsableState.Never )]
     public class EnsureBase<T> where T : IEnsuranceHandler
     {
@@ -78,8 +79,7 @@ namespace Ensurance
 
         /// <summary>
         /// override the default ReferenceEquals to throw an EnsuranceException. This 
-        /// implementation makes sure there is no mistake in calling this function 
-        /// as part of  
+        /// implementation makes sure there is no mistake in calling this function.
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -1362,14 +1362,14 @@ namespace Ensurance
         /// value. If they are not, then an
         /// <see cref="EnsuranceException"/> is thrown. 
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( int arg1,
-                                    int arg2, string message, params object[] args )
+        public static void Greater( int lhs,
+                                    int rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThan( arg2 ), message, args );
+            That( lhs, Is.GreaterThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1377,12 +1377,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Greater( int arg1, int arg2, string message )
+        public static void Greater( int lhs, int rhs, string message )
         {
-            Greater( arg1, arg2, message, null );
+            Greater( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1390,11 +1390,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void Greater( int arg1, int arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void Greater( int lhs, int rhs )
         {
-            Greater( arg1, arg2, string.Empty, null );
+            Greater( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1406,15 +1406,15 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void Greater( uint arg1,
-                                    uint arg2, string message, params object[] args )
+        public static void Greater( uint lhs,
+                                    uint rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThan( arg2 ), message, args );
+            That( lhs, Is.GreaterThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1422,13 +1422,13 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         [CLSCompliant( false )]
-        public static void Greater( uint arg1, uint arg2, string message )
+        public static void Greater( uint lhs, uint rhs, string message )
         {
-            Greater( arg1, arg2, message, null );
+            Greater( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1436,12 +1436,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         [CLSCompliant( false )]
-        public static void Greater( uint arg1, uint arg2 )
+        public static void Greater( uint lhs, uint rhs )
         {
-            Greater( arg1, arg2, string.Empty, null );
+            Greater( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1453,14 +1453,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( long arg1,
-                                    long arg2, string message, params object[] args )
+        public static void Greater( long lhs,
+                                    long rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThan( arg2 ), message, args );
+            That( lhs, Is.GreaterThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1468,12 +1468,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Greater( long arg1, long arg2, string message )
+        public static void Greater( long lhs, long rhs, string message )
         {
-            Greater( arg1, arg2, message, null );
+            Greater( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1481,11 +1481,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void Greater( long arg1, long arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void Greater( long lhs, long rhs )
         {
-            Greater( arg1, arg2, string.Empty, null );
+            Greater( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1497,15 +1497,15 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void Greater( ulong arg1,
-                                    ulong arg2, string message, params object[] args )
+        public static void Greater( ulong lhs,
+                                    ulong rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThan( arg2 ), message, args );
+            That( lhs, Is.GreaterThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1513,13 +1513,13 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         [CLSCompliant( false )]
-        public static void Greater( ulong arg1, ulong arg2, string message )
+        public static void Greater( ulong lhs, ulong rhs, string message )
         {
-            Greater( arg1, arg2, message, null );
+            Greater( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1527,12 +1527,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         [CLSCompliant( false )]
-        public static void Greater( ulong arg1, ulong arg2 )
+        public static void Greater( ulong lhs, ulong rhs )
         {
-            Greater( arg1, arg2, string.Empty, null );
+            Greater( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1544,14 +1544,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( decimal arg1,
-                                    decimal arg2, string message, params object[] args )
+        public static void Greater( decimal lhs,
+                                    decimal rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThan( arg2 ), message, args );
+            That( lhs, Is.GreaterThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1559,12 +1559,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Greater( decimal arg1, decimal arg2, string message )
+        public static void Greater( decimal lhs, decimal rhs, string message )
         {
-            Greater( arg1, arg2, message, null );
+            Greater( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1572,11 +1572,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void Greater( decimal arg1, decimal arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void Greater( decimal lhs, decimal rhs )
         {
-            Greater( arg1, arg2, string.Empty, null );
+            Greater( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1588,14 +1588,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( double arg1,
-                                    double arg2, string message, params object[] args )
+        public static void Greater( double lhs,
+                                    double rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThan( arg2 ), message, args );
+            That( lhs, Is.GreaterThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1603,13 +1603,13 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Greater( double arg1,
-                                    double arg2, string message )
+        public static void Greater( double lhs,
+                                    double rhs, string message )
         {
-            Greater( arg1, arg2, message, null );
+            Greater( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1617,11 +1617,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void Greater( double arg1, double arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void Greater( double lhs, double rhs )
         {
-            Greater( arg1, arg2, string.Empty, null );
+            Greater( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1633,14 +1633,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( float arg1,
-                                    float arg2, string message, params object[] args )
+        public static void Greater( float lhs,
+                                    float rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThan( arg2 ), message, args );
+            That( lhs, Is.GreaterThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1648,12 +1648,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Greater( float arg1, float arg2, string message )
+        public static void Greater( float lhs, float rhs, string message )
         {
-            Greater( arg1, arg2, message, null );
+            Greater( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1661,11 +1661,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void Greater( float arg1, float arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void Greater( float lhs, float rhs )
         {
-            Greater( arg1, arg2, string.Empty, null );
+            Greater( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1677,14 +1677,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( IComparable arg1,
-                                    IComparable arg2, string message, params object[] args )
+        public static void Greater( IComparable lhs,
+                                    IComparable rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThan( arg2 ), message, args );
+            That( lhs, Is.GreaterThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1692,12 +1692,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Greater( IComparable arg1, IComparable arg2, string message )
+        public static void Greater( IComparable lhs, IComparable rhs, string message )
         {
-            Greater( arg1, arg2, message, null );
+            Greater( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1705,11 +1705,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void Greater( IComparable arg1, IComparable arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void Greater( IComparable lhs, IComparable rhs )
         {
-            Greater( arg1, arg2, string.Empty, null );
+            Greater( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1725,13 +1725,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Less( int arg1, int arg2, string message, params object[] args )
+        public static void Less( int lhs, int rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThan( arg2 ), message, args );
+            That( lhs, Is.LessThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1739,12 +1739,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Less( int arg1, int arg2, string message )
+        public static void Less( int lhs, int rhs, string message )
         {
-            Less( arg1, arg2, message, null );
+            Less( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1752,11 +1752,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void Less( int arg1, int arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void Less( int lhs, int rhs )
         {
-            Less( arg1, arg2, string.Empty, null );
+            Less( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1768,14 +1768,14 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void Less( uint arg1, uint arg2, string message, params object[] args )
+        public static void Less( uint lhs, uint rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThan( arg2 ), message, args );
+            That( lhs, Is.LessThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1783,13 +1783,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         [CLSCompliant( false )]
-        public static void Less( uint arg1, uint arg2, string message )
+        public static void Less( uint lhs, uint rhs, string message )
         {
-            Less( arg1, arg2, message, null );
+            Less( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1797,12 +1797,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         [CLSCompliant( false )]
-        public static void Less( uint arg1, uint arg2 )
+        public static void Less( uint lhs, uint rhs )
         {
-            Less( arg1, arg2, string.Empty, null );
+            Less( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1814,13 +1814,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Less( long arg1, long arg2, string message, params object[] args )
+        public static void Less( long lhs, long rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThan( arg2 ), message, args );
+            That( lhs, Is.LessThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1828,12 +1828,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Less( long arg1, long arg2, string message )
+        public static void Less( long lhs, long rhs, string message )
         {
-            Less( arg1, arg2, message, null );
+            Less( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1841,11 +1841,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void Less( long arg1, long arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void Less( long lhs, long rhs )
         {
-            Less( arg1, arg2, string.Empty, null );
+            Less( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1857,14 +1857,14 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void Less( ulong arg1, ulong arg2, string message, params object[] args )
+        public static void Less( ulong lhs, ulong rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThan( arg2 ), message, args );
+            That( lhs, Is.LessThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1872,13 +1872,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         [CLSCompliant( false )]
-        public static void Less( ulong arg1, ulong arg2, string message )
+        public static void Less( ulong lhs, ulong rhs, string message )
         {
-            Less( arg1, arg2, message, null );
+            Less( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1886,12 +1886,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         [CLSCompliant( false )]
-        public static void Less( ulong arg1, ulong arg2 )
+        public static void Less( ulong lhs, ulong rhs )
         {
-            Less( arg1, arg2, string.Empty, null );
+            Less( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1903,13 +1903,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Less( decimal arg1, decimal arg2, string message, params object[] args )
+        public static void Less( decimal lhs, decimal rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThan( arg2 ), message, args );
+            That( lhs, Is.LessThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1917,12 +1917,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Less( decimal arg1, decimal arg2, string message )
+        public static void Less( decimal lhs, decimal rhs, string message )
         {
-            Less( arg1, arg2, message, null );
+            Less( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1930,11 +1930,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void Less( decimal arg1, decimal arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void Less( decimal lhs, decimal rhs )
         {
-            Less( arg1, arg2, string.Empty, null );
+            Less( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1946,13 +1946,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Less( double arg1, double arg2, string message, params object[] args )
+        public static void Less( double lhs, double rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThan( arg2 ), message, args );
+            That( lhs, Is.LessThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -1960,12 +1960,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Less( double arg1, double arg2, string message )
+        public static void Less( double lhs, double rhs, string message )
         {
-            Less( arg1, arg2, message, null );
+            Less( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -1973,11 +1973,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void Less( double arg1, double arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void Less( double lhs, double rhs )
         {
-            Less( arg1, arg2, string.Empty, null );
+            Less( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -1989,13 +1989,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Less( float arg1, float arg2, string message, params object[] args )
+        public static void Less( float lhs, float rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThan( arg2 ), message, args );
+            That( lhs, Is.LessThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -2003,12 +2003,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Less( float arg1, float arg2, string message )
+        public static void Less( float lhs, float rhs, string message )
         {
-            Less( arg1, arg2, message, null );
+            Less( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2016,11 +2016,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void Less( float arg1, float arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void Less( float lhs, float rhs )
         {
-            Less( arg1, arg2, string.Empty, null );
+            Less( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2032,13 +2032,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Less( IComparable arg1, IComparable arg2, string message, params object[] args )
+        public static void Less( IComparable lhs, IComparable rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThan( arg2 ), message, args );
+            That( lhs, Is.LessThan( rhs ), message, args );
         }
 
         /// <summary>
@@ -2046,12 +2046,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Less( IComparable arg1, IComparable arg2, string message )
+        public static void Less( IComparable lhs, IComparable rhs, string message )
         {
-            Less( arg1, arg2, message, null );
+            Less( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2059,11 +2059,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void Less( IComparable arg1, IComparable arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void Less( IComparable lhs, IComparable rhs )
         {
-            Less( arg1, arg2, string.Empty, null );
+            Less( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2123,7 +2123,7 @@ namespace Ensurance
             }
             else if ( args != null && args.Length > 0 )
             {
-                message = string.Format( message, args );
+                message = string.Format( CultureInfo.CurrentCulture, message, args );
             }
 
             throw new EnsuranceException( message );
@@ -2254,14 +2254,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown. 
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( int arg1,
-                                           int arg2, string message, params object[] args )
+        public static void GreaterOrEqual( int lhs,
+                                           int rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2269,12 +2269,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void GreaterOrEqual( int arg1, int arg2, string message )
+        public static void GreaterOrEqual( int lhs, int rhs, string message )
         {
-            GreaterOrEqual( arg1, arg2, message, null );
+            GreaterOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2282,11 +2282,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void GreaterOrEqual( int arg1, int arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void GreaterOrEqual( int lhs, int rhs )
         {
-            GreaterOrEqual( arg1, arg2, string.Empty, null );
+            GreaterOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2298,15 +2298,15 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void GreaterOrEqual( uint arg1,
-                                           uint arg2, string message, params object[] args )
+        public static void GreaterOrEqual( uint lhs,
+                                           uint rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2314,13 +2314,13 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         [CLSCompliant( false )]
-        public static void GreaterOrEqual( uint arg1, uint arg2, string message )
+        public static void GreaterOrEqual( uint lhs, uint rhs, string message )
         {
-            GreaterOrEqual( arg1, arg2, message, null );
+            GreaterOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2328,12 +2328,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         [CLSCompliant( false )]
-        public static void GreaterOrEqual( uint arg1, uint arg2 )
+        public static void GreaterOrEqual( uint lhs, uint rhs )
         {
-            GreaterOrEqual( arg1, arg2, string.Empty, null );
+            GreaterOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2345,14 +2345,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( long arg1,
-                                           long arg2, string message, params object[] args )
+        public static void GreaterOrEqual( long lhs,
+                                           long rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2360,12 +2360,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void GreaterOrEqual( long arg1, long arg2, string message )
+        public static void GreaterOrEqual( long lhs, long rhs, string message )
         {
-            GreaterOrEqual( arg1, arg2, message, null );
+            GreaterOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2373,11 +2373,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void GreaterOrEqual( long arg1, long arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void GreaterOrEqual( long lhs, long rhs )
         {
-            GreaterOrEqual( arg1, arg2, string.Empty, null );
+            GreaterOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2389,15 +2389,15 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void GreaterOrEqual( ulong arg1,
-                                           ulong arg2, string message, params object[] args )
+        public static void GreaterOrEqual( ulong lhs,
+                                           ulong rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2405,13 +2405,13 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         [CLSCompliant( false )]
-        public static void GreaterOrEqual( ulong arg1, ulong arg2, string message )
+        public static void GreaterOrEqual( ulong lhs, ulong rhs, string message )
         {
-            GreaterOrEqual( arg1, arg2, message, null );
+            GreaterOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2419,12 +2419,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         [CLSCompliant( false )]
-        public static void GreaterOrEqual( ulong arg1, ulong arg2 )
+        public static void GreaterOrEqual( ulong lhs, ulong rhs )
         {
-            GreaterOrEqual( arg1, arg2, string.Empty, null );
+            GreaterOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2436,14 +2436,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( decimal arg1,
-                                           decimal arg2, string message, params object[] args )
+        public static void GreaterOrEqual( decimal lhs,
+                                           decimal rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2451,12 +2451,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void GreaterOrEqual( decimal arg1, decimal arg2, string message )
+        public static void GreaterOrEqual( decimal lhs, decimal rhs, string message )
         {
-            GreaterOrEqual( arg1, arg2, message, null );
+            GreaterOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2464,11 +2464,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void GreaterOrEqual( decimal arg1, decimal arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void GreaterOrEqual( decimal lhs, decimal rhs )
         {
-            GreaterOrEqual( arg1, arg2, string.Empty, null );
+            GreaterOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2480,14 +2480,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( double arg1,
-                                           double arg2, string message, params object[] args )
+        public static void GreaterOrEqual( double lhs,
+                                           double rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2495,13 +2495,13 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void GreaterOrEqual( double arg1,
-                                           double arg2, string message )
+        public static void GreaterOrEqual( double lhs,
+                                           double rhs, string message )
         {
-            GreaterOrEqual( arg1, arg2, message, null );
+            GreaterOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2509,11 +2509,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void GreaterOrEqual( double arg1, double arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void GreaterOrEqual( double lhs, double rhs )
         {
-            GreaterOrEqual( arg1, arg2, string.Empty, null );
+            GreaterOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2525,14 +2525,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( float arg1,
-                                           float arg2, string message, params object[] args )
+        public static void GreaterOrEqual( float lhs,
+                                           float rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2540,12 +2540,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void GreaterOrEqual( float arg1, float arg2, string message )
+        public static void GreaterOrEqual( float lhs, float rhs, string message )
         {
-            GreaterOrEqual( arg1, arg2, message, null );
+            GreaterOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2553,11 +2553,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void GreaterOrEqual( float arg1, float arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void GreaterOrEqual( float lhs, float rhs )
         {
-            GreaterOrEqual( arg1, arg2, string.Empty, null );
+            GreaterOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2569,14 +2569,14 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( IComparable arg1,
-                                           IComparable arg2, string message, params object[] args )
+        public static void GreaterOrEqual( IComparable lhs,
+                                           IComparable rhs, string message, params object[] args )
         {
-            That( arg1, Is.GreaterThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2584,12 +2584,12 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void GreaterOrEqual( IComparable arg1, IComparable arg2, string message )
+        public static void GreaterOrEqual( IComparable lhs, IComparable rhs, string message )
         {
-            GreaterOrEqual( arg1, arg2, message, null );
+            GreaterOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2597,11 +2597,11 @@ namespace Ensurance
         /// value. If they are not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void GreaterOrEqual( IComparable arg1, IComparable arg2 )
+        /// <param name="lhs">The first value, expected to be greater</param>
+        /// <param name="rhs">The second value, expected to be less</param>
+        public static void GreaterOrEqual( IComparable lhs, IComparable rhs )
         {
-            GreaterOrEqual( arg1, arg2, string.Empty, null );
+            GreaterOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2617,13 +2617,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void LessOrEqual( int arg1, int arg2, string message, params object[] args )
+        public static void LessOrEqual( int lhs, int rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.LessThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2631,12 +2631,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void LessOrEqual( int arg1, int arg2, string message )
+        public static void LessOrEqual( int lhs, int rhs, string message )
         {
-            LessOrEqual( arg1, arg2, message, null );
+            LessOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2644,11 +2644,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void LessOrEqual( int arg1, int arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void LessOrEqual( int lhs, int rhs )
         {
-            LessOrEqual( arg1, arg2, string.Empty, null );
+            LessOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2660,14 +2660,14 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void LessOrEqual( uint arg1, uint arg2, string message, params object[] args )
+        public static void LessOrEqual( uint lhs, uint rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.LessThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2675,13 +2675,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         [CLSCompliant( false )]
-        public static void LessOrEqual( uint arg1, uint arg2, string message )
+        public static void LessOrEqual( uint lhs, uint rhs, string message )
         {
-            LessOrEqual( arg1, arg2, message, null );
+            LessOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2689,12 +2689,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         [CLSCompliant( false )]
-        public static void LessOrEqual( uint arg1, uint arg2 )
+        public static void LessOrEqual( uint lhs, uint rhs )
         {
-            LessOrEqual( arg1, arg2, string.Empty, null );
+            LessOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2706,13 +2706,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void LessOrEqual( long arg1, long arg2, string message, params object[] args )
+        public static void LessOrEqual( long lhs, long rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.LessThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2720,12 +2720,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void LessOrEqual( long arg1, long arg2, string message )
+        public static void LessOrEqual( long lhs, long rhs, string message )
         {
-            LessOrEqual( arg1, arg2, message, null );
+            LessOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2733,11 +2733,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void LessOrEqual( long arg1, long arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void LessOrEqual( long lhs, long rhs )
         {
-            LessOrEqual( arg1, arg2, string.Empty, null );
+            LessOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2749,14 +2749,14 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void LessOrEqual( ulong arg1, ulong arg2, string message, params object[] args )
+        public static void LessOrEqual( ulong lhs, ulong rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.LessThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2764,13 +2764,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         [CLSCompliant( false )]
-        public static void LessOrEqual( ulong arg1, ulong arg2, string message )
+        public static void LessOrEqual( ulong lhs, ulong rhs, string message )
         {
-            LessOrEqual( arg1, arg2, message, null );
+            LessOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2778,12 +2778,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         [CLSCompliant( false )]
-        public static void LessOrEqual( ulong arg1, ulong arg2 )
+        public static void LessOrEqual( ulong lhs, ulong rhs )
         {
-            LessOrEqual( arg1, arg2, string.Empty, null );
+            LessOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2795,13 +2795,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void LessOrEqual( decimal arg1, decimal arg2, string message, params object[] args )
+        public static void LessOrEqual( decimal lhs, decimal rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.LessThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2809,12 +2809,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void LessOrEqual( decimal arg1, decimal arg2, string message )
+        public static void LessOrEqual( decimal lhs, decimal rhs, string message )
         {
-            LessOrEqual( arg1, arg2, message, null );
+            LessOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2822,11 +2822,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void LessOrEqual( decimal arg1, decimal arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void LessOrEqual( decimal lhs, decimal rhs )
         {
-            LessOrEqual( arg1, arg2, string.Empty, null );
+            LessOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2838,13 +2838,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void LessOrEqual( double arg1, double arg2, string message, params object[] args )
+        public static void LessOrEqual( double lhs, double rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.LessThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2852,12 +2852,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void LessOrEqual( double arg1, double arg2, string message )
+        public static void LessOrEqual( double lhs, double rhs, string message )
         {
-            LessOrEqual( arg1, arg2, message, null );
+            LessOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2865,11 +2865,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void LessOrEqual( double arg1, double arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void LessOrEqual( double lhs, double rhs )
         {
-            LessOrEqual( arg1, arg2, string.Empty, null );
+            LessOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2881,13 +2881,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void LessOrEqual( float arg1, float arg2, string message, params object[] args )
+        public static void LessOrEqual( float lhs, float rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.LessThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2895,12 +2895,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void LessOrEqual( float arg1, float arg2, string message )
+        public static void LessOrEqual( float lhs, float rhs, string message )
         {
-            LessOrEqual( arg1, arg2, message, null );
+            LessOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2908,11 +2908,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void LessOrEqual( float arg1, float arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void LessOrEqual( float lhs, float rhs )
         {
-            LessOrEqual( arg1, arg2, string.Empty, null );
+            LessOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -2924,13 +2924,13 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void LessOrEqual( IComparable arg1, IComparable arg2, string message, params object[] args )
+        public static void LessOrEqual( IComparable lhs, IComparable rhs, string message, params object[] args )
         {
-            That( arg1, Is.LessThanOrEqualTo( arg2 ), message, args );
+            That( lhs, Is.LessThanOrEqualTo( rhs ), message, args );
         }
 
         /// <summary>
@@ -2938,12 +2938,12 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void LessOrEqual( IComparable arg1, IComparable arg2, string message )
+        public static void LessOrEqual( IComparable lhs, IComparable rhs, string message )
         {
-            LessOrEqual( arg1, arg2, message, null );
+            LessOrEqual( lhs, rhs, message, null );
         }
 
         /// <summary>
@@ -2951,11 +2951,11 @@ namespace Ensurance
         /// value. If it is not, then an 
         /// <see cref="EnsuranceException"/> is thrown.
         /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void LessOrEqual( IComparable arg1, IComparable arg2 )
+        /// <param name="lhs">The first value, expected to be less</param>
+        /// <param name="rhs">The second value, expected to be greater</param>
+        public static void LessOrEqual( IComparable lhs, IComparable rhs )
         {
-            LessOrEqual( arg1, arg2, string.Empty, null );
+            LessOrEqual( lhs, rhs, string.Empty, null );
         }
 
         #endregion
@@ -3918,7 +3918,11 @@ namespace Ensurance
         /// <param name="args">Arguments to be used in formatting the message</param>
         public static void IsTrue<TInput>( Predicate<TInput> predicate, TInput input, string message, params object[] args )
         {
-            That( predicate, input, message, args );
+            if ( predicate == null )
+            {
+                throw new ArgumentNullException( "predicate", "The predicate must not be null" );
+            }
+            That( predicate( input ), Is.True, message, args );
         }
 
         /// <summary>
@@ -3930,7 +3934,7 @@ namespace Ensurance
         /// <param name="message">The message to display if the condition is false</param>
         public static void IsTrue<TInput>( Predicate<TInput> predicate, TInput input, string message )
         {
-            That( predicate, input, message, null );
+            IsTrue( predicate, input, message, null );
         }
 
         /// <summary>
@@ -3941,7 +3945,7 @@ namespace Ensurance
         /// <param name="input">The input for the predicate.</param>
         public static void IsTrue<TInput>( Predicate<TInput> predicate, TInput input )
         {
-            That( predicate, input, string.Empty, null );
+            IsTrue( predicate, input, string.Empty, null );
         }
 
         #endregion
@@ -3986,50 +3990,6 @@ namespace Ensurance
         public static void IsFalse<TInput>( Predicate<TInput> predicate, TInput input )
         {
             IsFalse( predicate, input, string.Empty, null );
-        }
-
-        #endregion
-
-        #region That
-
-        /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
-        /// </summary> 
-        /// <param name="predicate">The condition to be evaluated.</param>
-        /// <param name="input">The input for the predicate.</param>
-        /// <param name="message">The message to display if the condition is false</param>
-        /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void That<TInput>( Predicate<TInput> predicate, TInput input, string message, params object[] args )
-        {
-            if ( predicate == null )
-            {
-                throw new ArgumentNullException( "predicate", "The predicate must not be null" );
-            }
-            That( predicate( input ), message, args );
-        }
-
-        /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
-        /// </summary>
-        /// <param name="predicate">The condition to be evaluated.</param>
-        /// <param name="message">The message to display if the condition is false</param>
-        /// <param name="input">The input for the predicate.</param>
-        public static void That<TInput>( Predicate<TInput> predicate, TInput input, string message )
-        {
-            That( predicate, input, message, null );
-        }
-
-        /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
-        /// </summary>
-        /// <param name="predicate">The condition to be evaluated.</param>
-        /// <param name="input">The input for the predicate.</param>
-        public static void That<TInput>( Predicate<TInput> predicate, TInput input )
-        {
-            That( predicate, input, string.Empty, null );
         }
 
         #endregion

@@ -124,39 +124,6 @@ namespace Ensurance.Tests
             Ensure.IsTrue( ReturnParamValue, true, message, args );
         }
 
-        /// <summary>
-        ///A test for That (Predicate&lt;T&gt;, T)
-        ///</summary>
-        [TestMethod]
-        public void ThatPassesTest()
-        {
-            Ensure.That( ReturnParamValue, true );
-        }
-
-        /// <summary>
-        ///A test for That (Predicate&lt;T&gt;, T, string)
-        ///</summary>
-        [TestMethod]
-        public void ThatWithMessagePassesTest()
-        {
-            string message = null;
-
-            Ensure.That( ReturnParamValue, true, message );
-        }
-
-        /// <summary>
-        ///A test for That (Predicate&lt;T&gt;, T, string, params object[])
-        ///</summary>
-        [TestMethod]
-        public void ThatWithMessageAndArgsPassesTest()
-        {
-            string message = null;
-
-            object[] args = null;
-
-            Ensure.That( ReturnParamValue, true, message, args );
-        }
-
         #endregion
 
         #region Predicates Pass
@@ -227,39 +194,6 @@ namespace Ensurance.Tests
             Ensure.IsTrue( ReturnParamValue, false, message, args );
         }
 
-        /// <summary>
-        ///A test for That (Predicate&lt;T&gt;, T)
-        ///</summary>
-        [TestMethod, ExpectedException( typeof (EnsuranceException) )]
-        public void ThatFailsTest()
-        {
-            Ensure.That( ReturnParamValue, false );
-        }
-
-        /// <summary>
-        ///A test for That (Predicate&lt;T&gt;, T, string)
-        ///</summary>
-        [TestMethod, ExpectedException( typeof (EnsuranceException) )]
-        public void ThatWithMessageFailsTest()
-        {
-            string message = null;
-
-            Ensure.That( ReturnParamValue, false, message );
-        }
-
-        /// <summary>
-        ///A test for That (Predicate&lt;T&gt;, T, string, params object[])
-        ///</summary>
-        [TestMethod, ExpectedException( typeof (EnsuranceException) )]
-        public void ThatWithMessageAndArgsFailsTest()
-        {
-            string message = null;
-
-            object[] args = null;
-
-            Ensure.That( ReturnParamValue, false, message, args );
-        }
-
         #endregion
 
         #region Null Predicates
@@ -284,16 +218,6 @@ namespace Ensurance.Tests
             Ensure.IsTrue( actual, false );
         }
 
-        /// <summary>
-        ///A test for That (Predicate&lt;T&gt;, T)
-        ///</summary>
-        [TestMethod, ExpectedException( typeof (ArgumentNullException) )]
-        public void ThatWithNullPredicateFailsTest()
-        {
-            Predicate<bool> actual = null;
-            Ensure.That( actual, false );
-        }
-
         #endregion
 
         #region Predicate Throws Exception
@@ -314,15 +238,6 @@ namespace Ensurance.Tests
         public void IsTrueWithPredicateExceptionFailsTest()
         {
             Ensure.IsTrue( ThrowArgumentNullException, false );
-        }
-
-        /// <summary>
-        ///A test for That (Predicate&lt;T&gt;, T)
-        ///</summary>
-        [TestMethod, ExpectedException( typeof (ArgumentNullException) )]
-        public void ThatWithPredicateExceptionFailsTest()
-        {
-            Ensure.That( ThrowArgumentNullException, false );
         }
 
         #endregion

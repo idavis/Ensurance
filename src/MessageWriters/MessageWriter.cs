@@ -24,10 +24,8 @@
 
 using System;
 using System.Collections;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Runtime.Remoting;
 using System.Text;
 using Ensurance.Constraints;
 
@@ -43,15 +41,17 @@ namespace Ensurance.MessageWriters
 #if !DEBUG
     [DebuggerNonUserCode]
 #endif
-    public abstract class MessageWriter : IEnsuranceResponsibilityChainLink
+
+    public abstract class MessageWriter : IEnsuranceResponsibilityChainLink, IDisposable
     {
-        protected IEnsuranceResponsibilityChainLink _successor;
-        protected TextWriter _textWriter;
+        private IEnsuranceResponsibilityChainLink _successor;
+        private TextWriter _textWriter;
+        private bool _disposed;
 
         /// <summary>
         /// Construct a MessageWriter given a culture
         /// </summary>
-        public MessageWriter()
+        protected MessageWriter()
         {
             _textWriter = new StringWriter( CultureInfo.InvariantCulture );
         }
@@ -60,7 +60,7 @@ namespace Ensurance.MessageWriters
         /// Initializes a new instance of the <see cref="MessageWriter"/> class.
         /// </summary>
         /// <param name="textWriter">The target.</param>
-        public MessageWriter( TextWriter textWriter )
+        protected MessageWriter( TextWriter textWriter )
         {
             _textWriter = textWriter;
         }
@@ -255,6 +255,16 @@ namespace Ensurance.MessageWriters
         }
 
         /// <summary>
+        /// Gets or sets the text writer.
+        /// </summary>
+        /// <value>The text writer.</value>
+        protected internal TextWriter TextWriter
+        {
+            get { return _textWriter; }
+            set { _textWriter = value; }
+        }
+
+        /// <summary>
         /// Closes this instance.
         /// </summary>
         public void Close()
@@ -267,7 +277,21 @@ namespace Ensurance.MessageWriters
         /// </summary>
         public void Dispose()
         {
-            _textWriter.Dispose();
+            Dispose( true );
+            GC.SuppressFinalize( this );
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources
+        /// </summary>
+        protected virtual void Dispose( bool disposing )
+        {
+            if ( !_disposed && disposing )
+            {
+                _textWriter.Dispose();
+                _textWriter = null;
+            }
+            _disposed = true;
         }
 
         /// <summary>
@@ -456,21 +480,6 @@ namespace Ensurance.MessageWriters
         public virtual void WriteLine( string format, Object[] arg )
         {
             _textWriter.WriteLine( format, arg );
-        }
-
-        public object GetLifetimeService()
-        {
-            return _textWriter.GetLifetimeService();
-        }
-
-        public object InitializeLifetimeService()
-        {
-            return _textWriter.InitializeLifetimeService();
-        }
-
-        public virtual ObjRef CreateObjRef( Type requestedType )
-        {
-            return _textWriter.CreateObjRef( requestedType );
         }
 
         #endregion

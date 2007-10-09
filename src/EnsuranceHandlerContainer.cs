@@ -25,6 +25,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using Ensurance.Constraints;
+using Ensurance.Properties;
 
 namespace Ensurance
 {
@@ -69,7 +70,7 @@ namespace Ensurance
         [EditorBrowsable( EditorBrowsableState.Never )]
         void IEnsuranceHandler.Handle( Constraint constraint, string message, params object[] args )
         {
-            throw new EnsuranceException( "IEnsuranceHandler.Handle should not be used." );
+            throw new EnsuranceException( Resources.IEnsuranceHandlerDoNotUse );
         }
 
         #endregion

@@ -36,15 +36,24 @@ namespace Ensurance.Constraints
         /// <summary>
         /// The expected Type used by the constraint
         /// </summary>
-        protected Type _expectedType;
+        private Type _expectedType;
 
         /// <summary>
         /// Construct a TypeConstraint for a given Type
         /// </summary>
         /// <param name="type"></param>
-        public TypeConstraint( Type type )
+        protected TypeConstraint( Type type )
         {
             _expectedType = type;
+        }
+
+        /// <summary>
+        /// The expected Type used by the constraint
+        /// </summary>
+        protected internal Type ExpectedType
+        {
+            get { return _expectedType; }
+            set { _expectedType = value; }
         }
 
         /// <summary>
@@ -55,7 +64,12 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public override void WriteActualValueTo( MessageWriter writer )
         {
-            writer.WriteActualValue( _actual == null ? null : _actual.GetType() );
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
+            writer.WriteActualValue( Actual == null ? null : Actual.GetType() );
         }
     }
 
@@ -80,8 +94,8 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
-            return actual != null && actual.GetType() == _expectedType;
+            Actual = actual;
+            return actual != null && actual.GetType() == ExpectedType;
         }
 
         /// <summary>
@@ -90,7 +104,11 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            writer.WriteExpectedValue( _expectedType );
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+            writer.WriteExpectedValue( ExpectedType );
         }
     }
 
@@ -115,8 +133,8 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
-            return actual != null && _expectedType.IsInstanceOfType( actual );
+            Actual = actual;
+            return actual != null && ExpectedType.IsInstanceOfType( actual );
         }
 
         /// <summary>
@@ -125,8 +143,12 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "instance of" );
-            writer.WriteExpectedValue( _expectedType );
+            writer.WriteExpectedValue( ExpectedType );
         }
     }
 
@@ -151,8 +173,8 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
-            return actual != null && actual.GetType().IsAssignableFrom( _expectedType );
+            Actual = actual;
+            return actual != null && actual.GetType().IsAssignableFrom( ExpectedType );
         }
 
         /// <summary>
@@ -161,8 +183,12 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "Type assignable from" );
-            writer.WriteExpectedValue( _expectedType );
+            writer.WriteExpectedValue( ExpectedType );
         }
     }
 }

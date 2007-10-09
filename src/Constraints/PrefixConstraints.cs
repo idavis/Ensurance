@@ -25,6 +25,7 @@
 using System;
 using System.Collections;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -39,7 +40,7 @@ namespace Ensurance.Constraints
         /// <summary>
         /// The base constraint
         /// </summary>
-        protected Constraint _baseConstraint;
+        private Constraint _baseConstraint;
 
         /// <summary>
         /// Construct given a base constraint
@@ -51,26 +52,35 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
+        /// The base constraint
+        /// </summary>
+        protected internal Constraint BaseConstraint
+        {
+            get { return _baseConstraint; }
+            set { _baseConstraint = value; }
+        }
+
+        /// <summary>
         /// Set all modifiers applied to the prefix into
         /// the base constraint before matching
         /// </summary>
         protected void PassModifiersToBase()
         {
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 _baseConstraint = _baseConstraint.IgnoreCase;
             }
-            if ( _tolerance != null )
+            if ( Tolerance != null )
             {
-                _baseConstraint = _baseConstraint.Within( _tolerance );
+                _baseConstraint = _baseConstraint.Within( Tolerance );
             }
-            if ( _compareAsCollection )
+            if ( CompareAsCollection )
             {
                 _baseConstraint = _baseConstraint.AsCollection;
             }
-            if ( _compareWith != null )
+            if ( CompareWith != null )
             {
-                _baseConstraint = _baseConstraint.Comparer( _compareWith );
+                _baseConstraint = _baseConstraint.Comparer( CompareWith );
             }
         }
     }
@@ -99,9 +109,9 @@ namespace Ensurance.Constraints
         /// <returns>True for if the base constraint fails, false if it succeeds</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
             PassModifiersToBase();
-            return !_baseConstraint.Matches( actual );
+            return !BaseConstraint.Matches( actual );
         }
 
         /// <summary>
@@ -110,8 +120,12 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "not" );
-            _baseConstraint.WriteDescriptionTo( writer );
+            BaseConstraint.WriteDescriptionTo( writer );
         }
 
         /// <summary>
@@ -120,7 +134,7 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public override void WriteActualValueTo( MessageWriter writer )
         {
-            _baseConstraint.WriteActualValueTo( writer );
+            BaseConstraint.WriteActualValueTo( writer );
         }
     }
 
@@ -150,19 +164,19 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             PassModifiersToBase();
 
             ICollection actualCollection = actual as ICollection;
             if ( actualCollection == null )
             {
-                throw new ArgumentException( "The actual value must be a collection", "actual" );
+                throw new ArgumentException( Resources.ValueMustBeCollection, "actual" );
             }
 
             foreach (object item in actualCollection)
             {
-                if ( !_baseConstraint.Matches( item ) )
+                if ( !BaseConstraint.Matches( item ) )
                 {
                     return false;
                 }
@@ -177,8 +191,12 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "all items" );
-            _baseConstraint.WriteDescriptionTo( writer );
+            BaseConstraint.WriteDescriptionTo( writer );
         }
     }
 
@@ -208,18 +226,18 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             PassModifiersToBase();
 
             if ( !( actual is ICollection ) )
             {
-                throw new ArgumentException( "The actual value must be a collection", "actual" );
+                throw new ArgumentException( Resources.ValueMustBeCollection, "actual");
             }
 
             foreach (object item in (ICollection) actual)
             {
-                if ( _baseConstraint.Matches( item ) )
+                if ( BaseConstraint.Matches( item ) )
                 {
                     return true;
                 }
@@ -234,8 +252,13 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WritePredicate( "some item" );
-            _baseConstraint.WriteDescriptionTo( writer );
+            BaseConstraint.WriteDescriptionTo( writer );
         }
     }
 
@@ -265,18 +288,18 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             PassModifiersToBase();
 
             if ( !( actual is ICollection ) )
             {
-                throw new ArgumentException( "The actual value must be a collection", "actual" );
+                throw new ArgumentException( Resources.ValueMustBeCollection, "actual");
             }
 
             foreach (object item in (ICollection) actual)
             {
-                if ( _baseConstraint.Matches( item ) )
+                if ( BaseConstraint.Matches( item ) )
                 {
                     return false;
                 }
@@ -291,8 +314,12 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "no item" );
-            _baseConstraint.WriteDescriptionTo( writer );
+            BaseConstraint.WriteDescriptionTo( writer );
         }
     }
 

@@ -53,7 +53,7 @@ namespace Ensurance.Constraints
             {
                 if ( _realConstraint == null )
                 {
-                    if ( _actual is string )
+                    if ( Actual is string )
                     {
                         _realConstraint = new SubstringConstraint( (string) _expected );
                     }
@@ -75,9 +75,9 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 RealConstraint = RealConstraint.IgnoreCase;
             }

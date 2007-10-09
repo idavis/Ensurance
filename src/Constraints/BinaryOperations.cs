@@ -22,6 +22,7 @@
 
 #endregion
 
+using System;
 using Ensurance.MessageWriters;
 
 namespace Ensurance.Constraints
@@ -35,22 +36,40 @@ namespace Ensurance.Constraints
         /// <summary>
         /// The first constraint being combined
         /// </summary>
-        protected Constraint _left;
+        private Constraint _left;
 
         /// <summary>
         /// The second constraint being combined
         /// </summary>
-        protected Constraint _right;
+        private Constraint _right;
 
         /// <summary>
         /// Construct a BinaryOperation from two other constraints
         /// </summary>
         /// <param name="left">The first constraint</param>
         /// <param name="right">The second constraint</param>
-        public BinaryOperation( Constraint left, Constraint right )
+        protected BinaryOperation( Constraint left, Constraint right )
         {
             _left = left;
             _right = right;
+        }
+
+        /// <summary>
+        /// The first constraint being combined
+        /// </summary>
+        public Constraint Left
+        {
+            get { return _left; }
+            set { _left = value; }
+        }
+
+        /// <summary>
+        /// The second constraint being combined
+        /// </summary>
+        public Constraint Right
+        {
+            get { return _right; }
+            set { _right = value; }
         }
     }
 
@@ -76,8 +95,8 @@ namespace Ensurance.Constraints
         /// <returns>True if the constraints both succeeded</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
-            return _left.Matches( actual ) && _right.Matches( actual );
+            Actual = actual;
+            return Left.Matches( actual ) && Right.Matches( actual );
         }
 
         /// <summary>
@@ -86,9 +105,13 @@ namespace Ensurance.Constraints
         /// <param name="writer">The MessageWriter to receive the description</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            _left.WriteDescriptionTo( writer );
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+            Left.WriteDescriptionTo( writer );
             writer.WriteConnector( "and" );
-            _right.WriteDescriptionTo( writer );
+            Right.WriteDescriptionTo( writer );
         }
     }
 
@@ -114,8 +137,8 @@ namespace Ensurance.Constraints
         /// <returns>True if either constraint succeeded</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
-            return _left.Matches( actual ) || _right.Matches( actual );
+            Actual = actual;
+            return Left.Matches( actual ) || Right.Matches( actual );
         }
 
         /// <summary>
@@ -124,9 +147,13 @@ namespace Ensurance.Constraints
         /// <param name="writer">The MessageWriter to receive the description</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            _left.WriteDescriptionTo( writer );
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+            Left.WriteDescriptionTo( writer );
             writer.WriteConnector( "or" );
-            _right.WriteDescriptionTo( writer );
+            Right.WriteDescriptionTo( writer );
         }
     }
 }

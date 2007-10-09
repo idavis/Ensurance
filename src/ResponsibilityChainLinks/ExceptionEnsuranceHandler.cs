@@ -59,7 +59,7 @@ namespace Ensurance.ResponsibilityChainLinks
             }
             finally
             {
-                IEnsuranceResponsibilityChainLink handler = _successor;
+                IEnsuranceResponsibilityChainLink handler = Successor;
                 if ( handler != null )
                 {
                     handler.Handle( constraint, message, args );

@@ -22,6 +22,7 @@
 
 #endregion
 
+using System;
 using System.Reflection;
 using Ensurance.MessageWriters;
 
@@ -53,7 +54,7 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             // TODO: Should be argument exception?
             if ( actual == null )
@@ -68,13 +69,13 @@ namespace Ensurance.Constraints
                 return _propertyExists = false;
             }
 
-            if ( _baseConstraint == null )
+            if ( BaseConstraint == null )
             {
                 return true;
             }
 
             _propValue = property.GetValue( actual, null );
-            return _baseConstraint.Matches( _propValue );
+            return BaseConstraint.Matches( _propValue );
         }
 
         /// <summary>
@@ -83,8 +84,13 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WritePredicate( "Property \"" + _name + "\"" );
-            _baseConstraint.WriteDescriptionTo( writer );
+            BaseConstraint.WriteDescriptionTo( writer );
         }
 
         /// <summary>
@@ -96,13 +102,18 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public override void WriteActualValueTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             if ( _propertyExists )
             {
                 writer.WriteActualValue( _propValue );
             }
             else
             {
-                writer.WriteActualValue( _actual.GetType() );
+                writer.WriteActualValue( Actual.GetType() );
             }
         }
     }

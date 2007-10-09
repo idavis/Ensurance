@@ -22,6 +22,7 @@
 
 #endregion
 
+using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Ensurance.MessageWriters;
@@ -52,14 +53,14 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             if ( !( actual is string ) )
             {
                 return false;
             }
 
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 return ( (string) actual ).ToLower( CultureInfo.CurrentCulture ).IndexOf( _expected.ToLower( CultureInfo.CurrentCulture ) ) >= 0;
             }
@@ -75,9 +76,14 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WritePredicate( "String containing" );
             writer.WriteExpectedValue( _expected );
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 writer.WriteModifier( "ignoring case" );
             }
@@ -110,14 +116,14 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             if ( !( actual is string ) )
             {
                 return false;
             }
 
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 return ( (string) actual ).ToLower( CultureInfo.CurrentCulture ).StartsWith( _expected.ToLower( CultureInfo.CurrentCulture ) );
             }
@@ -133,9 +139,14 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WritePredicate( "String starting with" );
             writer.WriteExpectedValue( MsgUtils.ClipString( _expected, writer.MaxLineLength - 40, 0 ) );
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 writer.WriteModifier( "ignoring case" );
             }
@@ -168,7 +179,7 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
             string actualString = actual as string;
 
             if ( actualString == null )
@@ -176,7 +187,7 @@ namespace Ensurance.Constraints
                 return false;
             }
 
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 return actualString.ToLower( CultureInfo.CurrentCulture ).EndsWith( _expected.ToLower( CultureInfo.CurrentCulture ) );
             }
@@ -192,9 +203,13 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "String ending with" );
             writer.WriteExpectedValue( _expected );
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 writer.WriteModifier( "ignoring case" );
             }
@@ -225,13 +240,13 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             return actual is string &&
                    Regex.IsMatch(
                        (string) actual,
                        _pattern,
-                       _caseInsensitive ? RegexOptions.IgnoreCase : RegexOptions.None );
+                       CaseInsensitive ? RegexOptions.IgnoreCase : RegexOptions.None );
         }
 
         /// <summary>
@@ -240,9 +255,14 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WritePredicate( "String matching" );
             writer.WriteExpectedValue( _pattern );
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 writer.WriteModifier( "ignoring case" );
             }

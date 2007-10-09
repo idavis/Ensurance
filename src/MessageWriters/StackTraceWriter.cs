@@ -24,7 +24,6 @@
 
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -38,6 +37,7 @@ namespace Ensurance.MessageWriters
 #if !DEBUG
     [DebuggerNonUserCode]
 #endif
+
     public class StackTraceWriter : TextMessageWriter
     {
         /// <summary>
@@ -71,9 +71,9 @@ namespace Ensurance.MessageWriters
         /// <param name="args">The args.</param>
         public override void Handle( Constraint constraint, string message, params object[] args )
         {
-            _textWriter.Write( ToString() );
+            TextWriter.Write( ToString() );
 
-            IEnsuranceResponsibilityChainLink handler = _successor;
+            IEnsuranceResponsibilityChainLink handler = Successor;
             if ( handler != null )
             {
                 handler.Handle( constraint, message, args );
@@ -86,38 +86,31 @@ namespace Ensurance.MessageWriters
         /// <returns></returns>
         public override string ToString()
         {
-            try
+            int currentFrame = 2;
+            StringBuilder preamble = new StringBuilder();
+            StackTrace stackTrace = new StackTrace();
+            string typeName;
+            do
             {
-                int currentFrame = 2;
-                StringBuilder preamble = new StringBuilder();
-                StackTrace stackTrace = new StackTrace();
-                string typeName;
-                do
-                {
-                    // Move up the stack trace frame by frame
-                    currentFrame++;
-                    StackFrame stackFrame = stackTrace.GetFrame( currentFrame );
-                    typeName = stackFrame.GetMethod().ReflectedType.FullName;
-                    // Once we have found a method that is not within the calling type we break;
-                } while ( typeName.Contains( "Ensurance." ) ||
-                          typeName.Contains( "System." ) ||
-                          typeName.Contains( "Microsoft." ) );
+                // Move up the stack trace frame by frame
+                currentFrame++;
+                StackFrame stackFrame = stackTrace.GetFrame( currentFrame );
+                typeName = stackFrame.GetMethod().ReflectedType.FullName;
+                // Once we have found a method that is not within the calling type we break;
+            } while ( typeName.Contains( "Ensurance." ) ||
+                      typeName.Contains( "System." ) ||
+                      typeName.Contains( "Microsoft." ) );
 
-                // get the last Ensure call
-                CreatePreambleStringForMethod( stackTrace.GetFrame( currentFrame - 1 ), preamble );
+            // get the last Ensure call
+            CreatePreambleStringForMethod( stackTrace.GetFrame( currentFrame - 1 ), preamble );
 
-                // Process the rest of the stack excluding Microsoft Classes.
-                for (int i = currentFrame; i < stackTrace.FrameCount; i++)
-                {
-                    CreatePreambleStringForMethod( stackTrace.GetFrame( i ), preamble );
-                }
-
-                return preamble.ToString();
-            }
-            catch (Exception ex)
+            // Process the rest of the stack excluding Microsoft Classes.
+            for (int i = currentFrame; i < stackTrace.FrameCount; i++)
             {
-                return string.Format( CultureInfo.CurrentCulture, "{0}: {1}{2}", ex.Message, Environment.NewLine, ex.StackTrace );
+                CreatePreambleStringForMethod( stackTrace.GetFrame( i ), preamble );
             }
+
+            return preamble.ToString();
         }
 
         /// <summary>

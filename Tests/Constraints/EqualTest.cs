@@ -142,7 +142,7 @@ namespace Ensurance.Tests.Constraints
 
             public override bool Matches( object actual )
             {
-                _actual = actual;
+                Actual = actual;
                 return actual is Color && ( (Color) actual ).ToArgb() == expectedColor.ToArgb();
             }
 

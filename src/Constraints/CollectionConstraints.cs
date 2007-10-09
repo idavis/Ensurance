@@ -26,6 +26,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -45,12 +46,12 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             ICollection collection = actual as ICollection;
             if ( collection == null )
             {
-                throw new ArgumentException( "The actual value must be a collection", "actual" );
+                throw new ArgumentException( Resources.ValueMustBeCollection, "actual");
             }
 
             return doMatch( collection );
@@ -204,6 +205,11 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.Write( "all items unique" );
         }
     }
@@ -253,6 +259,10 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "collection containing" );
             writer.WriteExpectedValue( _expected );
         }
@@ -305,6 +315,10 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "equivalent to" );
             writer.WriteExpectedValue( _expected );
         }
@@ -348,6 +362,10 @@ namespace Ensurance.Constraints
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( "subset of" );
             writer.WriteExpectedValue( _expected );
         }

@@ -63,7 +63,7 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
         {
             if ( logger == null )
             {
-                throw new ArgumentNullException( "Logger cannot be null." );
+                throw new ArgumentNullException( "logger" );
             }
             _logger = logger;
             _logger.DefaultLogSeverity = logSeverity;

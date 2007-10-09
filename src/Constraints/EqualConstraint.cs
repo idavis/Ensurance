@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -38,30 +39,6 @@ namespace Ensurance.Constraints
     public class EqualConstraint : Constraint
     {
         private const int BUFFER_SIZE = 4096;
-
-        private const string CollectionType_1 =
-            "Expected and actual are both {0}";
-
-        private const string CollectionType_2 =
-            "Expected is {0}, actual is {1}";
-
-        private const string StreamsDiffer_1 =
-            "Stream lengths are both {0}. Streams differ at offset {1}.";
-
-        private const string StreamsDiffer_2 =
-            "Expected Stream length {0} but was {1}."; // Streams differ at offset {2}.";
-
-        private const string StringsDiffer_1 =
-            "String lengths are both {0}. Strings differ at index {1}.";
-
-        private const string StringsDiffer_2 =
-            "Expected string length {0} but was {1}. Strings differ at index {2}.";
-
-        private const string ValuesDiffer_1 =
-            "Values differ at index {0}";
-
-        private const string ValuesDiffer_2 =
-            "Values differ at expected index {0}, actual index {1}";
 
         private object _expected;
 
@@ -89,7 +66,7 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
             _failurePoints = new List<long>();
 
             return ObjectsEqual( _expected, actual );
@@ -102,7 +79,7 @@ namespace Ensurance.Constraints
         /// <param name="writer">The MessageWriter to write to</param>
         public override void WriteMessageTo( MessageWriter writer )
         {
-            DisplayDifferences( writer, _expected, _actual, 0 );
+            DisplayDifferences( writer, _expected, Actual, 0 );
         }
 
 
@@ -112,15 +89,19 @@ namespace Ensurance.Constraints
         /// <param name="writer">The MessageWriter to write to</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WriteExpectedValue( _expected );
 
-            if ( _tolerance != null )
+            if ( Tolerance != null )
             {
                 writer.WriteConnector( "+/-" );
-                writer.WriteExpectedValue( _tolerance );
+                writer.WriteExpectedValue( Tolerance );
             }
 
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 writer.WriteModifier( "ignoring case" );
             }
@@ -134,15 +115,15 @@ namespace Ensurance.Constraints
             }
             else if ( expected is ICollection && actual is ICollection )
             {
-                DisplayCollectionDifferences( writer, (ICollection) expected, (ICollection) actual, depth );
+                DisplayCollectionDifferences( writer, expected as ICollection, actual as ICollection, depth );
             }
             else if ( expected is Stream && actual is Stream )
             {
-                DisplayStreamDifferences( writer, (Stream) expected, (Stream) actual, depth );
+                DisplayStreamDifferences( writer, expected as Stream, actual as Stream, depth );
             }
-            else if ( _tolerance != null )
+            else if ( Tolerance != null )
             {
-                writer.DisplayDifferences( expected, actual, _tolerance );
+                writer.DisplayDifferences( expected, actual, Tolerance );
             }
             else
             {
@@ -169,7 +150,7 @@ namespace Ensurance.Constraints
             Type expectedType = expected.GetType();
             Type actualType = actual.GetType();
 
-            if ( expectedType.IsArray && actualType.IsArray && !_compareAsCollection )
+            if ( expectedType.IsArray && actualType.IsArray && !CompareAsCollection )
             {
                 return ArraysEqual( (Array) expected, (Array) actual );
             }
@@ -184,19 +165,19 @@ namespace Ensurance.Constraints
                 return StreamsEqual( (Stream) expected, (Stream) actual );
             }
 
-            if ( _compareWith != null )
+            if ( CompareWith != null )
             {
-                return _compareWith.Compare( expected, actual ) == 0;
+                return CompareWith.Compare( expected, actual ) == 0;
             }
 
             if ( Numerics.IsNumericType( expected ) && Numerics.IsNumericType( actual ) )
             {
-                return Numerics.AreEqual( expected, actual, _tolerance );
+                return Numerics.AreEqual( expected, actual, Tolerance );
             }
 
             if ( expected is string && actual is string )
             {
-                return string.Compare( (string) expected, (string) actual, _caseInsensitive, CultureInfo.CurrentCulture ) == 0;
+                return string.Compare( (string) expected, (string) actual, CaseInsensitive, CultureInfo.CurrentCulture ) == 0;
             }
 
             return expected.Equals( actual );
@@ -289,18 +270,18 @@ namespace Ensurance.Constraints
 
         private void DisplayStringDifferences( MessageWriter writer, string expected, string actual )
         {
-            int mismatch = MsgUtils.FindMismatchPosition( expected, actual, 0, _caseInsensitive );
+            int mismatch = MsgUtils.FindMismatchPosition( expected, actual, 0, CaseInsensitive );
 
             if ( expected.Length == actual.Length )
             {
-                writer.WriteMessageLine( StringsDiffer_1, expected.Length, mismatch );
+                writer.WriteMessageLine( Resources.StringsDiffer_1, expected.Length, mismatch );
             }
             else
             {
-                writer.WriteMessageLine( StringsDiffer_2, expected.Length, actual.Length, mismatch );
+                writer.WriteMessageLine( Resources.StringsDiffer_2, expected.Length, actual.Length, mismatch );
             }
 
-            writer.DisplayStringDifferences( expected, actual, mismatch, _caseInsensitive );
+            writer.DisplayStringDifferences( expected, actual, mismatch, CaseInsensitive );
         }
 
         #endregion
@@ -312,11 +293,11 @@ namespace Ensurance.Constraints
             if ( expected.Length == actual.Length )
             {
                 long offset = _failurePoints[depth];
-                writer.WriteMessageLine( StreamsDiffer_1, expected.Length, offset );
+                writer.WriteMessageLine( Resources.StreamsDiffer_1, expected.Length, offset );
             }
             else
             {
-                writer.WriteMessageLine( StreamsDiffer_2, expected.Length, actual.Length );
+                writer.WriteMessageLine( Resources.StreamsDiffer_2, expected.Length, actual.Length );
             }
         }
 
@@ -386,11 +367,11 @@ namespace Ensurance.Constraints
 
             if ( sExpected == sActual )
             {
-                writer.WriteMessageLine( indent, CollectionType_1, sExpected );
+                writer.WriteMessageLine( indent, Resources.CollectionType_1, sExpected );
             }
             else
             {
-                writer.WriteMessageLine( indent, CollectionType_2, sExpected, sActual );
+                writer.WriteMessageLine( indent, Resources.CollectionType_2, sExpected, sActual );
             }
         }
 
@@ -428,12 +409,12 @@ namespace Ensurance.Constraints
             int[] expectedIndices = MsgUtils.GetArrayIndicesFromCollectionIndex( expected, failurePoint );
             if ( useOneIndex )
             {
-                writer.WriteMessageLine( indent, ValuesDiffer_1, MsgUtils.GetArrayIndicesAsString( expectedIndices ) );
+                writer.WriteMessageLine( indent, Resources.ValuesDiffer_1, MsgUtils.GetArrayIndicesAsString( expectedIndices ) );
             }
             else
             {
                 int[] actualIndices = MsgUtils.GetArrayIndicesFromCollectionIndex( actual, failurePoint );
-                writer.WriteMessageLine( indent, ValuesDiffer_2,
+                writer.WriteMessageLine( indent, Resources.ValuesDiffer_2,
                                          MsgUtils.GetArrayIndicesAsString( expectedIndices ), MsgUtils.GetArrayIndicesAsString( actualIndices ) );
             }
         }
@@ -450,7 +431,7 @@ namespace Ensurance.Constraints
             IList collectionAsIList = collection as IList;
             if ( collectionAsIList != null )
             {
-                return ( (IList) collection )[index];
+                return collectionAsIList[index];
             }
 
             foreach (object obj in collection)

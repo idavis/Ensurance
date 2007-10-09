@@ -22,6 +22,7 @@
 
 #endregion
 
+using System;
 using System.Collections;
 using Ensurance.MessageWriters;
 
@@ -57,34 +58,34 @@ namespace Ensurance.Constraints
         /// Static UnsetObject used to detect derived constraints
         /// failing to set the actual value.
         /// </summary>
-        protected static object UNSET = new UnsetObject();
+        protected static readonly object UNSET = new UnsetObject();
 
         /// <summary>
         /// The actual value being tested against a constraint
         /// </summary>
-        protected object _actual = UNSET;
+        private object _actual = UNSET;
 
         /// <summary>
         /// If true, all string comparisons will ignore case
         /// </summary>
-        protected bool _caseInsensitive;
+        private bool _caseInsensitive;
 
         /// <summary>
         /// If true, arrays will be treated as collections, allowing
         /// those of different dimensions to be compared
         /// </summary>
-        protected bool _compareAsCollection;
+        private bool _compareAsCollection;
 
         /// <summary>
         /// IComparer object used in comparisons for some constraints.
         /// </summary>
-        protected IComparer _compareWith;
+        private IComparer _compareWith;
 
         /// <summary>
         /// If non-zero, equality comparisons within the specified 
         /// tolerance will succeed.
         /// </summary>
-        protected object _tolerance;
+        private object _tolerance;
 
         #endregion
 
@@ -118,6 +119,53 @@ namespace Ensurance.Constraints
         internal virtual bool IsMappable
         {
             get { return false; }
+        }
+
+        /// <summary>
+        /// The actual value being tested against a constraint
+        /// </summary>
+        protected internal object Actual
+        {
+            get { return _actual; }
+            set { _actual = value; }
+        }
+
+        /// <summary>
+        /// If true, all string comparisons will ignore case
+        /// </summary>
+        protected internal bool CaseInsensitive
+        {
+            get { return _caseInsensitive; }
+            set { _caseInsensitive = value; }
+        }
+
+        /// <summary>
+        /// If true, arrays will be treated as collections, allowing
+        /// those of different dimensions to be compared
+        /// </summary>
+        protected internal bool CompareAsCollection
+        {
+            get { return _compareAsCollection; }
+            set { _compareAsCollection = value; }
+        }
+
+        /// <summary>
+        /// IComparer object used in comparisons for some constraints.
+        /// </summary>
+        protected internal IComparer CompareWith
+        {
+            get { return _compareWith; }
+            set { _compareWith = value; }
+        }
+
+        /// <summary>
+        /// If non-zero, equality comparisons within the specified 
+        /// tolerance will succeed.
+        /// </summary>
+        protected internal object Tolerance
+        {
+            get { return _tolerance; }
+            set { _tolerance = value; }
         }
 
         /// <summary>
@@ -159,6 +207,10 @@ namespace Ensurance.Constraints
         /// <param name="writer">The MessageWriter on which to display the message</param>
         public virtual void WriteMessageTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.DisplayDifferences( this );
         }
 
@@ -184,6 +236,10 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public virtual void WriteActualValueTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WriteActualValue( _actual );
         }
 

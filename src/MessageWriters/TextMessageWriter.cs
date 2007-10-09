@@ -120,7 +120,7 @@ namespace Ensurance.MessageWriters
             {
                 while ( level-- >= 0 )
                 {
-                    _textWriter.Write( "  " );
+                    TextWriter.Write( "  " );
                 }
 
                 if ( args != null && args.Length > 0 )
@@ -128,7 +128,7 @@ namespace Ensurance.MessageWriters
                     message = string.Format( CultureInfo.CurrentCulture, message, args );
                 }
 
-                _textWriter.WriteLine( message );
+                TextWriter.WriteLine( message );
             }
         }
 
@@ -193,13 +193,13 @@ namespace Ensurance.MessageWriters
             // The mismatch position may have changed due to clipping or white space conversion
             mismatch = MsgUtils.FindMismatchPosition( expected, actual, 0, ignoreCase );
 
-            _textWriter.Write( Pfx_Expected );
+            TextWriter.Write( Pfx_Expected );
             WriteExpectedValue( expected );
             if ( ignoreCase )
             {
                 WriteModifier( "ignoring case" );
             }
-            _textWriter.WriteLine();
+            TextWriter.WriteLine();
             WriteActualLine( actual );
             //DisplayDifferences(expected, actual);
             if ( mismatch >= 0 )
@@ -218,7 +218,7 @@ namespace Ensurance.MessageWriters
         /// <param name="connector">The connector.</param>
         public override void WriteConnector( string connector )
         {
-            _textWriter.Write( Fmt_Connector, connector );
+            TextWriter.Write( Fmt_Connector, connector );
         }
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace Ensurance.MessageWriters
         /// <param name="predicate">The predicate.</param>
         public override void WritePredicate( string predicate )
         {
-            _textWriter.Write( Fmt_Predicate, predicate );
+            TextWriter.Write( Fmt_Predicate, predicate );
         }
 
         //public override void WriteLabel(string label)
@@ -241,7 +241,7 @@ namespace Ensurance.MessageWriters
         /// <param name="modifier">The modifier.</param>
         public override void WriteModifier( string modifier )
         {
-            _textWriter.Write( Fmt_Modifier, modifier );
+            TextWriter.Write( Fmt_Modifier, modifier );
         }
 
 
@@ -271,7 +271,7 @@ namespace Ensurance.MessageWriters
         {
             if ( val == null )
             {
-                _textWriter.Write( Fmt_Null );
+                TextWriter.Write( Fmt_Null );
             }
             else if ( val.GetType().IsArray )
             {
@@ -307,11 +307,11 @@ namespace Ensurance.MessageWriters
             }
             else if ( val.GetType().IsValueType )
             {
-                _textWriter.Write( Fmt_ValueType, val );
+                TextWriter.Write( Fmt_ValueType, val );
             }
             else
             {
-                _textWriter.Write( Fmt_Default, val );
+                TextWriter.Write( Fmt_Default, val );
             }
         }
 
@@ -326,13 +326,13 @@ namespace Ensurance.MessageWriters
         {
             if ( collection.Count == 0 )
             {
-                _textWriter.Write( Fmt_EmptyCollection );
+                TextWriter.Write( Fmt_EmptyCollection );
                 return;
             }
 
             int count = 0;
             int index = 0;
-            _textWriter.Write( "< " );
+            TextWriter.Write( "< " );
 
             foreach (object obj in collection)
             {
@@ -340,7 +340,7 @@ namespace Ensurance.MessageWriters
                 {
                     if ( count > 0 )
                     {
-                        _textWriter.Write( ", " );
+                        TextWriter.Write( ", " );
                     }
                     WriteValue( obj );
                     if ( ++count >= max )
@@ -352,17 +352,17 @@ namespace Ensurance.MessageWriters
 
             if ( index < collection.Count )
             {
-                _textWriter.Write( "..." );
+                TextWriter.Write( "..." );
             }
 
-            _textWriter.Write( " >" );
+            TextWriter.Write( " >" );
         }
 
         private void WriteArray( Array array )
         {
             if ( array.Length == 0 )
             {
-                _textWriter.Write( Fmt_EmptyCollection );
+                TextWriter.Write( Fmt_EmptyCollection );
                 return;
             }
 
@@ -379,7 +379,7 @@ namespace Ensurance.MessageWriters
             {
                 if ( count > 0 )
                 {
-                    _textWriter.Write( ", " );
+                    TextWriter.Write( ", " );
                 }
 
                 bool startSegment = false;
@@ -388,7 +388,7 @@ namespace Ensurance.MessageWriters
                     startSegment = startSegment || count % products[r] == 0;
                     if ( startSegment )
                     {
-                        _textWriter.Write( "< " );
+                        TextWriter.Write( "< " );
                     }
                 }
 
@@ -402,7 +402,7 @@ namespace Ensurance.MessageWriters
                     nextSegment = nextSegment || count % products[r] == 0;
                     if ( nextSegment )
                     {
-                        _textWriter.Write( " >" );
+                        TextWriter.Write( " >" );
                     }
                 }
             }
@@ -412,24 +412,24 @@ namespace Ensurance.MessageWriters
         {
             if ( string.IsNullOrEmpty( s ) )
             {
-                _textWriter.Write( Fmt_EmptyString );
+                TextWriter.Write( Fmt_EmptyString );
             }
             else
             {
-                _textWriter.Write( Fmt_String, s );
+                TextWriter.Write( Fmt_String, s );
             }
         }
 
         private void WriteChar( char c )
         {
-            _textWriter.Write( Fmt_Char, c );
+            TextWriter.Write( Fmt_Char, c );
         }
 
         private void WriteDouble( double d )
         {
             if ( double.IsNaN( d ) || double.IsInfinity( d ) )
             {
-                _textWriter.Write( d );
+                TextWriter.Write( d );
             }
             else
             {
@@ -437,11 +437,11 @@ namespace Ensurance.MessageWriters
 
                 if ( s.IndexOf( '.' ) > 0 )
                 {
-                    _textWriter.Write( s + "d" );
+                    TextWriter.Write( s + "d" );
                 }
                 else
                 {
-                    _textWriter.Write( s + ".0d" );
+                    TextWriter.Write( s + ".0d" );
                 }
             }
         }
@@ -450,7 +450,7 @@ namespace Ensurance.MessageWriters
         {
             if ( float.IsNaN( f ) || float.IsInfinity( f ) )
             {
-                _textWriter.Write( f );
+                TextWriter.Write( f );
             }
             else
             {
@@ -458,23 +458,23 @@ namespace Ensurance.MessageWriters
 
                 if ( s.IndexOf( '.' ) > 0 )
                 {
-                    _textWriter.Write( s + "f" );
+                    TextWriter.Write( s + "f" );
                 }
                 else
                 {
-                    _textWriter.Write( s + ".0f" );
+                    TextWriter.Write( s + ".0f" );
                 }
             }
         }
 
         private void WriteDecimal( Decimal d )
         {
-            _textWriter.Write( d.ToString( "G29", CultureInfo.InvariantCulture ) + "m" );
+            TextWriter.Write( d.ToString( "G29", CultureInfo.InvariantCulture ) + "m" );
         }
 
         private void WriteDateTime( DateTime dt )
         {
-            _textWriter.Write( dt.ToString( Fmt_DateTime, CultureInfo.InvariantCulture ) );
+            TextWriter.Write( dt.ToString( Fmt_DateTime, CultureInfo.InvariantCulture ) );
         }
 
         #endregion
@@ -487,9 +487,9 @@ namespace Ensurance.MessageWriters
         /// <param name="constraint">The constraint that failed</param>
         private void WriteExpectedLine( Constraint constraint )
         {
-            _textWriter.Write( Pfx_Expected );
+            TextWriter.Write( Pfx_Expected );
             constraint.WriteDescriptionTo( this );
-            _textWriter.WriteLine();
+            TextWriter.WriteLine();
         }
 
         /// <summary>
@@ -498,9 +498,9 @@ namespace Ensurance.MessageWriters
         /// <param name="expected">The expected value</param>
         private void WriteExpectedLine( object expected )
         {
-            _textWriter.Write( Pfx_Expected );
+            TextWriter.Write( Pfx_Expected );
             WriteExpectedValue( expected );
-            _textWriter.WriteLine();
+            TextWriter.WriteLine();
         }
 
         /// <summary>
@@ -511,11 +511,11 @@ namespace Ensurance.MessageWriters
         /// <param name="tolerance">The tolerance within which the test was made</param>
         private void WriteExpectedLine( object expected, object tolerance )
         {
-            _textWriter.Write( Pfx_Expected );
+            TextWriter.Write( Pfx_Expected );
             WriteExpectedValue( expected );
             WriteConnector( "+/-" );
             WriteExpectedValue( tolerance );
-            _textWriter.WriteLine();
+            TextWriter.WriteLine();
         }
 
         /// <summary>
@@ -524,9 +524,9 @@ namespace Ensurance.MessageWriters
         /// <param name="constraint">The constraint for which the actual value is to be written</param>
         private void WriteActualLine( Constraint constraint )
         {
-            _textWriter.Write( Pfx_Actual );
+            TextWriter.Write( Pfx_Actual );
             constraint.WriteActualValueTo( this );
-            _textWriter.WriteLine();
+            TextWriter.WriteLine();
         }
 
         /// <summary>
@@ -535,15 +535,15 @@ namespace Ensurance.MessageWriters
         /// <param name="actual">The actual value causing a failure</param>
         private void WriteActualLine( object actual )
         {
-            _textWriter.Write( Pfx_Actual );
+            TextWriter.Write( Pfx_Actual );
             WriteActualValue( actual );
-            _textWriter.WriteLine();
+            TextWriter.WriteLine();
         }
 
         private void WriteCaretLine( int mismatch )
         {
             // We subtract 2 for the initial 2 blanks and add back 1 for the initial quote
-            _textWriter.WriteLine( "  {0}^", new string( '-', PrefixLength + mismatch - 2 + 1 ) );
+            TextWriter.WriteLine( "  {0}^", new string( '-', PrefixLength + mismatch - 2 + 1 ) );
         }
 
         #endregion
@@ -575,7 +575,7 @@ namespace Ensurance.MessageWriters
             }
             finally
             {
-                IEnsuranceResponsibilityChainLink handler = _successor;
+                IEnsuranceResponsibilityChainLink handler = Successor;
                 if ( handler != null )
                 {
                     handler.Handle( constraint, message, args );

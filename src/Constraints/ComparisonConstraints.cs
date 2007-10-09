@@ -37,22 +37,22 @@ namespace Ensurance.Constraints
         /// <summary>
         /// if true, equal returns success
         /// </summary>
-        protected bool _equalReturnsOK = false;
+        private bool _equalReturnsOK;
 
         /// <summary>
         /// The value against which a comparison is to be made
         /// </summary>
-        protected IComparable _expected;
+        private IComparable _expected;
 
         /// <summary>
         /// if true, greater than returns success
         /// </summary>
-        protected bool _greaterThanReturnsOK = false;
+        private bool _greaterThanReturnsOK;
 
         /// <summary>
         /// If true, less than returns success
         /// </summary>
-        protected bool _lessThanReturnsOK = false;
+        private bool _lessThanReturnsOK;
 
         /// <summary>
         /// The predicate used as a part of the description
@@ -67,13 +67,49 @@ namespace Ensurance.Constraints
         /// <param name="eqOK">if set to <c>true</c> equal succeeds.</param>
         /// <param name="gtOK">if set to <c>true</c> greater succeeds.</param>
         /// <param name="predicate">String used in describing the constraint.</param>
-        public ComparisonConstraint( IComparable value, bool ltOK, bool eqOK, bool gtOK, string predicate )
+        protected ComparisonConstraint( IComparable value, bool ltOK, bool eqOK, bool gtOK, string predicate )
         {
             _expected = value;
             _lessThanReturnsOK = ltOK;
-            _equalReturnsOK = eqOK;
+            EqualReturnsOK = eqOK;
             _greaterThanReturnsOK = gtOK;
             _predicate = predicate;
+        }
+
+        /// <summary>
+        /// if true, equal returns success
+        /// </summary>
+        protected internal bool EqualReturnsOK
+        {
+            get { return _equalReturnsOK; }
+            set { _equalReturnsOK = value; }
+        }
+
+        /// <summary>
+        /// The value against which a comparison is to be made
+        /// </summary>
+        protected internal IComparable Expected
+        {
+            get { return _expected; }
+            set { _expected = value; }
+        }
+
+        /// <summary>
+        /// if true, greater than returns success
+        /// </summary>
+        protected internal bool GreaterThanReturnsOK
+        {
+            get { return _greaterThanReturnsOK; }
+            set { _greaterThanReturnsOK = value; }
+        }
+
+        /// <summary>
+        /// If true, less than returns success
+        /// </summary>
+        protected internal bool LessThanReturnsOK
+        {
+            get { return _lessThanReturnsOK; }
+            set { _lessThanReturnsOK = value; }
         }
 
         /// <summary>
@@ -83,10 +119,10 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             int icomp = Numerics.Compare( _expected, actual );
-            return icomp < 0 && _greaterThanReturnsOK || icomp == 0 && _equalReturnsOK || icomp > 0 && _lessThanReturnsOK;
+            return icomp < 0 && _greaterThanReturnsOK || icomp == 0 && EqualReturnsOK || icomp > 0 && _lessThanReturnsOK;
         }
 
         /// <summary>
@@ -95,6 +131,10 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.WritePredicate( _predicate );
             writer.WriteExpectedValue( _expected );
         }

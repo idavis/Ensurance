@@ -31,7 +31,7 @@ namespace Ensurance
     /// Thrown when an ensurance failed.
     /// </summary>
     [Serializable]
-    public class EnsuranceException : ApplicationException
+    public class EnsuranceException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EnsuranceException"/> class.

@@ -23,7 +23,11 @@
 #endregion
 
 using System;
+using System.Globalization;
 using System.IO;
+using System.Reflection;
+using System.Text;
+using Ensurance.Properties;
 using log4net;
 using log4net.Config;
 
@@ -31,8 +35,8 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
 {
     public class Log4NetEnsuranceLogger : EnsuranceLoggerBase
     {
-        protected static readonly ILog _logger;
-        protected static bool _isDebugEnabled, _isInfoEnabled, _isWarnEnabled, _isErrorEnabled, _isFatalEnabled;
+        private static readonly ILog _logger;
+        private static readonly bool _isDebugEnabled, _isInfoEnabled, _isWarnEnabled, _isErrorEnabled, _isFatalEnabled;
 
         /// <summary>
         /// Initializes the <see cref="Log4NetEnsuranceLogger"/> class.
@@ -41,10 +45,29 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
         {
             // We need to tell Ensurance where to find the config file for the
             // application loading it.
-            string configFileName = AppDomain.CurrentDomain.FriendlyName + ".config";
-            string pathToConfigFile = Path.Combine( AppDomain.CurrentDomain.BaseDirectory, configFileName );
-            FileInfo fileInfo = new FileInfo( pathToConfigFile );
-            XmlConfigurator.Configure( fileInfo );
+            XmlConfiguratorAttribute[] log4netConfigAttributes = Assembly.GetEntryAssembly().GetCustomAttributes( typeof (XmlConfiguratorAttribute), false ) as XmlConfiguratorAttribute[];
+            System.Diagnostics.Debug.Assert( log4netConfigAttributes != null );
+
+            if ( log4netConfigAttributes.Length == 0 )
+            {
+                using (MemoryStream log4netConfigStream = new MemoryStream( Encoding.UTF8.GetBytes( Resources.DefaultLoggingConfiguration ) ))
+                {
+                    XmlConfigurator.Configure( log4netConfigStream );
+                }
+            }
+            else
+            {
+                foreach (XmlConfiguratorAttribute xmlConfiguratorAttribute in log4netConfigAttributes)
+                {
+                    xmlConfiguratorAttribute.ConfigFileExtension = xmlConfiguratorAttribute.ConfigFileExtension ?? "config";
+                    string configFileName = String.Format( CultureInfo.CurrentCulture, "{0}.{1}", AppDomain.CurrentDomain.FriendlyName, xmlConfiguratorAttribute.ConfigFileExtension );
+                    xmlConfiguratorAttribute.ConfigFile = Path.Combine( AppDomain.CurrentDomain.BaseDirectory, configFileName );
+                    if ( File.Exists( xmlConfiguratorAttribute.ConfigFile ) )
+                    {
+                        XmlConfigurator.Configure( new FileInfo( xmlConfiguratorAttribute.ConfigFile ) );
+                    }
+                }
+            }
 
             // With the configutation loaded, we can now initialize the logger.
             _logger = LogManager.GetLogger( _type );
@@ -55,6 +78,15 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
             _isWarnEnabled = _logger.IsWarnEnabled;
             _isErrorEnabled = _logger.IsErrorEnabled;
             _isFatalEnabled = _logger.IsFatalEnabled;
+        }
+
+        /// <summary>
+        /// Gets the logger.
+        /// </summary>
+        /// <value>The logger.</value>
+        protected static ILog Logger
+        {
+            get { return _logger; }
         }
 
         /// <summary>

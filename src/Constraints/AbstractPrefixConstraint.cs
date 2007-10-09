@@ -32,7 +32,7 @@ namespace Ensurance.Constraints
         /// <summary>
         /// The base constraint
         /// </summary>
-        protected Constraint _baseConstraint;
+        private Constraint _baseConstraint;
 
         /// <summary>
         /// Construct given a base constraint
@@ -44,26 +44,35 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
+        /// The base constraint
+        /// </summary>
+        public Constraint BaseConstraint
+        {
+            get { return _baseConstraint; }
+            set { _baseConstraint = value; }
+        }
+
+        /// <summary>
         /// Set all modifiers applied to the prefix into
         /// the base constraint before matching
         /// </summary>
         protected void PassModifiersToBase()
         {
-            if ( _caseInsensitive )
+            if ( CaseInsensitive )
             {
                 _baseConstraint = _baseConstraint.IgnoreCase;
             }
-            if ( _tolerance != null )
+            if ( Tolerance != null )
             {
-                _baseConstraint = _baseConstraint.Within( _tolerance );
+                _baseConstraint = _baseConstraint.Within( Tolerance );
             }
-            if ( _compareAsCollection )
+            if ( CompareAsCollection )
             {
                 _baseConstraint = _baseConstraint.AsCollection;
             }
-            if ( _compareWith != null )
+            if ( CompareWith != null )
             {
-                _baseConstraint = _baseConstraint.Comparer( _compareWith );
+                _baseConstraint = _baseConstraint.Comparer( CompareWith );
             }
         }
     }

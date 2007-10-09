@@ -22,6 +22,7 @@
 
 #endregion
 
+using System;
 using System.Collections;
 using Ensurance.MessageWriters;
 
@@ -41,7 +42,7 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
             string actualString = actual as string;
             ICollection actualColloction = actual as ICollection;
             return actualString != null && string.IsNullOrEmpty( actualString )
@@ -54,6 +55,10 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
             writer.Write( "<empty>" );
         }
     }

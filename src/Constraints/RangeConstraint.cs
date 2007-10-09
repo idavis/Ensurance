@@ -78,7 +78,7 @@ namespace Ensurance.Constraints
         /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
-            _actual = actual;
+            Actual = actual;
 
             if ( actual == null )
             {
@@ -107,6 +107,11 @@ namespace Ensurance.Constraints
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
+            if ( writer == null )
+            {
+                throw new ArgumentNullException( "writer" );
+            }
+
             writer.WritePredicate( "between" );
             writer.WriteExpectedValue( _low );
             writer.WriteConnector( "and" );

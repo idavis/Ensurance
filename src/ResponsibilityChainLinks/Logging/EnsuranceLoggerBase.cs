@@ -28,7 +28,7 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
 {
     public abstract class EnsuranceLoggerBase : IEnsuranceLogger
     {
-        protected static Type _type = typeof (Ensure);
+        protected static readonly Type _type = typeof (Ensure);
         private LogSeverity _defaultLogSeverity;
 
         #region IEnsuranceLogger Members

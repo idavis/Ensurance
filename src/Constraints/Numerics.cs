@@ -24,6 +24,7 @@
 
 using System;
 using System.Globalization;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -276,12 +277,12 @@ namespace Ensurance.Constraints
         {
             if ( expected == null )
             {
-                throw new ArgumentException( "Cannot compare using a null reference", "expected" );
+                throw new ArgumentException( Resources.CannotCompareUsingNullReference, "expected");
             }
 
             if ( actual == null )
             {
-                throw new ArgumentException( "Cannot compare to null reference", "actual" );
+                throw new ArgumentException( Resources.CannotCompareToNullReference, "actual");
             }
 
             if ( IsNumericType( expected ) && IsNumericType( actual ) )

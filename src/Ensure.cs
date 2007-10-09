@@ -28,6 +28,7 @@ using System.Diagnostics;
 using Ensurance.Constraints;
 using Ensurance.ResponsibilityChainLinks;
 using Ensurance.SyntaxHelpers;
+using Ensurance.Properties;
 
 namespace Ensurance
 {
@@ -127,7 +128,7 @@ namespace Ensurance
         [EditorBrowsable( EditorBrowsableState.Never )]
         void IEnsuranceHandler.Handle( Constraint constraint, string message, params object[] args )
         {
-            throw new EnsuranceException( "IEnsuranceHandler.Handle should not be used." );
+            throw new EnsuranceException( Resources.IEnsuranceHandlerDoNotUse );
         }
 
         #endregion

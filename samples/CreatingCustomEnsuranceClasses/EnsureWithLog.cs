@@ -28,6 +28,7 @@ using System.Reflection;
 using Ensurance;
 using Ensurance.Constraints;
 using log4net;
+using CreatingCustomEnsuranceClasses.Properties;
 
 namespace CreatingCustomEnsuranceClasses
 {
@@ -64,7 +65,7 @@ namespace CreatingCustomEnsuranceClasses
         {
             // 6. We never want this call to be made. It is non static, but it forces us
             // to see that we need a Handle method.
-            throw new EnsuranceException( "IEnsuranceHandler.Handle should not be used." );
+            throw new EnsuranceException( Resources.IEnsuranceHandlerDoNotUse );
         }
 
         #endregion
