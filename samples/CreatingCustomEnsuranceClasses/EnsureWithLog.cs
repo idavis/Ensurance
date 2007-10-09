@@ -23,6 +23,7 @@
 #endregion
 
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 using Ensurance;
 using Ensurance.Constraints;
@@ -39,9 +40,8 @@ namespace CreatingCustomEnsuranceClasses
     // 2. Declare a preprocessor to make your code non user if you do not want
     // debugging to enter your code
 #if !DEBUG
-    [System.Diagnostics.DebuggerNonUserCode]
+    [DebuggerNonUserCode]
 #endif
-
     public class EnsureWithLog : EnsureBase<EnsureWithLog>, IEnsuranceHandler
     {
         // 3. Create a logger for use in this class

@@ -23,6 +23,7 @@
 #endregion
 
 using System.ComponentModel;
+using System.Diagnostics;
 using Ensurance.Constraints;
 
 namespace Ensurance
@@ -32,7 +33,7 @@ namespace Ensurance
     /// </summary>
     /// <typeparam name="T"></typeparam>
 #if !DEBUG
-    [System.Diagnostics.DebuggerNonUserCode]
+    [DebuggerNonUserCode]
 #endif
     public class EnsuranceHandlerContainer<T> : EnsureBase<EnsuranceHandlerContainer<T>>, IEnsuranceHandler where T : IEnsuranceHandler, new()
     {
@@ -79,7 +80,7 @@ namespace Ensurance
         /// <code>
         /// if( successor != null)
         /// {
-        /// successor.Handle( constraint, message, args );
+        ///     successor.Handle( constraint, message, args );
         /// }
         /// </code>
         /// So that the downstream handler can have a chance to process the failure.

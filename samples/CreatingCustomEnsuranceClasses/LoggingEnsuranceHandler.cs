@@ -22,7 +22,7 @@
 
 #endregion
 
-using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 using Ensurance;
 using Ensurance.Constraints;
@@ -35,19 +35,22 @@ namespace CreatingCustomEnsuranceClasses
     // 2. Declare a preprocessor to make your code non user if you do not want
     // debugging to enter your code
 #if !DEBUG
-    [System.Diagnostics.DebuggerNonUserCode]
+    [DebuggerNonUserCode]
 #endif
-
     internal class LoggingEnsuranceHandler : IEnsuranceResponsibilityChainLink
     {
         // 3. Create a logger for use in this class
-        private static readonly ILog log = LogManager.GetLogger( MethodBase.GetCurrentMethod().DeclaringType );
+        private static readonly ILog _log = LogManager.GetLogger( MethodBase.GetCurrentMethod().DeclaringType );
 
         // 4. Create a pointer to the next link in the responsibility chain.
         private static IEnsuranceResponsibilityChainLink _successor;
 
         #region IEnsuranceResponsibilityChainLink Members
 
+        /// <summary>
+        /// Gets or sets the successor.
+        /// </summary>
+        /// <value>The successor.</value>
         public IEnsuranceResponsibilityChainLink Successor
         {
             get { return _successor; }
@@ -61,10 +64,10 @@ namespace CreatingCustomEnsuranceClasses
             // 5. Do your logging.
             try
             {
-                if ( log.IsErrorEnabled )
+                if ( _log.IsErrorEnabled )
                 {
-                    log.Error( constraint.ToString() );
-                    log.WarnFormat( message, args );
+                    _log.Error( constraint.ToString() );
+                    _log.WarnFormat( message, args );
                 }
             }
             finally

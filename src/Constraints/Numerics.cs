@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,6 +19,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
@@ -28,7 +30,7 @@ namespace Ensurance.Constraints
     /// <summary>
     /// The Numerics class contains common operations on numeric values.
     /// </summary>
-    public class Numerics
+    public static class Numerics
     {
         #region Numeric Type Recognition
 
@@ -319,9 +321,5 @@ namespace Ensurance.Constraints
         }
 
         #endregion
-
-        private Numerics()
-        {
-        }
     }
 }

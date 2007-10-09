@@ -138,7 +138,7 @@ namespace Ensurance
         /// <code>
         /// if( successor != null)
         /// {
-        /// successor.Handle( constraint, message, args );
+        ///     successor.Handle( constraint, message, args );
         /// }
         /// </code>
         /// So that the downstream handler can have a chance to process the failure.
@@ -156,7 +156,8 @@ namespace Ensurance
 #if !DEBUG
         [DebuggerNonUserCode]
 #endif
-        #region Nested type: With
+
+            #region Nested type: With
 
         public partial class With
         {

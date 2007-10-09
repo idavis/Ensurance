@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,6 +19,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
@@ -86,7 +88,7 @@ namespace Ensurance.MessageWriters
         /// <code>
         /// if( successor != null)
         /// {
-        /// successor.Handle( constraint, message, args );
+        ///     successor.Handle( constraint, message, args );
         /// }
         /// </code>
         /// So that the downstream handler can have a chance to process the failure.
@@ -215,37 +217,62 @@ namespace Ensurance.MessageWriters
 
         #region TextWriter Interface
 
+        /// <summary>
+        /// Gets the format provider.
+        /// </summary>
+        /// <value>The format provider.</value>
         public IFormatProvider FormatProvider
         {
             get { return _textWriter.FormatProvider; }
         }
 
+        /// <summary>
+        /// Gets the encoding.
+        /// </summary>
+        /// <value>The encoding.</value>
         public Encoding Encoding
         {
             get { return _textWriter.Encoding; }
         }
 
+        /// <summary>
+        /// Gets or sets the new line.
+        /// </summary>
+        /// <value>The new line.</value>
         public string NewLine
         {
             get { return _textWriter.NewLine; }
             set { _textWriter.NewLine = value; }
         }
 
+        /// <summary>
+        /// Gets the null.
+        /// </summary>
+        /// <value>The null.</value>
         public TextWriter Null
         {
             get { return TextWriter.Null; }
         }
 
+        /// <summary>
+        /// Closes this instance.
+        /// </summary>
         public void Close()
         {
             _textWriter.Close();
         }
 
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources
+        /// </summary>
         public void Dispose()
         {
             _textWriter.Dispose();
         }
 
+        /// <summary>
+        /// Flushes this instance.
+        /// </summary>
         public void Flush()
         {
             _textWriter.Flush();

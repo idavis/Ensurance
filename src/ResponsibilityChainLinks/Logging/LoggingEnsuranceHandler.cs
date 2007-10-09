@@ -23,6 +23,7 @@
 #endregion
 
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using Ensurance.Constraints;
 using Ensurance.MessageWriters;
@@ -30,13 +31,12 @@ using Ensurance.MessageWriters;
 namespace Ensurance.ResponsibilityChainLinks.Logging
 {
 #if !DEBUG
-    [System.Diagnostics.DebuggerNonUserCode]
+    [DebuggerNonUserCode]
 #endif
-
     public class LoggingEnsuranceHandler : IEnsuranceResponsibilityChainLink
     {
         private IEnsuranceLogger _logger;
-        
+
         private IEnsuranceResponsibilityChainLink _successor;
 
         /// <summary>

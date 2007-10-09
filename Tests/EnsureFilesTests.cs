@@ -27,6 +27,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
+using Ensurance;
 using Ensurance.Tests.Properties;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -131,7 +132,7 @@ namespace Ensurance.Tests
         {
             FileStream expected = null;
             FileStream actual = null;
-            Ensure.Files.AreEqual( expected, actual );
+            EnsureBase<Ensure>.Files.AreEqual( expected, actual );
         }
 
         [TestMethod]
@@ -145,7 +146,7 @@ namespace Ensurance.Tests
                     {
                         using (FileStream actual = File.OpenRead( "TestImage2.jpg" ))
                         {
-                            Ensure.Files.AreEqual( expected, actual );
+                            EnsureBase<Ensure>.Files.AreEqual( expected, actual );
                         }
                     }
                 }
@@ -159,7 +160,7 @@ namespace Ensurance.Tests
             {
                 using (TestFile tf2 = new TestFile( "TestImage2.jpg", Resources.TestImage1 ))
                 {
-                    Ensure.Files.AreEqual( "TestImage1.jpg", "TestImage2.jpg", "Failed using file names" );
+                    EnsureBase<Ensure>.Files.AreEqual( "TestImage1.jpg", "TestImage2.jpg", "Failed using file names" );
                 }
             }
         }
@@ -169,7 +170,7 @@ namespace Ensurance.Tests
         {
             using (TestFile tf1 = new TestFile( "TestImage1.jpg", Resources.TestImage1 ))
             {
-                Ensure.Files.AreEqual( "TestImage1.jpg", "TestImage1.jpg" );
+                EnsureBase<Ensure>.Files.AreEqual( "TestImage1.jpg", "TestImage1.jpg" );
             }
         }
 
@@ -182,8 +183,8 @@ namespace Ensurance.Tests
                 {
                     FileInfo expected = new FileInfo( "TestImage1.jpg" );
                     FileInfo actual = new FileInfo( "TestImage2.jpg" );
-                    Ensure.Files.AreEqual( expected, actual );
-                    Ensure.Files.AreEqual( expected, actual );
+                    EnsureBase<Ensure>.Files.AreEqual( expected, actual );
+                    EnsureBase<Ensure>.Files.AreEqual( expected, actual );
                 }
             }
         }
@@ -195,7 +196,7 @@ namespace Ensurance.Tests
             {
                 using (TestFile tf2 = new TestFile( "TestText2.txt", Resources.TestText1 ))
                 {
-                    Ensure.Files.AreEqual( "TestText1.txt", "TestText2.txt" );
+                    EnsureBase<Ensure>.Files.AreEqual( "TestText1.txt", "TestText2.txt" );
                 }
             }
         }
@@ -214,7 +215,7 @@ namespace Ensurance.Tests
                     expectedMessage =
                         "  Expected: <System.IO.FileStream>" + Environment.NewLine +
                         "  But was:  null" + Environment.NewLine;
-                    Ensure.Files.AreEqual( expected, null );
+                    EnsureBase<Ensure>.Files.AreEqual( expected, null );
                 }
             }
         }
@@ -235,7 +236,7 @@ namespace Ensurance.Tests
                             expectedMessage =
                                 string.Format( "  Expected Stream length {0} but was {1}." + Environment.NewLine,
                                                new FileInfo( expectedFile ).Length, new FileInfo( actualFile ).Length );
-                            Ensure.Files.AreEqual( expected, actual );
+                            EnsureBase<Ensure>.Files.AreEqual( expected, actual );
                         }
                     }
                 }
@@ -254,7 +255,7 @@ namespace Ensurance.Tests
                     expectedMessage =
                         string.Format( "  Expected Stream length {0} but was {1}." + Environment.NewLine,
                                        expected.Length, actual.Length );
-                    Ensure.Files.AreEqual( expected, actual );
+                    EnsureBase<Ensure>.Files.AreEqual( expected, actual );
                 }
             }
         }
@@ -272,7 +273,7 @@ namespace Ensurance.Tests
                     expectedMessage =
                         string.Format( "  Expected Stream length {0} but was {1}." + Environment.NewLine,
                                        new FileInfo( expected ).Length, new FileInfo( actual ).Length );
-                    Ensure.Files.AreEqual( expected, actual );
+                    EnsureBase<Ensure>.Files.AreEqual( expected, actual );
                 }
             }
         }
@@ -286,7 +287,7 @@ namespace Ensurance.Tests
                 {
                     expectedMessage =
                         "  Stream lengths are both 65600. Streams differ at offset 65597." + Environment.NewLine;
-                    Ensure.Files.AreEqual( "TestText1.txt", "TestText2.txt" );
+                    EnsureBase<Ensure>.Files.AreEqual( "TestText1.txt", "TestText2.txt" );
                 }
             }
         }
@@ -306,7 +307,7 @@ namespace Ensurance.Tests
             {
                 using (FileStream expected = File.OpenRead( "TestImage1.jpg" ))
                 {
-                    Ensure.Files.AreNotEqual( expected, null );
+                    EnsureBase<Ensure>.Files.AreNotEqual( expected, null );
                 }
             }
         }
@@ -322,7 +323,7 @@ namespace Ensurance.Tests
                     {
                         using (FileStream actual = File.OpenRead( "TestImage2.jpg" ))
                         {
-                            Ensure.Files.AreNotEqual( expected, actual );
+                            EnsureBase<Ensure>.Files.AreNotEqual( expected, actual );
                         }
                     }
                 }
@@ -336,7 +337,7 @@ namespace Ensurance.Tests
             {
                 using (TestFile tf2 = new TestFile( "TestImage2.jpg", Resources.TestImage2 ))
                 {
-                    Ensure.Files.AreNotEqual( "TestImage1.jpg", "TestImage2.jpg" );
+                    EnsureBase<Ensure>.Files.AreNotEqual( "TestImage1.jpg", "TestImage2.jpg" );
                 }
             }
         }
@@ -350,7 +351,7 @@ namespace Ensurance.Tests
                 {
                     FileInfo expected = new FileInfo( "TestImage1.jpg" );
                     FileInfo actual = new FileInfo( "TestImage2.jpg" );
-                    Ensure.Files.AreNotEqual( expected, actual );
+                    EnsureBase<Ensure>.Files.AreNotEqual( expected, actual );
                 }
             }
         }
@@ -362,7 +363,7 @@ namespace Ensurance.Tests
             {
                 using (TestFile tf2 = new TestFile( "TestText2.txt", Resources.TestText2 ))
                 {
-                    Ensure.Files.AreNotEqual( "TestText1.txt", "TestText2.txt" );
+                    EnsureBase<Ensure>.Files.AreNotEqual( "TestText1.txt", "TestText2.txt" );
                 }
             }
         }
@@ -379,7 +380,7 @@ namespace Ensurance.Tests
             expectedMessage =
                 "  Expected: not null" + Environment.NewLine +
                 "  But was:  null" + Environment.NewLine;
-            Ensure.Files.AreNotEqual( expected, actual );
+            EnsureBase<Ensure>.Files.AreNotEqual( expected, actual );
         }
 
         [TestMethod, ExpectedException( typeof (EnsuranceException) )]
@@ -393,7 +394,7 @@ namespace Ensurance.Tests
                     {
                         using (FileStream actual = File.OpenRead( "TestImage2.jpg" ))
                         {
-                            Ensure.Files.AreNotEqual( expected, actual );
+                            EnsureBase<Ensure>.Files.AreNotEqual( expected, actual );
                         }
                     }
                 }
@@ -412,7 +413,7 @@ namespace Ensurance.Tests
                     expectedMessage =
                         "  Expected: not <System.IO.FileStream>" + Environment.NewLine +
                         "  But was:  <System.IO.FileStream>" + Environment.NewLine;
-                    Ensure.Files.AreNotEqual( expected, actual );
+                    EnsureBase<Ensure>.Files.AreNotEqual( expected, actual );
                 }
             }
         }
@@ -425,7 +426,7 @@ namespace Ensurance.Tests
                 expectedMessage =
                     "  Expected: not <System.IO.FileStream>" + Environment.NewLine +
                     "  But was:  <System.IO.FileStream>" + Environment.NewLine;
-                Ensure.Files.AreNotEqual( "TestImage1.jpg", "TestImage1.jpg" );
+                EnsureBase<Ensure>.Files.AreNotEqual( "TestImage1.jpg", "TestImage1.jpg" );
             }
         }
 
@@ -439,7 +440,7 @@ namespace Ensurance.Tests
                     expectedMessage =
                         "  Expected: not <System.IO.FileStream>" + Environment.NewLine +
                         "  But was:  <System.IO.FileStream>" + Environment.NewLine;
-                    Ensure.Files.AreNotEqual( "TestText1.txt", "TestText2.txt" );
+                    EnsureBase<Ensure>.Files.AreNotEqual( "TestText1.txt", "TestText2.txt" );
                 }
             }
         }

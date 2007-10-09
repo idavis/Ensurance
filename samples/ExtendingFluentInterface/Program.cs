@@ -23,7 +23,6 @@
 #endregion
 
 using System;
-using Ensurance;
 
 namespace ExtendingFluentInterface
 {

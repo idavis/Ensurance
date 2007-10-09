@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,12 +19,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 namespace Ensurance
 {
     public interface IEnsuranceResponsibilityChainLink : IEnsuranceHandler
     {
+        /// <summary>
+        /// Gets or sets the successor.
+        /// </summary>
+        /// <value>The successor.</value>
         IEnsuranceResponsibilityChainLink Successor { get; set; }
     }
 }

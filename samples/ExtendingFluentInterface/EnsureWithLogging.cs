@@ -22,27 +22,25 @@
 
 #endregion
 
-using ExtendingFluentInterface;
+using Ensurance;
 
-// 1. Declare the namespace Ensurance
-
-namespace Ensurance
+namespace ExtendingFluentInterface
 {
-    // 2. Create a partial implementation of the Ensure class.
+    // 1. Create a partial implementation of the Ensure class.
     internal partial class Ensure
     {
-        // 3. Create a partial implementation of the With class.
+        // 2. Create a partial implementation of the With class.
 
         #region Nested type: With
 
         public partial class With
         {
-            // 4. Declare a preprocessor to make your code non user if you do not want
+            // 3. Declare a preprocessor to make your code non user if you do not want
             // debugging to enter your code
 #if !DEBUG
-            [System.Diagnostics.DebuggerNonUserCode]
+            [DebuggerNonUserCode]
 #endif
-            // 5. Declare your class. You can make it partial if you like, but it is not
+            // 4. Declare your class. You can make it partial if you like, but it is not
             // required. You must extend EnsuranceHandlerContainer specifying a class
             // where <T> implements IEnsuranceHandler and has a default constructor.
             // In this example we are going to use our own class.

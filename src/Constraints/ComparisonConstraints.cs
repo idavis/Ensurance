@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,6 +19,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
@@ -35,7 +37,7 @@ namespace Ensurance.Constraints
         /// <summary>
         /// if true, equal returns success
         /// </summary>
-        protected bool _eqOK = false;
+        protected bool _equalReturnsOK = false;
 
         /// <summary>
         /// The value against which a comparison is to be made
@@ -45,12 +47,12 @@ namespace Ensurance.Constraints
         /// <summary>
         /// if true, greater than returns success
         /// </summary>
-        protected bool _gtOK = false;
+        protected bool _greaterThanReturnsOK = false;
 
         /// <summary>
         /// If true, less than returns success
         /// </summary>
-        protected bool _ltOK = false;
+        protected bool _lessThanReturnsOK = false;
 
         /// <summary>
         /// The predicate used as a part of the description
@@ -68,9 +70,9 @@ namespace Ensurance.Constraints
         public ComparisonConstraint( IComparable value, bool ltOK, bool eqOK, bool gtOK, string predicate )
         {
             _expected = value;
-            _ltOK = ltOK;
-            _eqOK = eqOK;
-            _gtOK = gtOK;
+            _lessThanReturnsOK = ltOK;
+            _equalReturnsOK = eqOK;
+            _greaterThanReturnsOK = gtOK;
             _predicate = predicate;
         }
 
@@ -84,7 +86,7 @@ namespace Ensurance.Constraints
             _actual = actual;
 
             int icomp = Numerics.Compare( _expected, actual );
-            return icomp < 0 && _gtOK || icomp == 0 && _eqOK || icomp > 0 && _ltOK;
+            return icomp < 0 && _greaterThanReturnsOK || icomp == 0 && _equalReturnsOK || icomp > 0 && _lessThanReturnsOK;
         }
 
         /// <summary>

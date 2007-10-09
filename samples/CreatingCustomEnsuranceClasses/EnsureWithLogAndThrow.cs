@@ -23,11 +23,10 @@
 #endregion
 
 using System.ComponentModel;
-using System.Reflection;
+using System.Diagnostics;
 using Ensurance;
 using Ensurance.Constraints;
 using Ensurance.ResponsibilityChainLinks;
-using log4net;
 
 namespace CreatingCustomEnsuranceClasses
 {
@@ -40,18 +39,14 @@ namespace CreatingCustomEnsuranceClasses
     // 2. Declare a preprocessor to make your code non user if you do not want
     // debugging to enter your code
 #if !DEBUG
-    [System.Diagnostics.DebuggerNonUserCode]
+    [DebuggerNonUserCode]
 #endif
-
     public class EnsureWithLogAndThrow : EnsureBase<EnsureWithLogAndThrow>, IEnsuranceHandler
     {
-        // 3. Create a logger for use in this class
-        private static readonly ILog log = LogManager.GetLogger( MethodBase.GetCurrentMethod().DeclaringType );
-
-        // 4. Create the initial handler chain link
+        // 3. Create the initial handler chain link
         private static IEnsuranceResponsibilityChainLink _handler;
 
-        // 5. We want to do some static initialization that cannot be done outside
+        // 4. We want to do some static initialization that cannot be done outside
         // of the static constructor.
         static EnsureWithLogAndThrow()
         {
@@ -59,13 +54,13 @@ namespace CreatingCustomEnsuranceClasses
             _handler.Successor = new ExceptionEnsuranceHandler();
         }
 
-        // 6. Create a protected constructor (private if you want to prevent inhereted instances).
+        // 5. Create a protected constructor (private if you want to prevent inhereted instances).
         // We do not want a public facing constructor as the entire API should be static.
         protected EnsureWithLogAndThrow()
         {
         }
 
-        // 5. Implement the interface explicitly. If you like you can add the
+        // 6. Implement the interface explicitly. If you like you can add the
         // EditorBrowsable attribute to hide the call from Intellisense. You will,
         // never call this method as it is non-static.
 
@@ -74,18 +69,18 @@ namespace CreatingCustomEnsuranceClasses
         [EditorBrowsable( EditorBrowsableState.Never )]
         void IEnsuranceHandler.Handle( Constraint constraint, string message, params object[] args )
         {
-            // 6. We never want this call to be made. It is non static, but it forces us
+            // 7. We never want this call to be made. It is non static, but it forces us
             // to see that we need a Handle method.
             throw new EnsuranceException( "IEnsuranceHandler.Handle should not be used." );
         }
 
         #endregion
 
-        // 7. 'Implement' the interface with a private static version with which you
+        // 8. 'Implement' the interface with a private static version with which you
         // will do all of your work.
         private static void Handle( Constraint constraint, string message, params object[] args )
         {
-            // 8. Process your handler chain
+            // 9. Process your handler chain
             _handler.Handle( constraint, message, args );
         }
     }

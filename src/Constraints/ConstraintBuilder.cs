@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,10 +19,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Ensurance.Constraints
 {
@@ -34,8 +37,8 @@ namespace Ensurance.Constraints
     /// </summary>
     public class ConstraintBuilder
     {
-        private Stack _opnds = new Stack();
-        private Stack _ops = new Stack();
+        private Stack<string> _opnds = new Stack<string>();
+        private Stack<Op> _ops = new Stack<Op>();
 
         /// <summary>
         /// Implicitly convert ConstraintBuilder to an actual Constraint
@@ -432,7 +435,7 @@ namespace Ensurance.Constraints
         {
             while ( _ops.Count > 0 )
             {
-                switch ( (Op) _ops.Pop() )
+                switch ( _ops.Pop() )
                 {
                     case Op.Not:
                         constraint = new NotConstraint( constraint );
@@ -447,7 +450,7 @@ namespace Ensurance.Constraints
                         constraint = new NoItemConstraint( constraint );
                         break;
                     case Op.Prop:
-                        constraint = new PropertyConstraint( (string) _opnds.Pop(), constraint );
+                        constraint = new PropertyConstraint( _opnds.Pop(), constraint );
                         break;
                 }
             }

@@ -62,7 +62,7 @@ namespace Ensurance.Tests
             Ensure.Contains( "def", new object[0] );
         }
 
-        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        [TestMethod, ExpectedException( typeof (ArgumentException) )]
         public void NullArrayIsError()
         {
             Ensure.Contains( "def", null );

@@ -79,7 +79,6 @@
     <Compile Include="Ensure.cs" />
     <Compile Include="EnsureBase.cs" />
     <Compile Include="EnsuranceException.cs" />
-    <Compile Include="CollectionEnsure.cs" />
     <Compile Include="Constraints\AbstractPrefixConstraint.cs" />
     <Compile Include="Constraints\BinaryOperations.cs" />
     <Compile Include="Constraints\CollectionConstraints.cs" />

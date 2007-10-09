@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,6 +19,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
@@ -31,16 +33,26 @@ namespace Ensurance
     [Serializable]
     public class EnsuranceException : ApplicationException
     {
-        /// <param name="message">The error message that explains 
-        /// the reason for the exception</param>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EnsuranceException"/> class.
+        /// </summary>
+        public EnsuranceException()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EnsuranceException"/> class.
+        /// </summary>
+        /// <param name="message">The error message that explains the reason for the exception</param>
         public EnsuranceException( string message ) : base( message )
         {
         }
 
-        /// <param name="message">The error message that explains 
-        /// the reason for the exception</param>
-        /// <param name="inner">The exception that caused the 
-        /// current exception</param>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EnsuranceException"/> class.
+        /// </summary>
+        /// <param name="message">The error message that explains the reason for the exception</param>
+        /// <param name="inner">The exception that caused the current exception</param>
         public EnsuranceException( string message, Exception inner ) : base( message, inner )
         {
         }
@@ -48,6 +60,8 @@ namespace Ensurance
         /// <summary>
         /// Serialization Constructor
         /// </summary>
+        /// <param name="info">The object that holds the serialized object data.</param>
+        /// <param name="context">The contextual information about the source or destination.</param>
         protected EnsuranceException( SerializationInfo info,
                                       StreamingContext context ) : base( info, context )
         {

@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,6 +19,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
@@ -67,8 +69,7 @@ namespace Ensurance.Constraints
         /// Construct an ExactTypeConstraint for a given Type
         /// </summary>
         /// <param name="type"></param>
-        public ExactTypeConstraint( Type type )
-            : base( type )
+        public ExactTypeConstraint( Type type ) : base( type )
         {
         }
 

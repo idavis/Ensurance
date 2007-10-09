@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,6 +19,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using Ensurance.MessageWriters;
@@ -33,12 +35,12 @@ namespace Ensurance.Constraints
         /// <summary>
         /// The first constraint being combined
         /// </summary>
-        protected Constraint left;
+        protected Constraint _left;
 
         /// <summary>
         /// The second constraint being combined
         /// </summary>
-        protected Constraint right;
+        protected Constraint _right;
 
         /// <summary>
         /// Construct a BinaryOperation from two other constraints
@@ -47,8 +49,8 @@ namespace Ensurance.Constraints
         /// <param name="right">The second constraint</param>
         public BinaryOperation( Constraint left, Constraint right )
         {
-            this.left = left;
-            this.right = right;
+            _left = left;
+            _right = right;
         }
     }
 
@@ -62,8 +64,7 @@ namespace Ensurance.Constraints
         /// </summary>
         /// <param name="left">The first constraint</param>
         /// <param name="right">The second constraint</param>
-        public AndConstraint( Constraint left, Constraint right )
-            : base( left, right )
+        public AndConstraint( Constraint left, Constraint right ) : base( left, right )
         {
         }
 
@@ -76,7 +77,7 @@ namespace Ensurance.Constraints
         public override bool Matches( object actual )
         {
             _actual = actual;
-            return left.Matches( actual ) && right.Matches( actual );
+            return _left.Matches( actual ) && _right.Matches( actual );
         }
 
         /// <summary>
@@ -85,9 +86,9 @@ namespace Ensurance.Constraints
         /// <param name="writer">The MessageWriter to receive the description</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            left.WriteDescriptionTo( writer );
+            _left.WriteDescriptionTo( writer );
             writer.WriteConnector( "and" );
-            right.WriteDescriptionTo( writer );
+            _right.WriteDescriptionTo( writer );
         }
     }
 
@@ -101,8 +102,7 @@ namespace Ensurance.Constraints
         /// </summary>
         /// <param name="left">The first constraint</param>
         /// <param name="right">The second constraint</param>
-        public OrConstraint( Constraint left, Constraint right )
-            : base( left, right )
+        public OrConstraint( Constraint left, Constraint right ) : base( left, right )
         {
         }
 
@@ -115,7 +115,7 @@ namespace Ensurance.Constraints
         public override bool Matches( object actual )
         {
             _actual = actual;
-            return left.Matches( actual ) || right.Matches( actual );
+            return _left.Matches( actual ) || _right.Matches( actual );
         }
 
         /// <summary>
@@ -124,9 +124,9 @@ namespace Ensurance.Constraints
         /// <param name="writer">The MessageWriter to receive the description</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            left.WriteDescriptionTo( writer );
+            _left.WriteDescriptionTo( writer );
             writer.WriteConnector( "or" );
-            right.WriteDescriptionTo( writer );
+            _right.WriteDescriptionTo( writer );
         }
     }
 }

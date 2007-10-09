@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,10 +19,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Ensurance.MessageWriters;
 
 namespace Ensurance.Constraints
@@ -68,12 +71,12 @@ namespace Ensurance.Constraints
         /// </summary>
         protected internal class CollectionTally
         {
-            // Internal hash used to count occurences
+            // Internal dictionary used to count occurences
 
             // We use this for any null entries found, since
-            // the key to a hash may not be null.
+            // the key to a dictionary may not be null.
             private static object NULL = new object();
-            private Hashtable hash = new Hashtable();
+            private Dictionary<object, int> _tallyDictionary = new Dictionary<object, int>();
 
             /// <summary>
             /// Construct a CollectionTally object from a collection
@@ -101,7 +104,13 @@ namespace Ensurance.Constraints
                 {
                     obj = NULL;
                 }
-                object val = hash[obj];
+
+                object val = null;
+                if (_tallyDictionary.ContainsKey(obj))
+                {
+                    val = _tallyDictionary[obj];
+                }
+                
                 return val == null ? 0 : (int) val;
             }
 
@@ -111,7 +120,14 @@ namespace Ensurance.Constraints
                 {
                     obj = NULL;
                 }
-                hash[obj] = tally;
+                if (!_tallyDictionary.ContainsKey(obj))
+                {
+                    _tallyDictionary.Add(obj, tally);
+                }
+                else
+                {
+                    _tallyDictionary[obj] = tally;
+                }
             }
 
             /// <summary>
@@ -146,9 +162,9 @@ namespace Ensurance.Constraints
             /// <returns>True if all counts are equal to the value, otherwise false</returns>
             public bool AllCountsEqualTo( int count )
             {
-                foreach (DictionaryEntry entry in hash)
+                foreach (int entry in _tallyDictionary.Values)
                 {
-                    if ( (int) entry.Value != count )
+                    if ( entry != count )
                     {
                         return false;
                     }
@@ -198,11 +214,11 @@ namespace Ensurance.Constraints
 
     /// <summary>
     /// CollectionContainsConstraint is used to test whether a collection
-    /// contains an expected object as a member.
+    /// contains an _expected object as a member.
     /// </summary>
     public class CollectionContainsConstraint : CollectionConstraint
     {
-        private object expected;
+        private object _expected;
 
         /// <summary>
         /// Construct a CollectionContainsConstraint
@@ -210,7 +226,7 @@ namespace Ensurance.Constraints
         /// <param name="expected"></param>
         public CollectionContainsConstraint( object expected )
         {
-            this.expected = expected;
+            _expected = expected;
         }
 
         /// <summary>
@@ -222,7 +238,7 @@ namespace Ensurance.Constraints
         {
             foreach (object obj in actual)
             {
-                if ( Equals( obj, expected ) )
+                if ( Equals( obj, _expected ) )
                 {
                     return true;
                 }
@@ -238,7 +254,7 @@ namespace Ensurance.Constraints
         public override void WriteDescriptionTo( MessageWriter writer )
         {
             writer.WritePredicate( "collection containing" );
-            writer.WriteExpectedValue( expected );
+            writer.WriteExpectedValue( _expected );
         }
     }
 
@@ -252,7 +268,7 @@ namespace Ensurance.Constraints
     /// </summary>
     public class CollectionEquivalentConstraint : CollectionConstraint
     {
-        private IEnumerable expected;
+        private IEnumerable _expected;
 
         /// <summary>
         /// Construct a CollectionEquivalentConstraint
@@ -260,7 +276,7 @@ namespace Ensurance.Constraints
         /// <param name="expected"></param>
         public CollectionEquivalentConstraint( IEnumerable expected )
         {
-            this.expected = expected;
+            _expected = expected;
         }
 
         /// <summary>
@@ -271,15 +287,15 @@ namespace Ensurance.Constraints
         protected override bool doMatch( ICollection actual )
         {
             // This is just an optimization
-            if ( expected is ICollection )
+            if ( _expected is ICollection )
             {
-                if ( actual.Count != ( (ICollection) expected ).Count )
+                if ( actual.Count != ( (ICollection) _expected ).Count )
                 {
                     return false;
                 }
             }
 
-            CollectionTally tally = new CollectionTally( expected );
+            CollectionTally tally = new CollectionTally( _expected );
             return tally.CanRemove( actual ) && tally.AllCountsEqualTo( 0 );
         }
 
@@ -290,7 +306,7 @@ namespace Ensurance.Constraints
         public override void WriteDescriptionTo( MessageWriter writer )
         {
             writer.WritePredicate( "equivalent to" );
-            writer.WriteExpectedValue( expected );
+            writer.WriteExpectedValue( _expected );
         }
     }
 
@@ -304,7 +320,7 @@ namespace Ensurance.Constraints
     /// </summary>
     public class CollectionSubsetConstraint : CollectionConstraint
     {
-        private IEnumerable expected;
+        private IEnumerable _expected;
 
         /// <summary>
         /// Construct a CollectionSubsetConstraint
@@ -312,7 +328,7 @@ namespace Ensurance.Constraints
         /// <param name="expected">The collection that the actual value is expected to be a subset of</param>
         public CollectionSubsetConstraint( IEnumerable expected )
         {
-            this.expected = expected;
+            _expected = expected;
         }
 
         /// <summary>
@@ -323,7 +339,7 @@ namespace Ensurance.Constraints
         /// <returns></returns>
         protected override bool doMatch( ICollection actual )
         {
-            return new CollectionTally( expected ).CanRemove( actual );
+            return new CollectionTally( _expected ).CanRemove( actual );
         }
 
         /// <summary>
@@ -333,7 +349,7 @@ namespace Ensurance.Constraints
         public override void WriteDescriptionTo( MessageWriter writer )
         {
             writer.WritePredicate( "subset of" );
-            writer.WriteExpectedValue( expected );
+            writer.WriteExpectedValue( _expected );
         }
     }
 

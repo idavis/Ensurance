@@ -1,4 +1,5 @@
 #region Copyright & License
+
 //
 // Author: Ian Davis <ian.f.davis@gmail.com>
 // Copyright (c) 2007, Ian Davs
@@ -18,10 +19,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 #endregion
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using Ensurance.MessageWriters;
@@ -62,7 +65,7 @@ namespace Ensurance.Constraints
 
         private object _expected;
 
-        private ArrayList _failurePoints;
+        private List<long> _failurePoints;
 
         #region Constructor
 
@@ -87,7 +90,7 @@ namespace Ensurance.Constraints
         public override bool Matches( object actual )
         {
             _actual = actual;
-            _failurePoints = new ArrayList();
+            _failurePoints = new List<long>();
 
             return ObjectsEqual( _expected, actual );
         }
@@ -219,7 +222,7 @@ namespace Ensurance.Constraints
                 }
             }
 
-            return CollectionsEqual( (ICollection) expected, (ICollection) actual );
+            return CollectionsEqual( expected, actual );
         }
 
         private bool CollectionsEqual( ICollection expected, ICollection actual )
@@ -308,7 +311,7 @@ namespace Ensurance.Constraints
         {
             if ( expected.Length == actual.Length )
             {
-                long offset = (long) _failurePoints[depth];
+                long offset = _failurePoints[depth];
                 writer.WriteMessageLine( StreamsDiffer_1, expected.Length, offset );
             }
             else
