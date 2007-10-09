@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -28,9 +27,8 @@ using Ensurance.MessageWriters;
 namespace Ensurance.Constraints
 {
     /// <summary>
-    /// Abstract base class for constraints that compare values to
-    /// determine if one is greater than, equal to or less than
-    /// the other.
+    /// Abstract base class for constraints that compare values to determine if
+    /// one is greater than, equal to or less than the other.
     /// </summary>
     public abstract class ComparisonConstraint : Constraint
     {
@@ -60,7 +58,8 @@ namespace Ensurance.Constraints
         private string _predicate;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComparisonConstraint"/> class.
+        /// Initializes a new instance of the <see cref="ComparisonConstraint"/>
+        /// class.
         /// </summary>
         /// <param name="value">The value against which to make a comparison.</param>
         /// <param name="ltOK">if set to <c>true</c> less succeeds.</param>
@@ -141,12 +140,14 @@ namespace Ensurance.Constraints
     }
 
     /// <summary>
-    /// Tests whether a value is greater than the value supplied to its constructor
+    /// Tests whether a value is greater than the value supplied to its
+    /// constructor
     /// </summary>
     public class GreaterThanConstraint : ComparisonConstraint
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GreaterThanConstraint"/> class.
+        /// Initializes a new instance of the <see
+        /// cref="GreaterThanConstraint"/> class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
         public GreaterThanConstraint( IComparable expected ) : base( expected, false, false, true, "greater than" )
@@ -155,12 +156,14 @@ namespace Ensurance.Constraints
     }
 
     /// <summary>
-    /// Tests whether a value is greater than or equal to the value supplied to its constructor
+    /// Tests whether a value is greater than or equal to the value supplied to
+    /// its constructor
     /// </summary>
     public class GreaterThanOrEqualConstraint : ComparisonConstraint
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GreaterThanOrEqualConstraint"/> class.
+        /// Initializes a new instance of the <see
+        /// cref="GreaterThanOrEqualConstraint"/> class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
         public GreaterThanOrEqualConstraint( IComparable expected ) : base( expected, false, true, true, "greater than or equal to" )
@@ -174,7 +177,8 @@ namespace Ensurance.Constraints
     public class LessThanConstraint : ComparisonConstraint
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LessThanConstraint"/> class.
+        /// Initializes a new instance of the <see cref="LessThanConstraint"/>
+        /// class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
         public LessThanConstraint( IComparable expected ) : base( expected, true, false, false, "less than" )
@@ -183,12 +187,14 @@ namespace Ensurance.Constraints
     }
 
     /// <summary>
-    /// Tests whether a value is less than or equal to the value supplied to its constructor
+    /// Tests whether a value is less than or equal to the value supplied to its
+    /// constructor
     /// </summary>
     public class LessThanOrEqualConstraint : ComparisonConstraint
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LessThanOrEqualConstraint"/> class.
+        /// Initializes a new instance of the <see
+        /// cref="LessThanOrEqualConstraint"/> class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
         public LessThanOrEqualConstraint( IComparable expected ) : base( expected, true, true, false, "less than or equal to" )

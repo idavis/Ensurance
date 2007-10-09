@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -29,16 +28,16 @@ using Ensurance.Constraints;
 namespace Ensurance.SyntaxHelpers
 {
     /// <summary>
-    /// The Is class is a helper class with properties and methods
-    /// that supply a number of constraints used in Asserts.
+    /// The Is class is a helper class with properties and methods that supply a
+    /// number of constraints used in Asserts.
     /// </summary>
     public class Is
     {
         #region Prefix Operators
 
         /// <summary>
-        /// Is.Not returns a ConstraintBuilder that negates
-        /// the constraint that follows it.
+        /// Is.Not returns a ConstraintBuilder that negates the constraint that
+        /// follows it.
         /// </summary>
         public static ConstraintBuilder Not
         {
@@ -46,10 +45,9 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// Is.All returns a ConstraintBuilder, which will apply
-        /// the following constraint to all members of a collection,
-        /// succeeding if all of them succeed. This property is
-        /// a synonym for Has.AllItems.
+        /// Is.All returns a ConstraintBuilder, which will apply the following
+        /// constraint to all members of a collection, succeeding if all of them
+        /// succeed. This property is a synonym for Has.AllItems.
         /// </summary>
         public static ConstraintBuilder All
         {
@@ -61,17 +59,20 @@ namespace Ensurance.SyntaxHelpers
         #region Constraints Without Arguments
 
         /// <summary>
-        /// Is.Empty returns a static constraint that tests whether a string or collection is empty
+        /// Is.Empty returns a static constraint that tests whether a string or
+        /// collection is empty
         /// </summary>
         public static readonly Constraint Empty = new EmptyConstraint();
 
         /// <summary>
-        /// Is.False returns a static constraint that tests whether a value is false
+        /// Is.False returns a static constraint that tests whether a value is
+        /// false
         /// </summary>
         public static readonly Constraint False = new EqualConstraint( false );
 
         /// <summary>
-        /// Is.NaN returns a static constraint that tests whether a value is an NaN
+        /// Is.NaN returns a static constraint that tests whether a value is an
+        /// NaN
         /// </summary>
         public static readonly Constraint NaN = new EqualConstraint( double.NaN );
 
@@ -81,12 +82,14 @@ namespace Ensurance.SyntaxHelpers
         public static readonly Constraint Null = new EqualConstraint( null );
 
         /// <summary>
-        /// Is.True returns a static constraint that tests whether a value is true
+        /// Is.True returns a static constraint that tests whether a value is
+        /// true
         /// </summary>
         public static readonly Constraint True = new EqualConstraint( true );
 
         /// <summary>
-        /// Is.Unique returns a static constraint that tests whether a collection contains all unque items.
+        /// Is.Unique returns a static constraint that tests whether a
+        /// collection contains all unque items.
         /// </summary>
         public static readonly Constraint Unique = new UniqueItemsConstraint();
 
@@ -97,8 +100,8 @@ namespace Ensurance.SyntaxHelpers
         #region Equality and Identity
 
         /// <summary>
-        /// Is.EqualTo returns a constraint that tests whether the
-        /// actual value equals the supplied argument
+        /// Is.EqualTo returns a constraint that tests whether the actual value
+        /// equals the supplied argument
         /// </summary>
         /// <param name="expected"></param>
         /// <returns></returns>
@@ -108,8 +111,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// Is.SameAs returns a constraint that tests whether the
-        /// actual value is the same object as the supplied argument.
+        /// Is.SameAs returns a constraint that tests whether the actual value
+        /// is the same object as the supplied argument.
         /// </summary>
         /// <param name="expected"></param>
         /// <returns></returns>
@@ -123,8 +126,8 @@ namespace Ensurance.SyntaxHelpers
         #region Comparison Constraints
 
         /// <summary>
-        /// Is.GreaterThan returns a constraint that tests whether the
-        /// actual value is greater than the suppled argument
+        /// Is.GreaterThan returns a constraint that tests whether the actual
+        /// value is greater than the suppled argument
         /// </summary>
         public static Constraint GreaterThan( IComparable expected )
         {
@@ -149,8 +152,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// Is.LessThan returns a constraint that tests whether the
-        /// actual value is less than the suppled argument
+        /// Is.LessThan returns a constraint that tests whether the actual value
+        /// is less than the suppled argument
         /// </summary>
         public static Constraint LessThan( IComparable expected )
         {
@@ -179,8 +182,8 @@ namespace Ensurance.SyntaxHelpers
         #region Type Constraints
 
         /// <summary>
-        /// Is.TypeOf returns a constraint that tests whether the actual
-        /// value is of the exact type supplied as an argument.
+        /// Is.TypeOf returns a constraint that tests whether the actual value
+        /// is of the exact type supplied as an argument.
         /// </summary>
         public static Constraint TypeOf( Type expectedType )
         {
@@ -188,9 +191,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// Is.InstanceOfType returns a constraint that tests whether 
-        /// the actual value is of the type supplied as an argument
-        /// or a derived type.
+        /// Is.InstanceOfType returns a constraint that tests whether the actual
+        /// value is of the type supplied as an argument or a derived type.
         /// </summary>
         public static Constraint InstanceOfType( Type expectedType )
         {
@@ -198,9 +200,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// Is.AssignableFrom returns a constraint that tests whether
-        /// the actual value is assignable from the type supplied as
-        /// an argument.
+        /// Is.AssignableFrom returns a constraint that tests whether the actual
+        /// value is assignable from the type supplied as an argument.
         /// </summary>
         /// <param name="expectedType"></param>
         /// <returns></returns>
@@ -214,9 +215,9 @@ namespace Ensurance.SyntaxHelpers
         #region Collection Constraints
 
         /// <summary>
-        /// Is.EquivalentTo returns a constraint that tests whether
-        /// the actual value is a collection containing the same
-        /// elements as the collection supplied as an arument
+        /// Is.EquivalentTo returns a constraint that tests whether the actual
+        /// value is a collection containing the same elements as the collection
+        /// supplied as an arument
         /// </summary>
         public static Constraint EquivalentTo( ICollection expected )
         {
@@ -224,9 +225,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// Is.SubsetOf returns a constraint that tests whether
-        /// the actual value is a subset of the collection 
-        /// supplied as an arument
+        /// Is.SubsetOf returns a constraint that tests whether the actual value
+        /// is a subset of the collection supplied as an arument
         /// </summary>
         public static Constraint SubsetOf( ICollection expected )
         {
@@ -240,8 +240,8 @@ namespace Ensurance.SyntaxHelpers
 
 
     /// <summary>
-    /// The Iz class is a synonym for Is intended for use in VB,
-    /// which regards Is as a keyword.
+    /// The Iz class is a synonym for Is intended for use in VB, which regards
+    /// Is as a keyword.
     /// </summary>
     public class Iz : Is
     {

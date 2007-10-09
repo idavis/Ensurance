@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -61,8 +60,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Set all modifiers applied to the prefix into
-        /// the base constraint before matching
+        /// Set all modifiers applied to the prefix into the base constraint
+        /// before matching
         /// </summary>
         protected void PassModifiersToBase()
         {
@@ -129,7 +128,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Write the actual value for a failing constraint test to a MessageWriter.
+        /// Write the actual value for a failing constraint test to a
+        /// MessageWriter.
         /// </summary>
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public override void WriteActualValueTo( MessageWriter writer )
@@ -143,8 +143,8 @@ namespace Ensurance.Constraints
     #region AllItemsConstraint
 
     /// <summary>
-    /// AllItemsConstraint applies another constraint to each
-    /// item in a collection, succeeding if they all succeed.
+    /// AllItemsConstraint applies another constraint to each item in a
+    /// collection, succeeding if they all succeed.
     /// </summary>
     public class AllItemsConstraint : PrefixConstraint
     {
@@ -157,8 +157,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Apply the item constraint to each item in the collection,
-        /// failing if any item fails.
+        /// Apply the item constraint to each item in the collection, failing if
+        /// any item fails.
         /// </summary>
         /// <param name="actual"></param>
         /// <returns></returns>
@@ -205,8 +205,8 @@ namespace Ensurance.Constraints
     #region SomeItemsConstraint
 
     /// <summary>
-    /// SomeItemsConstraint applies another constraint to each
-    /// item in a collection, succeeding if any of them succeeds.
+    /// SomeItemsConstraint applies another constraint to each item in a
+    /// collection, succeeding if any of them succeeds.
     /// </summary>
     public class SomeItemsConstraint : PrefixConstraint
     {
@@ -219,8 +219,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Apply the item constraint to each item in the collection,
-        /// failing if any item fails.
+        /// Apply the item constraint to each item in the collection, failing if
+        /// any item fails.
         /// </summary>
         /// <param name="actual"></param>
         /// <returns></returns>
@@ -267,8 +267,8 @@ namespace Ensurance.Constraints
     #region NoItemConstraint
 
     /// <summary>
-    /// SomeItemsConstraint applies another constraint to each
-    /// item in a collection, succeeding if any of them succeeds.
+    /// SomeItemsConstraint applies another constraint to each item in a
+    /// collection, succeeding if any of them succeeds.
     /// </summary>
     public class NoItemConstraint : PrefixConstraint
     {
@@ -281,8 +281,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Apply the item constraint to each item in the collection,
-        /// failing if any item fails.
+        /// Apply the item constraint to each item in the collection, failing if
+        /// any item fails.
         /// </summary>
         /// <param name="actual"></param>
         /// <returns></returns>

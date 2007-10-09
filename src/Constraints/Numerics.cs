@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -36,8 +35,8 @@ namespace Ensurance.Constraints
         #region Numeric Type Recognition
 
         /// <summary>
-        /// Checks the type of the object, returning true if
-        /// the object is a numeric type.
+        /// Checks the type of the object, returning true if the object is a
+        /// numeric type.
         /// </summary>
         /// <param name="obj">The object to check</param>
         /// <returns>true if the object is a numeric type</returns>
@@ -47,8 +46,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Checks the type of the object, returning true if
-        /// the object is a floating point numeric type.
+        /// Checks the type of the object, returning true if the object is a
+        /// floating point numeric type.
         /// </summary>
         /// <param name="obj">The object to check</param>
         /// <returns>true if the object is a floating point numeric type</returns>
@@ -78,8 +77,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Checks the type of the object, returning true if
-        /// the object is a fixed point numeric type.
+        /// Checks the type of the object, returning true if the object is a
+        /// fixed point numeric type.
         /// </summary>
         /// <param name="obj">The object to check</param>
         /// <returns>true if the object is a fixed point numeric type</returns>
@@ -201,9 +200,9 @@ namespace Ensurance.Constraints
             {
                 return true;
             }
-            // handle infinity specially since subtracting two infinite values gives 
-            // NaN and the following test fails. mono also needs NaN to be handled
-            // specially although ms.net could use either method.
+            // handle infinity specially since subtracting two infinite values
+            // gives NaN and the following test fails. mono also needs NaN to be
+            // handled specially although ms.net could use either method.
             if ( double.IsInfinity( expected ) || double.IsNaN( expected ) || double.IsNaN( actual ) )
             {
                 return expected.Equals( actual );

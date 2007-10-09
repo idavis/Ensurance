@@ -1,30 +1,28 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
 
 using System;
 using System.Collections;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using Ensurance.Constraints;
@@ -32,13 +30,13 @@ using Ensurance.Constraints;
 namespace Ensurance.MessageWriters
 {
     /// <summary>
-    /// TextMessageWriter writes constraint descriptions and messages
-    /// in displayable form as a text stream. It tailors the display
-    /// of individual message components to form the standard message
-    /// format of NUnit assertion failure messages.
+    /// TextMessageWriter writes constraint descriptions and messages in
+    /// displayable form as a text stream. It tailors the display of individual
+    /// message components to form the standard message format of NUnit
+    /// assertion failure messages.
     /// </summary>
 #if !DEBUG
-    [DebuggerNonUserCode]
+    [System.Diagnostics.DebuggerNonUserCode]
 #endif
     public class TextMessageWriter : MessageWriter
     {
@@ -78,14 +76,16 @@ namespace Ensurance.MessageWriters
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextMessageWriter"/> class.
+        /// Initializes a new instance of the <see cref="TextMessageWriter"/>
+        /// class.
         /// </summary>
         public TextMessageWriter()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextMessageWriter"/> class.
+        /// Initializes a new instance of the <see cref="TextMessageWriter"/>
+        /// class.
         /// </summary>
         /// <param name="textWriter">The textWriter.</param>
         public TextMessageWriter( TextWriter textWriter ) : base( textWriter )
@@ -133,9 +133,9 @@ namespace Ensurance.MessageWriters
         }
 
         /// <summary>
-        /// Display Expected and Actual lines for a constraint. This
-        /// is called by MessageWriter's default implementation of 
-        /// WriteMessageTo and provides the generic two-line display. 
+        /// Display Expected and Actual lines for a constraint. This is called
+        /// by MessageWriter's default implementation of WriteMessageTo and
+        /// provides the generic two-line display. 
         /// </summary>
         /// <param name="constraint">The constraint that failed</param>
         public override void DisplayDifferences( Constraint constraint )
@@ -145,10 +145,10 @@ namespace Ensurance.MessageWriters
         }
 
         /// <summary>
-        /// Display Expected and Actual lines for given values. This
-        /// method may be called by constraints that need more control over
-        /// the display of actual and expected values than is provided
-        /// by the default implementation.
+        /// Display Expected and Actual lines for given values. This method may
+        /// be called by constraints that need more control over the display of
+        /// actual and expected values than is provided by the default
+        /// implementation.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value causing the failure</param>
@@ -159,8 +159,8 @@ namespace Ensurance.MessageWriters
         }
 
         /// <summary>
-        /// Display Expected and Actual lines for given values, including
-        /// a tolerance value on the expected line.
+        /// Display Expected and Actual lines for given values, including a
+        /// tolerance value on the expected line.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value causing the failure</param>
@@ -172,9 +172,9 @@ namespace Ensurance.MessageWriters
         }
 
         /// <summary>
-        /// Display the expected and actual string values on separate lines.
-        /// If the mismatch parameter is >=0, an additional line is displayed
-        /// line containing a caret that points to the mismatch point.
+        /// Display the expected and actual string values on separate lines. If
+        /// the mismatch parameter is >=0, an additional line is displayed line
+        /// containing a caret that points to the mismatch point.
         /// </summary>
         /// <param name="expected">The expected string value</param>
         /// <param name="actual">The actual string value</param>
@@ -190,7 +190,8 @@ namespace Ensurance.MessageWriters
             expected = MsgUtils.ConvertWhitespace( MsgUtils.ClipString( expected, maxStringLength, mismatch ) );
             actual = MsgUtils.ConvertWhitespace( MsgUtils.ClipString( actual, maxStringLength, mismatch ) );
 
-            // The mismatch position may have changed due to clipping or white space conversion
+            // The mismatch position may have changed due to clipping or white
+            // space conversion
             mismatch = MsgUtils.FindMismatchPosition( expected, actual, 0, ignoreCase );
 
             TextWriter.Write( Pfx_Expected );
@@ -316,8 +317,8 @@ namespace Ensurance.MessageWriters
         }
 
         /// <summary>
-        /// Writes the text for a collection value,
-        /// starting at a particular point, to a max length
+        /// Writes the text for a collection value, starting at a particular
+        /// point, to a max length
         /// </summary>
         /// <param name="collection">The collection containing elements to write.</param>
         /// <param name="start">The starting point of the elements to write</param>
@@ -504,8 +505,7 @@ namespace Ensurance.MessageWriters
         }
 
         /// <summary>
-        /// Write the generic 'Expected' line for a given value
-        /// and tolerance.
+        /// Write the generic 'Expected' line for a given value and tolerance.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="tolerance">The tolerance within which the test was made</param>
@@ -542,7 +542,8 @@ namespace Ensurance.MessageWriters
 
         private void WriteCaretLine( int mismatch )
         {
-            // We subtract 2 for the initial 2 blanks and add back 1 for the initial quote
+            // We subtract 2 for the initial 2 blanks and add back 1 for the
+            // initial quote
             TextWriter.WriteLine( "  {0}^", new string( '-', PrefixLength + mismatch - 2 + 1 ) );
         }
 
@@ -552,12 +553,12 @@ namespace Ensurance.MessageWriters
         /// Handles an Ensurance failure for the given constraint. Implementors
         /// should always call
         /// <code>
-        /// if( successor != null)
-        /// {
-        /// successor.Handle( constraint, message, args );
+        /// if( successor != null ) {
+        ///    successor.Handle( constraint, message, args ); 
         /// }
         /// </code>
-        /// So that the downstream handler can have a chance to process the failure.
+        /// So that the downstream handler can have a chance to process the
+        /// failure.
         /// </summary>
         /// <param name="constraint">The constraint.</param>
         /// <param name="message">The message.</param>

@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -34,8 +33,8 @@ namespace Ensurance.Constraints
     #region CollectionConstraint
 
     /// <summary>
-    /// CollectionConstraint is the abstract base class for
-    /// constraints that operate on collections.
+    /// CollectionConstraint is the abstract base class for constraints that
+    /// operate on collections.
     /// </summary>
     public abstract class CollectionConstraint : Constraint
     {
@@ -67,15 +66,15 @@ namespace Ensurance.Constraints
         #region Nested type: CollectionTally
 
         /// <summary>
-        /// CollectionTally counts (tallies) the number of
-        /// occurences of each object in one or more enuerations.
+        /// CollectionTally counts (tallies) the number of occurences of each
+        /// object in one or more enuerations.
         /// </summary>
         protected internal class CollectionTally
         {
             // Internal dictionary used to count occurences
 
-            // We use this for any null entries found, since
-            // the key to a dictionary may not be null.
+            // We use this for any null entries found, since the key to a
+            // dictionary may not be null.
             private static object NULL = new object();
             private Dictionary<object, int> _tallyDictionary = new Dictionary<object, int>();
 
@@ -92,7 +91,8 @@ namespace Ensurance.Constraints
             }
 
             /// <summary>
-            /// Get the count of the number of times an object is present in the tally
+            /// Get the count of the number of times an object is present in the
+            /// tally
             /// </summary>
             public int this[ object obj ]
             {
@@ -132,9 +132,9 @@ namespace Ensurance.Constraints
             }
 
             /// <summary>
-            /// Remove the counts for a collection from the tally,
-            /// so long as their are sufficient items to remove.
-            /// The tallies are not permitted to become negative.
+            /// Remove the counts for a collection from the tally, so long as
+            /// their are sufficient items to remove. The tallies are not
+            /// permitted to become negative.
             /// </summary>
             /// <param name="c">The collection to remove</param>
             /// <returns>True if there were enough items to remove, otherwise false</returns>
@@ -183,14 +183,14 @@ namespace Ensurance.Constraints
     #region UniqueItemsConstraint
 
     /// <summary>
-    /// UniqueItemsConstraint tests whether all the items in a 
-    /// collection are unique.
+    /// UniqueItemsConstraint tests whether all the items in a collection are
+    /// unique.
     /// </summary>
     public class UniqueItemsConstraint : CollectionConstraint
     {
         /// <summary>
-        /// Apply the item constraint to each item in the collection,
-        /// failing if any item fails.
+        /// Apply the item constraint to each item in the collection, failing if
+        /// any item fails.
         /// </summary>
         /// <param name="actual"></param>
         /// <returns></returns>
@@ -329,8 +329,8 @@ namespace Ensurance.Constraints
     #region CollectionSubsetConstraint
 
     /// <summary>
-    /// CollectionSubsetConstraint is used to determine whether
-    /// one collection is a subset of another
+    /// CollectionSubsetConstraint is used to determine whether one collection
+    /// is a subset of another
     /// </summary>
     public class CollectionSubsetConstraint : CollectionConstraint
     {
@@ -346,8 +346,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Test whether the actual collection is a subset of 
-        /// the expected collection provided.
+        /// Test whether the actual collection is a subset of the expected
+        /// collection provided.
         /// </summary>
         /// <param name="actual"></param>
         /// <returns></returns>

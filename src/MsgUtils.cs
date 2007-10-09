@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -37,9 +36,9 @@ namespace Ensurance
         private const string ELLIPSIS = "...";
 
         /// <summary>
-        /// Returns the representation of a type as used in NUnitLite.
-        /// This is the same as Type.ToString() except for arrays,
-        /// which are displayed with their declared sizes.
+        /// Returns the representation of a type as used in NUnitLite. This is
+        /// the same as Type.ToString() except for arrays, which are displayed
+        /// with their declared sizes.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -80,8 +79,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Converts any control characters in a string 
-        /// to their escaped representation.
+        /// Converts any control characters in a string to their escaped
+        /// representation.
         /// </summary>
         /// <param name="s">The string to be converted</param>
         /// <returns>The converted string</returns>
@@ -98,7 +97,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Return the a string representation for a set of indices into an array
+        /// Return the a string representation for a set of indices into an
+        /// array
         /// </summary>
         /// <param name="indices">Array of indices for which a string is needed</param>
         public static string GetArrayIndicesAsString( int[] indices )

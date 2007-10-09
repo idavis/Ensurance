@@ -6,8 +6,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95D8FD5D-BA9A-4DF7-817F-7D77EFC2901B}"
 	ProjectSection(SolutionItems) = preProject
 		Ensurance.vsmdi = Ensurance.vsmdi
-		Ensurance1.vsmdi = Ensurance1.vsmdi
-		Ensurance2.vsmdi = Ensurance2.vsmdi
 		localtestrun.testrunconfig = localtestrun.testrunconfig
 	EndProjectSection
 EndProject
@@ -23,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBed", "samples\TestBed\
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = Ensurance1.vsmdi
+		CategoryFile = Ensurance.vsmdi
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Code Analysis|Any CPU = Code Analysis|Any CPU

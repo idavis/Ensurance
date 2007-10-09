@@ -38,7 +38,7 @@ namespace ExtendingFluentInterface
             // 3. Declare a preprocessor to make your code non user if you do not want
             // debugging to enter your code
 #if !DEBUG
-            [DebuggerNonUserCode]
+            [System.Diagnostics.DebuggerNonUserCode]
 #endif
             // 4. Declare your class. You can make it partial if you like, but it is not
             // required. You must extend EnsuranceHandlerContainer specifying a class

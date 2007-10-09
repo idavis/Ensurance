@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -38,7 +37,8 @@ namespace Ensurance.Constraints
         private object _propValue;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyConstraint"/> class.
+        /// Initializes a new instance of the <see cref="PropertyConstraint"/>
+        /// class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="baseConstraint">The constraint to apply to the property.</param>
@@ -95,9 +95,8 @@ namespace Ensurance.Constraints
 
         /// <summary>
         /// Write the actual value for a failing constraint test to a
-        /// MessageWriter. The default implementation simply writes
-        /// the raw value of actual, leaving it to the writer to
-        /// perform any formatting.
+        /// MessageWriter. The default implementation simply writes the raw
+        /// value of actual, leaving it to the writer to perform any formatting.
         /// </summary>
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public override void WriteActualValueTo( MessageWriter writer )

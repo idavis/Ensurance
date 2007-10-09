@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -32,14 +31,13 @@ using Ensurance.Constraints;
 namespace Ensurance.MessageWriters
 {
     /// <summary>
-    /// MessageWriter is the abstract base for classes that write
-    /// constraint descriptions and messages in some form. The
-    /// class has separate methods for writing various components
-    /// of a message, allowing implementations to tailor the
-    /// presentation as needed.
+    /// MessageWriter is the abstract base for classes that write constraint
+    /// descriptions and messages in some form. The class has separate methods
+    /// for writing various components of a message, allowing implementations to
+    /// tailor the presentation as needed.
     /// </summary>
 #if !DEBUG
-    [DebuggerNonUserCode]
+    [System.Diagnostics.DebuggerNonUserCode]
 #endif
 
     public abstract class MessageWriter : IEnsuranceResponsibilityChainLink, IDisposable
@@ -86,12 +84,12 @@ namespace Ensurance.MessageWriters
         /// Handles an Ensurance failure for the given constraint. Implementors
         /// should always call
         /// <code>
-        /// if( successor != null)
-        /// {
+        /// if( successor != null) {
         ///     successor.Handle( constraint, message, args );
         /// }
         /// </code>
-        /// So that the downstream handler can have a chance to process the failure.
+        /// So that the downstream handler can have a chance to process the
+        /// failure.
         /// </summary>
         /// <param name="constraint">The constraint.</param>
         /// <param name="message">The message.</param>
@@ -122,26 +120,26 @@ namespace Ensurance.MessageWriters
         public abstract void WriteMessageLine( int level, string message, params object[] args );
 
         /// <summary>
-        /// Display Expected and Actual lines for a constraint. This
-        /// is called by MessageWriter's default implementation of 
-        /// WriteMessageTo and provides the generic two-line display. 
+        /// Display Expected and Actual lines for a constraint. This is called
+        /// by MessageWriter's default implementation of WriteMessageTo and
+        /// provides the generic two-line display. 
         /// </summary>
         /// <param name="constraint">The constraint that failed</param>
         public abstract void DisplayDifferences( Constraint constraint );
 
         /// <summary>
-        /// Display Expected and Actual lines for given values. This
-        /// method may be called by constraints that need more control over
-        /// the display of actual and expected values than is provided
-        /// by the default implementation.
+        /// Display Expected and Actual lines for given values. This method may
+        /// be called by constraints that need more control over the display of
+        /// actual and expected values than is provided by the default
+        /// implementation.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value causing the failure</param>
         public abstract void DisplayDifferences( object expected, object actual );
 
         /// <summary>
-        /// Display Expected and Actual lines for given values, including
-        /// a tolerance value on the Expected line.
+        /// Display Expected and Actual lines for given values, including a
+        /// tolerance value on the Expected line.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value causing the failure</param>
@@ -149,9 +147,9 @@ namespace Ensurance.MessageWriters
         public abstract void DisplayDifferences( object expected, object actual, object tolerance );
 
         /// <summary>
-        /// Display the expected and actual string values on separate lines.
-        /// If the mismatch parameter is >=0, an additional line is displayed
-        /// line containing a caret that points to the mismatch point.
+        /// Display the expected and actual string values on separate lines. If
+        /// the mismatch parameter is >=0, an additional line is displayed line
+        /// containing a caret that points to the mismatch point.
         /// </summary>
         /// <param name="expected">The expected string value</param>
         /// <param name="actual">The actual string value</param>
@@ -196,8 +194,8 @@ namespace Ensurance.MessageWriters
         public abstract void WriteValue( object val );
 
         /// <summary>
-        /// Writes the text for a collection value,
-        /// starting at a particular point, to a max length
+        /// Writes the text for a collection value, starting at a particular
+        /// point, to a max length
         /// </summary>
         /// <param name="collection">The collection containing elements to write.</param>
         /// <param name="start">The starting point of the elements to write</param>
@@ -205,10 +203,12 @@ namespace Ensurance.MessageWriters
         public abstract void WriteCollectionElements( ICollection collection, int start, int max );
 
         /// <summary>
-        /// Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+        /// Returns a <see cref="T:System.String"></see> that represents the
+        /// current <see cref="T:System.Object"></see>.
         /// </summary>
         /// <returns>
-        /// A <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+        /// A <see cref="T:System.String"></see> that represents the current
+        /// <see cref="T:System.Object"></see>.
         /// </returns>
         public override string ToString()
         {

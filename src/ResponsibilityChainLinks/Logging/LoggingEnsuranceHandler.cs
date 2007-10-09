@@ -1,29 +1,27 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
 
 using System;
-using System.Diagnostics;
 using System.Globalization;
 using Ensurance.Constraints;
 using Ensurance.MessageWriters;
@@ -31,7 +29,7 @@ using Ensurance.MessageWriters;
 namespace Ensurance.ResponsibilityChainLinks.Logging
 {
 #if !DEBUG
-    [DebuggerNonUserCode]
+    [System.Diagnostics.DebuggerNonUserCode]
 #endif
     public class LoggingEnsuranceHandler : IEnsuranceResponsibilityChainLink
     {
@@ -40,14 +38,16 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
         private IEnsuranceResponsibilityChainLink _successor;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoggingEnsuranceHandler"/> class.
+        /// Initializes a new instance of the <see
+        /// cref="LoggingEnsuranceHandler"/> class.
         /// </summary>
         public LoggingEnsuranceHandler() : this( new Log4NetEnsuranceLogger() )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoggingEnsuranceHandler"/> class.
+        /// Initializes a new instance of the <see
+        /// cref="LoggingEnsuranceHandler"/> class.
         /// </summary>
         /// <param name="logger">The logger.</param>
         public LoggingEnsuranceHandler( IEnsuranceLogger logger ) : this( logger, LogSeverity.Error )
@@ -55,7 +55,8 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoggingEnsuranceHandler"/> class.
+        /// Initializes a new instance of the <see
+        /// cref="LoggingEnsuranceHandler"/> class.
         /// </summary>
         /// <param name="logger">The logger.</param>
         /// <param name="logSeverity">The log severity.</param>
@@ -90,12 +91,12 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
         /// should always call
         /// <code>
         /// IEnsuranceResponsibilityChainLink handler = successor;
-        /// if( handler != null)
-        /// {
+        /// if( handler != null ) {
         ///     handler.Handle( constraint, message, args );
         /// }
         /// </code>
-        /// So that the downstream handler can have a chance to process the failure.
+        /// So that the downstream handler can have a chance to process the
+        /// failure.
         /// </summary>
         /// <param name="constraint">The constraint.</param>
         /// <param name="message">The message.</param>

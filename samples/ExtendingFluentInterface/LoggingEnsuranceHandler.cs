@@ -34,7 +34,7 @@ namespace ExtendingFluentInterface
     // 2. Declare a preprocessor to make your code non user if you do not want
     // debugging to enter your code
 #if !DEBUG
-    [DebuggerNonUserCode]
+    [System.Diagnostics.DebuggerNonUserCode]
 #endif
 
     internal class LoggingEnsuranceHandler : IEnsuranceHandler

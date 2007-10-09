@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -30,15 +29,16 @@ using Ensurance.MessageWriters;
 namespace Ensurance.Constraints
 {
     /// <summary>
-    /// SubstringConstraint can test whether a string contains
-    /// the expected substring.
+    /// SubstringConstraint can test whether a string contains the expected
+    /// substring.
     /// </summary>
     public class SubstringConstraint : Constraint
     {
         private string _expected;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SubstringConstraint"/> class.
+        /// Initializes a new instance of the <see cref="SubstringConstraint"/>
+        /// class.
         /// </summary>
         /// <param name="expected">The expected.</param>
         public SubstringConstraint( string expected )
@@ -91,15 +91,16 @@ namespace Ensurance.Constraints
     }
 
     /// <summary>
-    /// StartsWithConstraint can test whether a string starts
-    /// with an expected substring.
+    /// StartsWithConstraint can test whether a string starts with an expected
+    /// substring.
     /// </summary>
     public class StartsWithConstraint : Constraint
     {
         private string _expected;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StartsWithConstraint"/> class.
+        /// Initializes a new instance of the <see cref="StartsWithConstraint"/>
+        /// class.
         /// </summary>
         /// <param name="expected">The expected string</param>
         public StartsWithConstraint( string expected )
@@ -108,9 +109,9 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Test whether the constraint is matched by the actual value.
-        /// This is a template method, which calls the IsMatch method
-        /// of the derived class.
+        /// Test whether the constraint is matched by the actual value. This is
+        /// a template method, which calls the IsMatch method of the derived
+        /// class.
         /// </summary>
         /// <param name="actual"></param>
         /// <returns></returns>
@@ -154,15 +155,16 @@ namespace Ensurance.Constraints
     }
 
     /// <summary>
-    /// EndsWithConstraint can test whether a string ends
-    /// with an expected substring.
+    /// EndsWithConstraint can test whether a string ends with an expected
+    /// substring.
     /// </summary>
     public class EndsWithConstraint : Constraint
     {
         private string _expected;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EndsWithConstraint"/> class.
+        /// Initializes a new instance of the <see cref="EndsWithConstraint"/>
+        /// class.
         /// </summary>
         /// <param name="expected">The expected string</param>
         public EndsWithConstraint( string expected )
@@ -171,9 +173,9 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Test whether the constraint is matched by the actual value.
-        /// This is a template method, which calls the IsMatch method
-        /// of the derived class.
+        /// Test whether the constraint is matched by the actual value. This is
+        /// a template method, which calls the IsMatch method of the derived
+        /// class.
         /// </summary>
         /// <param name="actual"></param>
         /// <returns></returns>
@@ -217,15 +219,15 @@ namespace Ensurance.Constraints
     }
 
     /// <summary>
-    /// RegexConstraint can test whether a string matches
-    /// the pattern provided.
+    /// RegexConstraint can test whether a string matches the pattern provided.
     /// </summary>
     public class RegexConstraint : Constraint
     {
         private string _pattern;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegexConstraint"/> class.
+        /// Initializes a new instance of the <see cref="RegexConstraint"/>
+        /// class.
         /// </summary>
         /// <param name="pattern">The pattern.</param>
         public RegexConstraint( string pattern )

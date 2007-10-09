@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -34,11 +33,11 @@ using Ensurance.SyntaxHelpers;
 namespace Ensurance
 {
     /// <summary>
-    /// The Assert class contains a collection of static methods that
-    /// implement the most common assertions used in NUnit.
+    /// The Assert class contains a collection of static methods that implement
+    /// the most common assertions used in NUnit.
     /// </summary>
 #if !DEBUG
-    [DebuggerNonUserCode]
+    [System.Diagnostics.DebuggerNonUserCode]
 #endif
 
     [EditorBrowsable( EditorBrowsableState.Never )]
@@ -66,8 +65,8 @@ namespace Ensurance
         #region Equals and ReferenceEquals
 
         /// <summary>
-        /// The Equals method throws an EnsuranceException. This is done 
-        /// to make sure there is no mistake by calling this function.
+        /// The Equals method throws an EnsuranceException. This is done to make
+        /// sure there is no mistake by calling this function.
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -78,8 +77,9 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// override the default ReferenceEquals to throw an EnsuranceException. This 
-        /// implementation makes sure there is no mistake in calling this function.
+        /// override the default ReferenceEquals to throw an EnsuranceException.
+        /// This implementation makes sure there is no mistake in calling this
+        /// function.
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -93,8 +93,8 @@ namespace Ensurance
         #region IsTrue
 
         /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is true. If the condition is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary> 
         /// <param name="condition">The evaluated condition</param>
         /// <param name="message">The message to display if the condition is false</param>
@@ -105,8 +105,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is true. If the condition is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="condition">The evaluated condition</param>
         /// <param name="message">The message to display if the condition is false</param>
@@ -116,8 +116,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is true. If the condition is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="condition">The evaluated condition</param>
         public static void IsTrue( bool condition )
@@ -130,8 +130,8 @@ namespace Ensurance
         #region IsFalse
 
         /// <summary>
-        /// Asserts that a condition is false. If the condition is true the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is false. If the condition is true the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="condition">The evaluated condition</param>
         /// <param name="message">The message to display if the condition is true</param>
@@ -142,8 +142,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is false. If the condition is true the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is false. If the condition is true the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="condition">The evaluated condition</param>
         /// <param name="message">The message to display if the condition is true</param>
@@ -153,8 +153,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is false. If the condition is true the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is false. If the condition is true the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="condition">The evaluated condition</param>
         public static void IsFalse( bool condition )
@@ -167,9 +167,9 @@ namespace Ensurance
         #region IsNotNull
 
         /// <summary>
-        /// Verifies that the object that is passed in is not equal to <code>null</code>
-        /// If the object is <code>null</code> then an <see cref="EnsuranceException"/>
-        /// is thrown.
+        /// Verifies that the object that is passed in is not equal to
+        /// <code>null</code> If the object is <code>null</code> then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="actual">The object that is to be tested</param>
         /// <param name="message">The message to be displayed when the object is null</param>
@@ -180,9 +180,9 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the object that is passed in is not equal to <code>null</code>
-        /// If the object is <code>null</code> then an <see cref="EnsuranceException"/>
-        /// is thrown.
+        /// Verifies that the object that is passed in is not equal to
+        /// <code>null</code> If the object is <code>null</code> then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="actual">The object that is to be tested</param>
         /// <param name="message">The message to be displayed when the object is null</param>
@@ -192,9 +192,9 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the object that is passed in is not equal to <code>null</code>
-        /// If the object is <code>null</code> then an <see cref="EnsuranceException"/>
-        /// is thrown.
+        /// Verifies that the object that is passed in is not equal to
+        /// <code>null</code> If the object is <code>null</code> then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="actual">The object that is to be tested</param>
         public static void IsNotNull( object actual )
@@ -207,8 +207,9 @@ namespace Ensurance
         #region IsNull
 
         /// <summary>
-        /// Verifies that the object that is passed in is equal to <code>null</code>
-        /// If the object is not <code>null</code> then an <see cref="EnsuranceException"/>
+        /// Verifies that the object that is passed in is equal to
+        /// <code>null</code> If the object is not <code>null</code> then an
+        /// <see cref="EnsuranceException"/>
         /// is thrown.
         /// </summary>
         /// <param name="actual">The object that is to be tested</param>
@@ -220,8 +221,9 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the object that is passed in is equal to <code>null</code>
-        /// If the object is not <code>null</code> then an <see cref="EnsuranceException"/>
+        /// Verifies that the object that is passed in is equal to
+        /// <code>null</code> If the object is not <code>null</code> then an
+        /// <see cref="EnsuranceException"/>
         /// is thrown.
         /// </summary>
         /// <param name="actual">The object that is to be tested</param>
@@ -232,9 +234,9 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the object that is passed in is equal to <code>null</code>
-        /// If the object is not null <code>null</code> then an <see cref="EnsuranceException"/>
-        /// is thrown.
+        /// Verifies that the object that is passed in is equal to
+        /// <code>null</code> If the object is not null <code>null</code> then
+        /// an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="actual">The object that is to be tested</param>
         public static void IsNull( object actual )
@@ -247,9 +249,9 @@ namespace Ensurance
         #region IsNaN
 
         /// <summary>
-        /// Verifies that the double is passed is an <code>NaN</code> value.
-        /// If the object is not <code>NaN</code> then an <see cref="EnsuranceException"/>
-        /// is thrown.
+        /// Verifies that the double is passed is an <code>NaN</code> value. If
+        /// the object is not <code>NaN</code> then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="aDouble">The value that is to be tested</param>
         /// <param name="message">The message to be displayed when the object is not null</param>
@@ -260,9 +262,9 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the double is passed is an <code>NaN</code> value.
-        /// If the object is not <code>NaN</code> then an <see cref="EnsuranceException"/>
-        /// is thrown.
+        /// Verifies that the double is passed is an <code>NaN</code> value. If
+        /// the object is not <code>NaN</code> then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="aDouble">The object that is to be tested</param>
         /// <param name="message">The message to be displayed when the object is not null</param>
@@ -272,9 +274,9 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the double is passed is an <code>NaN</code> value.
-        /// If the object is not <code>NaN</code> then an <see cref="EnsuranceException"/>
-        /// is thrown.
+        /// Verifies that the double is passed is an <code>NaN</code> value. If
+        /// the object is not <code>NaN</code> then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="aDouble">The object that is to be tested</param>
         public static void IsNaN( double aDouble )
@@ -351,7 +353,8 @@ namespace Ensurance
         #region IsNotEmpty
 
         /// <summary>
-        /// Assert that a string is not empty - that is not equal to string.Empty
+        /// Assert that a string is not empty - that is not equal to
+        /// string.Empty
         /// </summary>
         /// <param name="actual">The string to be tested</param>
         /// <param name="message">The message to be displayed on failure</param>
@@ -565,8 +568,8 @@ namespace Ensurance
         #region Ints
 
         /// <summary>
-        /// Verifies that two ints are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two ints are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -579,8 +582,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two ints are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two ints are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -591,8 +594,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two ints are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two ints are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -606,8 +609,8 @@ namespace Ensurance
         #region Longs
 
         /// <summary>
-        /// Verifies that two longs are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two longs are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -620,8 +623,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two longs are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two longs are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -632,8 +635,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two longs are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two longs are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -647,8 +650,8 @@ namespace Ensurance
         #region UInts
 
         /// <summary>
-        /// Verifies that two uints are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two uints are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -662,8 +665,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two uints are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two uints are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -675,8 +678,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two uints are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two uints are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -691,8 +694,8 @@ namespace Ensurance
         #region Ulongs
 
         /// <summary>
-        /// Verifies that two ulongs are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two ulongs are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -706,8 +709,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two ulongs are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two ulongs are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -719,8 +722,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two ulongs are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two ulongs are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -735,8 +738,8 @@ namespace Ensurance
         #region Decimals
 
         /// <summary>
-        /// Verifies that two decimals are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two decimals are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -749,8 +752,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two decimal are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two decimal are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -761,8 +764,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that two decimals are equal. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that two decimals are equal. If they are not, then an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -777,9 +780,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that two doubles are equal considering a delta. If the
-        /// expected value is infinity then the delta value is ignored. If 
-        /// they are not equals then an <see cref="EnsuranceException"/> is
-        /// thrown.
+        /// expected value is infinity then the delta value is ignored. If they
+        /// are not equals then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -802,9 +804,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that two doubles are equal considering a delta. If the
-        /// expected value is infinity then the delta value is ignored. If 
-        /// they are not equals then an <see cref="EnsuranceException"/> is
-        /// thrown.
+        /// expected value is infinity then the delta value is ignored. If they
+        /// are not equals then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -819,9 +820,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that two doubles are equal considering a delta. If the
-        /// expected value is infinity then the delta value is ignored. If 
-        /// they are not equals then an <see cref="EnsuranceException"/> is
-        /// thrown.
+        /// expected value is infinity then the delta value is ignored. If they
+        /// are not equals then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -838,9 +838,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that two floats are equal considering a delta. If the
-        /// expected value is infinity then the delta value is ignored. If 
-        /// they are not equals then an <see cref="EnsuranceException"/> is
-        /// thrown.
+        /// expected value is infinity then the delta value is ignored. If they
+        /// are not equals then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -863,9 +862,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that two floats are equal considering a delta. If the
-        /// expected value is infinity then the delta value is ignored. If 
-        /// they are not equals then an <see cref="EnsuranceException"/> is
-        /// thrown.
+        /// expected value is infinity then the delta value is ignored. If they
+        /// are not equals then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -879,9 +877,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that two floats are equal considering a delta. If the
-        /// expected value is infinity then the delta value is ignored. If 
-        /// they are not equals then an <see cref="EnsuranceException"/> is
-        /// thrown.
+        /// expected value is infinity then the delta value is ignored. If they
+        /// are not equals then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected value</param>
         /// <param name="actual">The actual value</param>
@@ -915,8 +912,8 @@ namespace Ensurance
         /// <summary>
         /// Verifies that two objects are equal.  Two objects are considered
         /// equal if both are null, or if both have the same value.  All
-        /// non-numeric types are compared by using the <c>Equals</c> method.
-        /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+        /// non-numeric types are compared by using the <c>Equals</c> method. If
+        /// they are not equal an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The value that is expected</param>
         /// <param name="actual">The actual value</param>
@@ -929,8 +926,8 @@ namespace Ensurance
         /// <summary>
         /// Verifies that two objects are equal.  Two objects are considered
         /// equal if both are null, or if both have the same value.  All
-        /// non-numeric types are compared by using the <c>Equals</c> method.
-        /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+        /// non-numeric types are compared by using the <c>Equals</c> method. If
+        /// they are not equal an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The value that is expected</param>
         /// <param name="actual">The actual value</param>
@@ -948,8 +945,8 @@ namespace Ensurance
         #region Objects
 
         /// <summary>
-        /// Asserts that two objects are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two objects are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -961,8 +958,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two objects are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two objects are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -973,8 +970,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two objects are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two objects are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -988,8 +985,8 @@ namespace Ensurance
         #region Ints
 
         /// <summary>
-        /// Asserts that two ints are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two ints are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1001,8 +998,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two ints are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two ints are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1013,8 +1010,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two ints are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two ints are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1028,8 +1025,8 @@ namespace Ensurance
         #region Longs
 
         /// <summary>
-        /// Asserts that two longss are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two longss are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1041,8 +1038,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two longs are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two longs are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1053,8 +1050,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two longs are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two longs are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1068,8 +1065,8 @@ namespace Ensurance
         #region UInts
 
         /// <summary>
-        /// Asserts that two uints are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two uints are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1082,8 +1079,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two uints are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two uints are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1095,8 +1092,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two uints are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two uints are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1111,8 +1108,8 @@ namespace Ensurance
         #region Ulongs
 
         /// <summary>
-        /// Asserts that two ulongs are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two ulongs are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1125,8 +1122,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two ulongs are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two ulongs are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1138,8 +1135,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two ulong are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two ulong are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1154,8 +1151,8 @@ namespace Ensurance
         #region Decimals
 
         /// <summary>
-        /// Asserts that two decimals are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two decimals are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1167,8 +1164,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two decimals are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two decimals are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1179,8 +1176,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two decimals are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two decimals are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1194,8 +1191,8 @@ namespace Ensurance
         #region Floats
 
         /// <summary>
-        /// Asserts that two floats are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two floats are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1207,8 +1204,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two floats are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two floats are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1219,8 +1216,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two floats are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two floats are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1234,8 +1231,8 @@ namespace Ensurance
         #region Doubles
 
         /// <summary>
-        /// Asserts that two doubles are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two doubles are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1247,8 +1244,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two doubles are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two doubles are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1259,8 +1256,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two doubles are not equal. If they are equal
-        /// an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two doubles are not equal. If they are equal an <see
+        /// cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1276,8 +1273,8 @@ namespace Ensurance
         #region AreSame
 
         /// <summary>
-        /// Asserts that two objects refer to the same object. If they
-        /// are not the same an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two objects refer to the same object. If they are not
+        /// the same an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1289,8 +1286,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two objects refer to the same object. If they
-        /// are not the same an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two objects refer to the same object. If they are not
+        /// the same an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1301,8 +1298,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that two objects refer to the same object. If they
-        /// are not the same an <see cref="EnsuranceException"/> is thrown.
+        /// Asserts that two objects refer to the same object. If they are not
+        /// the same an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
@@ -1358,9 +1355,8 @@ namespace Ensurance
         #region Ints
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an
-        /// <see cref="EnsuranceException"/> is thrown. 
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1373,9 +1369,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1386,9 +1381,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1402,9 +1396,8 @@ namespace Ensurance
         #region UInts
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1418,9 +1411,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1432,9 +1424,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1449,9 +1440,8 @@ namespace Ensurance
         #region Longs
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1464,9 +1454,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1477,9 +1466,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1493,9 +1481,8 @@ namespace Ensurance
         #region ULongs
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1509,9 +1496,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1523,9 +1509,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1540,9 +1525,8 @@ namespace Ensurance
         #region Decimals
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1555,9 +1539,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1568,9 +1551,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1584,9 +1566,8 @@ namespace Ensurance
         #region Doubles
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1599,9 +1580,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1613,9 +1593,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1629,9 +1608,8 @@ namespace Ensurance
         #region Floats
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1644,9 +1622,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1657,9 +1634,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1673,9 +1649,8 @@ namespace Ensurance
         #region IComparables
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1688,9 +1663,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1701,9 +1675,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -1721,9 +1694,8 @@ namespace Ensurance
         #region Ints
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1735,9 +1707,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1748,9 +1719,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1764,9 +1734,8 @@ namespace Ensurance
         #region UInts
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1779,9 +1748,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1793,9 +1761,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1810,9 +1777,8 @@ namespace Ensurance
         #region Longs
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1824,9 +1790,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1837,9 +1802,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1853,9 +1817,8 @@ namespace Ensurance
         #region ULongs
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1868,9 +1831,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1882,9 +1844,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1899,9 +1860,8 @@ namespace Ensurance
         #region Decimals
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1913,9 +1873,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1926,9 +1885,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1942,9 +1900,8 @@ namespace Ensurance
         #region Doubles
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1956,9 +1913,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1969,9 +1925,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1985,9 +1940,8 @@ namespace Ensurance
         #region Floats
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -1999,9 +1953,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2012,9 +1965,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2028,9 +1980,8 @@ namespace Ensurance
         #region IComparables
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2042,9 +1993,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2055,9 +2005,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is less than the second value. If it
+        /// is not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2110,8 +2059,9 @@ namespace Ensurance
         #region Fail
 
         /// <summary>
-        /// Throws an <see cref="EnsuranceException"/> with the message and arguments 
-        /// that are passed in. This is used by the other Assert functions. 
+        /// Throws an <see cref="EnsuranceException"/> with the message and
+        /// arguments that are passed in. This is used by the other Assert
+        /// functions. 
         /// </summary>
         /// <param name="message">The message to initialize the <see cref="EnsuranceException"/> with.</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
@@ -2140,8 +2090,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Throws an <see cref="EnsuranceException"/>. 
-        /// This is used by the other Assert functions. 
+        /// Throws an <see cref="EnsuranceException"/>. This is used by the
+        /// other Assert functions. 
         /// </summary>
         public static void Fail()
         {
@@ -2211,8 +2161,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is true. If the condition is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary> 
         /// <param name="condition">The evaluated condition</param>
         /// <param name="message">The message to display if the condition is false</param>
@@ -2223,8 +2173,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is true. If the condition is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="condition">The evaluated condition</param>
         /// <param name="message">The message to display if the condition is false</param>
@@ -2234,8 +2184,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is true. If the condition is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="condition">The evaluated condition</param>
         public static void That( bool condition )
@@ -2251,8 +2201,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown. 
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown. 
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2266,8 +2216,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2279,8 +2229,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2295,8 +2245,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2311,8 +2261,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2325,8 +2275,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater or equal to than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2342,8 +2292,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2357,8 +2307,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2370,8 +2320,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater or equal to than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2386,8 +2336,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2402,8 +2352,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2416,8 +2366,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater or equal to than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2433,8 +2383,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2448,8 +2398,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2461,8 +2411,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2477,8 +2427,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2492,8 +2442,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2506,8 +2456,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2522,8 +2472,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2537,8 +2487,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2550,8 +2500,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is greater than or equal to the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If they are not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2565,9 +2515,8 @@ namespace Ensurance
         #region IComparables
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2580,9 +2529,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2593,9 +2541,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If they are not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// Verifies that the first value is greater than the second value. If
+        /// they are not, then an <see cref="EnsuranceException"/> is thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
@@ -2614,8 +2561,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2628,8 +2575,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2641,8 +2588,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2657,8 +2604,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2672,8 +2619,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2686,8 +2633,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2703,8 +2650,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2717,8 +2664,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2730,8 +2677,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2746,8 +2693,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2761,8 +2708,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2775,8 +2722,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2792,8 +2739,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2806,8 +2753,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2819,8 +2766,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2835,8 +2782,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2849,8 +2796,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2862,8 +2809,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2878,8 +2825,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2892,8 +2839,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2905,8 +2852,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2921,8 +2868,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2935,8 +2882,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2948,8 +2895,8 @@ namespace Ensurance
 
         /// <summary>
         /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an 
-        /// <see cref="EnsuranceException"/> is thrown.
+        /// value. If it is not, then an <see cref="EnsuranceException"/> is
+        /// thrown.
         /// </summary>
         /// <param name="lhs">The first value, expected to be less</param>
         /// <param name="rhs">The second value, expected to be greater</param>
@@ -2972,8 +2919,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two Streams are equal.  Two Streams are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">The expected Stream</param>
             /// <param name="actual">The actual Stream</param>
@@ -2986,8 +2934,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two Streams are equal.  Two Streams are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">The expected Stream</param>
             /// <param name="actual">The actual Stream</param>
@@ -2999,8 +2948,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two Streams are equal.  Two Streams are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">The expected Stream</param>
             /// <param name="actual">The actual Stream</param>
@@ -3015,8 +2965,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two files are equal.  Two files are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">A file containing the value that is expected</param>
             /// <param name="actual">A file containing the actual value</param>
@@ -3035,8 +2986,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two files are equal.  Two files are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">A file containing the value that is expected</param>
             /// <param name="actual">A file containing the actual value</param>
@@ -3048,8 +3000,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two files are equal.  Two files are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">A file containing the value that is expected</param>
             /// <param name="actual">A file containing the actual value</param>
@@ -3064,8 +3017,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two files are equal.  Two files are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">The path to a file containing the value that is expected</param>
             /// <param name="actual">The path to a file containing the actual value</param>
@@ -3084,8 +3038,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two files are equal.  Two files are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">The path to a file containing the value that is expected</param>
             /// <param name="actual">The path to a file containing the actual value</param>
@@ -3097,8 +3052,9 @@ namespace Ensurance
 
             /// <summary>
             /// Verifies that two files are equal.  Two files are considered
-            /// equal if both are null, or if both have the same value byte for byte.
-            /// If they are not equal an <see cref="EnsuranceException"/> is thrown.
+            /// equal if both are null, or if both have the same value byte for
+            /// byte. If they are not equal an <see cref="EnsuranceException"/>
+            /// is thrown.
             /// </summary>
             /// <param name="expected">The path to a file containing the value that is expected</param>
             /// <param name="actual">The path to a file containing the actual value</param>
@@ -3116,8 +3072,8 @@ namespace Ensurance
             #region Streams
 
             /// <summary>
-            /// Asserts that two Streams are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two Streams are not equal. If they are equal an
+            /// <see cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">The expected Stream</param>
             /// <param name="actual">The actual Stream</param>
@@ -3129,8 +3085,8 @@ namespace Ensurance
             }
 
             /// <summary>
-            /// Asserts that two Streams are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two Streams are not equal. If they are equal an
+            /// <see cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">The expected Stream</param>
             /// <param name="actual">The actual Stream</param>
@@ -3141,8 +3097,8 @@ namespace Ensurance
             }
 
             /// <summary>
-            /// Asserts that two Streams are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two Streams are not equal. If they are equal an
+            /// <see cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">The expected Stream</param>
             /// <param name="actual">The actual Stream</param>
@@ -3156,8 +3112,8 @@ namespace Ensurance
             #region FileInfo
 
             /// <summary>
-            /// Asserts that two files are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two files are not equal. If they are equal an <see
+            /// cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">A file containing the value that is expected</param>
             /// <param name="actual">A file containing the actual value</param>
@@ -3175,8 +3131,8 @@ namespace Ensurance
             }
 
             /// <summary>
-            /// Asserts that two files are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two files are not equal. If they are equal an <see
+            /// cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">A file containing the value that is expected</param>
             /// <param name="actual">A file containing the actual value</param>
@@ -3187,8 +3143,8 @@ namespace Ensurance
             }
 
             /// <summary>
-            /// Asserts that two files are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two files are not equal. If they are equal an <see
+            /// cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">A file containing the value that is expected</param>
             /// <param name="actual">A file containing the actual value</param>
@@ -3202,8 +3158,8 @@ namespace Ensurance
             #region String
 
             /// <summary>
-            /// Asserts that two files are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two files are not equal. If they are equal an <see
+            /// cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">The path to a file containing the value that is expected</param>
             /// <param name="actual">The path to a file containing the actual value</param>
@@ -3221,8 +3177,8 @@ namespace Ensurance
             }
 
             /// <summary>
-            /// Asserts that two files are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two files are not equal. If they are equal an <see
+            /// cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">The path to a file containing the value that is expected</param>
             /// <param name="actual">The path to a file containing the actual value</param>
@@ -3233,8 +3189,8 @@ namespace Ensurance
             }
 
             /// <summary>
-            /// Asserts that two files are not equal. If they are equal
-            /// an <see cref="EnsuranceException"/> is thrown.
+            /// Asserts that two files are not equal. If they are equal an <see
+            /// cref="EnsuranceException"/> is thrown.
             /// </summary>
             /// <param name="expected">The path to a file containing the value that is expected</param>
             /// <param name="actual">The path to a file containing the actual value</param>
@@ -3405,7 +3361,8 @@ namespace Ensurance
             #region IsMatch
 
             /// <summary>
-            /// Asserts that a string matches an expected regular expression pattern.
+            /// Asserts that a string matches an expected regular expression
+            /// pattern.
             /// </summary>
             /// <param name="expected">The expected expression</param>
             /// <param name="actual">The actual string</param>
@@ -3417,7 +3374,8 @@ namespace Ensurance
             }
 
             /// <summary>
-            /// Asserts that a string matches an expected regular expression pattern.
+            /// Asserts that a string matches an expected regular expression
+            /// pattern.
             /// </summary>
             /// <param name="expected">The expected expression</param>
             /// <param name="actual">The actual string</param>
@@ -3428,7 +3386,8 @@ namespace Ensurance
             }
 
             /// <summary>
-            /// Asserts that a string matches an expected regular expression pattern.
+            /// Asserts that a string matches an expected regular expression
+            /// pattern.
             /// </summary>
             /// <param name="expected">The expected expression</param>
             /// <param name="actual">The actual string</param>
@@ -3447,7 +3406,8 @@ namespace Ensurance
         #region AllItemsAreInstancesOfType
 
         /// <summary>
-        /// Asserts that all items contained in collection are of the type specified by expectedType.
+        /// Asserts that all items contained in collection are of the type
+        /// specified by expectedType.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         /// <param name="expectedType">System.Type that all objects in collection must be instances of</param>
@@ -3457,7 +3417,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that all items contained in collection are of the type specified by expectedType.
+        /// Asserts that all items contained in collection are of the type
+        /// specified by expectedType.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         /// <param name="expectedType">System.Type that all objects in collection must be instances of</param>
@@ -3468,7 +3429,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that all items contained in collection are of the type specified by expectedType.
+        /// Asserts that all items contained in collection are of the type
+        /// specified by expectedType.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         /// <param name="expectedType">System.Type that all objects in collection must be instances of</param>
@@ -3484,7 +3446,8 @@ namespace Ensurance
         #region AllItemsAreNotNull
 
         /// <summary>
-        /// Asserts that all items contained in collection are not equal to null.
+        /// Asserts that all items contained in collection are not equal to
+        /// null.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         public static void AllItemsAreNotNull( ICollection collection )
@@ -3493,7 +3456,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that all items contained in collection are not equal to null.
+        /// Asserts that all items contained in collection are not equal to
+        /// null.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         /// <param name="message">The message that will be displayed on failure</param>
@@ -3503,7 +3467,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that all items contained in collection are not equal to null.
+        /// Asserts that all items contained in collection are not equal to
+        /// null.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         /// <param name="message">The message that will be displayed on failure</param>
@@ -3518,8 +3483,8 @@ namespace Ensurance
         #region AllItemsAreUnique
 
         /// <summary>
-        /// Ensures that every object contained in collection exists within the collection
-        /// once and only once.
+        /// Ensures that every object contained in collection exists within the
+        /// collection once and only once.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         public static void AllItemsAreUnique( ICollection collection )
@@ -3528,8 +3493,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Ensures that every object contained in collection exists within the collection
-        /// once and only once.
+        /// Ensures that every object contained in collection exists within the
+        /// collection once and only once.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         /// <param name="message">The message that will be displayed on failure</param>
@@ -3539,8 +3504,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Ensures that every object contained in collection exists within the collection
-        /// once and only once.
+        /// Ensures that every object contained in collection exists within the
+        /// collection once and only once.
         /// </summary>
         /// <param name="collection">ICollection of objects to be considered</param>
         /// <param name="message">The message that will be displayed on failure</param>
@@ -3568,8 +3533,8 @@ namespace Ensurance
 
         /// <summary>
         /// Asserts that expected and actual are exactly equal.  The collections must have the same count, 
-        /// and contain the exact same objects in the same order.
-        /// If comparer is not null then it will be used to compare the objects.
+        /// and contain the exact same objects in the same order. If comparer is
+        /// not null then it will be used to compare the objects.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3594,8 +3559,8 @@ namespace Ensurance
 
         /// <summary>
         /// Asserts that expected and actual are exactly equal.  The collections must have the same count, 
-        /// and contain the exact same objects in the same order.
-        /// If comparer is not null then it will be used to compare the objects.
+        /// and contain the exact same objects in the same order. If comparer is
+        /// not null then it will be used to compare the objects.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3622,8 +3587,8 @@ namespace Ensurance
 
         /// <summary>
         /// Asserts that expected and actual are exactly equal.  The collections must have the same count, 
-        /// and contain the exact same objects in the same order.
-        /// If comparer is not null then it will be used to compare the objects.
+        /// and contain the exact same objects in the same order. If comparer is
+        /// not null then it will be used to compare the objects.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3640,7 +3605,8 @@ namespace Ensurance
         #region AreEquivalent
 
         /// <summary>
-        /// Asserts that expected and actual are equivalent, containing the same objects but the match may be in any order.
+        /// Asserts that expected and actual are equivalent, containing the same
+        /// objects but the match may be in any order.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3650,7 +3616,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that expected and actual are equivalent, containing the same objects but the match may be in any order.
+        /// Asserts that expected and actual are equivalent, containing the same
+        /// objects but the match may be in any order.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3661,7 +3628,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that expected and actual are equivalent, containing the same objects but the match may be in any order.
+        /// Asserts that expected and actual are equivalent, containing the same
+        /// objects but the match may be in any order.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3687,8 +3655,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that expected and actual are not exactly equal.
-        /// If comparer is not null then it will be used to compare the objects.
+        /// Asserts that expected and actual are not exactly equal. If comparer
+        /// is not null then it will be used to compare the objects.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3712,8 +3680,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that expected and actual are not exactly equal.
-        /// If comparer is not null then it will be used to compare the objects.
+        /// Asserts that expected and actual are not exactly equal. If comparer
+        /// is not null then it will be used to compare the objects.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3739,8 +3707,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that expected and actual are not exactly equal.
-        /// If comparer is not null then it will be used to compare the objects.
+        /// Asserts that expected and actual are not exactly equal. If comparer
+        /// is not null then it will be used to compare the objects.
         /// </summary>
         /// <param name="expected">The first ICollection of objects to be considered</param>
         /// <param name="actual">The second ICollection of objects to be considered</param>
@@ -3909,8 +3877,8 @@ namespace Ensurance
         #region IsTrue
 
         /// <summary>
-        /// Asserts that a predicate is true. If the predicate is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a predicate is true. If the predicate is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="predicate">The condition to be evaluated.</param>
         /// <param name="input">The input for the predicate.</param>
@@ -3926,8 +3894,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is true. If the condition is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="predicate">The condition to be evaluated.</param>
         /// <param name="input">The input for the predicate.</param>
@@ -3938,8 +3906,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is true. If the condition is false the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is true. If the condition is false the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="predicate">The condition to be evaluated.</param>
         /// <param name="input">The input for the predicate.</param>
@@ -3953,8 +3921,8 @@ namespace Ensurance
         #region IsFalse
 
         /// <summary>
-        /// Asserts that a condition is false. If the condition is true the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is false. If the condition is true the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="predicate">The condition to be evaluated.</param>
         /// <param name="input">The input for the predicate.</param>
@@ -3970,8 +3938,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is false. If the condition is true the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is false. If the condition is true the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="predicate">The condition to be evaluated.</param>
         /// <param name="input">The input for the predicate.</param>
@@ -3982,8 +3950,8 @@ namespace Ensurance
         }
 
         /// <summary>
-        /// Asserts that a condition is false. If the condition is true the method throws
-        /// an <see cref="EnsuranceException"/>.
+        /// Asserts that a condition is false. If the condition is true the
+        /// method throws an <see cref="EnsuranceException"/>.
         /// </summary>
         /// <param name="predicate">The condition to be evaluated.</param>
         /// <param name="input">The input for the predicate.</param>

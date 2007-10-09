@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -29,11 +28,11 @@ using System.Collections.Generic;
 namespace Ensurance.Constraints
 {
     /// <summary>
-    /// ConstraintBuilder is used to resolve the Not and All properties,
-    /// which serve as prefix operators for constraints. With the addition
-    /// of an operand stack, And and Or could be supported, but we have
-    /// left them out in favor of a simpler, more type-safe implementation.
-    /// Use the &amp; and | operator overloads to combine constraints.
+    /// ConstraintBuilder is used to resolve the Not and All properties, which
+    /// serve as prefix operators for constraints. With the addition of an
+    /// operand stack, And and Or could be supported, but we have left them out
+    /// in favor of a simpler, more type-safe implementation. Use the &amp; and
+    /// | operator overloads to combine constraints.
     /// </summary>
     public class ConstraintBuilder
     {
@@ -41,8 +40,8 @@ namespace Ensurance.Constraints
         private Stack<Op> _ops = new Stack<Op>();
 
         /// <summary>
-        /// Implicitly convert ConstraintBuilder to an actual Constraint
-        /// at the point where the syntax demands it.
+        /// Implicitly convert ConstraintBuilder to an actual Constraint at the
+        /// point where the syntax demands it.
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
@@ -54,8 +53,8 @@ namespace Ensurance.Constraints
         #region Constraints Without Arguments
 
         /// <summary>
-        /// Resolves the chain of constraints using
-        /// EqualConstraint(null) as base.
+        /// Resolves the chain of constraints using EqualConstraint(null) as
+        /// base.
         /// </summary>
         public Constraint Null
         {
@@ -63,8 +62,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using
-        /// EqualConstraint(true) as base.
+        /// Resolves the chain of constraints using EqualConstraint(true) as
+        /// base.
         /// </summary>
         public Constraint True
         {
@@ -72,8 +71,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using
-        /// EqualConstraint(false) as base.
+        /// Resolves the chain of constraints using EqualConstraint(false) as
+        /// base.
         /// </summary>
         public Constraint False
         {
@@ -81,8 +80,7 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using
-        /// Is.NaN as base.
+        /// Resolves the chain of constraints using Is.NaN as base.
         /// </summary>
         public Constraint NaN
         {
@@ -90,8 +88,7 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using
-        /// Is.Empty as base.
+        /// Resolves the chain of constraints using Is.Empty as base.
         /// </summary>
         public Constraint Empty
         {
@@ -99,8 +96,7 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using
-        /// Is.Unique as base.
+        /// Resolves the chain of constraints using Is.Unique as base.
         /// </summary>
         public Constraint Unique
         {
@@ -114,8 +110,7 @@ namespace Ensurance.Constraints
         #region Equality and Identity
 
         /// <summary>
-        /// Resolves the chain of constraints using an
-        /// EqualConstraint as base.
+        /// Resolves the chain of constraints using an EqualConstraint as base.
         /// </summary>
         public Constraint EqualTo( object expected )
         {
@@ -123,8 +118,7 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// SameAsConstraint as base.
+        /// Resolves the chain of constraints using a SameAsConstraint as base.
         /// </summary>
         public Constraint SameAs( object expected )
         {
@@ -136,8 +130,8 @@ namespace Ensurance.Constraints
         #region Comparison Constraints
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// LessThanConstraint as base.
+        /// Resolves the chain of constraints using a LessThanConstraint as
+        /// base.
         /// </summary>
         public Constraint LessThan( IComparable expected )
         {
@@ -145,8 +139,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// GreaterThanConstraint as base.
+        /// Resolves the chain of constraints using a GreaterThanConstraint as
+        /// base.
         /// </summary>
         public Constraint GreaterThan( IComparable expected )
         {
@@ -154,8 +148,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// LessThanOrEqualConstraint as base.
+        /// Resolves the chain of constraints using a LessThanOrEqualConstraint
+        /// as base.
         /// </summary>
         public Constraint LessThanOrEqualTo( IComparable expected )
         {
@@ -163,8 +157,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// LessThanOrEqualConstraint as base.
+        /// Resolves the chain of constraints using a LessThanOrEqualConstraint
+        /// as base.
         /// </summary>
         public Constraint AtMost( IComparable expected )
         {
@@ -194,8 +188,8 @@ namespace Ensurance.Constraints
         #region Type Constraints
 
         /// <summary>
-        /// Resolves the chain of constraints using an
-        /// ExactTypeConstraint as base.
+        /// Resolves the chain of constraints using an ExactTypeConstraint as
+        /// base.
         /// </summary>
         public Constraint TypeOf( Type expectedType )
         {
@@ -203,8 +197,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using an
-        /// InstanceOfTypeConstraint as base.
+        /// Resolves the chain of constraints using an InstanceOfTypeConstraint
+        /// as base.
         /// </summary>
         public Constraint InstanceOfType( Type expectedType )
         {
@@ -212,8 +206,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using an
-        /// AssignableFromConstraint as base.
+        /// Resolves the chain of constraints using an AssignableFromConstraint
+        /// as base.
         /// </summary>
         public Constraint AssignableFrom( Type expectedType )
         {
@@ -225,11 +219,10 @@ namespace Ensurance.Constraints
         #region Containing Constraint
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// ContainsConstraint as base. This constraint
-        /// will, in turn, make use of the appropriate
-        /// second-level constraint, depending on the
-        /// type of the actual argument.
+        /// Resolves the chain of constraints using a ContainsConstraint as
+        /// base. This constraint will, in turn, make use of the appropriate
+        /// second-level constraint, depending on the type of the actual
+        /// argument.
         /// </summary>
         public Constraint Contains( object expected )
         {
@@ -251,8 +244,8 @@ namespace Ensurance.Constraints
         #region String Constraints
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// StartsWithConstraint as base.
+        /// Resolves the chain of constraints using a StartsWithConstraint as
+        /// base.
         /// </summary>
         public Constraint StartsWith( string substring )
         {
@@ -260,8 +253,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// StringEndingConstraint as base.
+        /// Resolves the chain of constraints using a StringEndingConstraint as
+        /// base.
         /// </summary>
         public Constraint EndsWith( string substring )
         {
@@ -269,8 +262,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// StringMatchingConstraint as base.
+        /// Resolves the chain of constraints using a StringMatchingConstraint
+        /// as base.
         /// </summary>
         public Constraint Matches( string pattern )
         {
@@ -300,8 +293,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// CollectionSubsetConstraint as base.
+        /// Resolves the chain of constraints using a CollectionSubsetConstraint
+        /// as base.
         /// </summary>
         public Constraint SubsetOf( ICollection expected )
         {
@@ -313,8 +306,7 @@ namespace Ensurance.Constraints
         #region Property Constraints
 
         /// <summary>
-        /// Resolves the chain of constraints using a 
-        /// PropertyConstraint as base
+        /// Resolves the chain of constraints using a PropertyConstraint as base
         /// </summary>
         public Constraint Property( string name, object expected )
         {
@@ -322,8 +314,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// PropertyCOnstraint on Length as base
+        /// Resolves the chain of constraints using a PropertyCOnstraint on
+        /// Length as base
         /// </summary>
         /// <param name="length"></param>
         /// <returns></returns>
@@ -333,8 +325,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Resolves the chain of constraints using a
-        /// PropertyCOnstraint on Length as base
+        /// Resolves the chain of constraints using a PropertyCOnstraint on
+        /// Length as base
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
@@ -350,7 +342,8 @@ namespace Ensurance.Constraints
         #region Prefix Operators
 
         /// <summary>
-        /// Modifies the ConstraintBuilder by pushing a Not operator on the stack.
+        /// Modifies the ConstraintBuilder by pushing a Not operator on the
+        /// stack.
         /// </summary>
         public ConstraintBuilder Not
         {
@@ -362,7 +355,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Modifies the ConstraintBuilder by pushing a Not operator on the stack.
+        /// Modifies the ConstraintBuilder by pushing a Not operator on the
+        /// stack.
         /// </summary>
         public ConstraintBuilder No
         {
@@ -374,7 +368,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Modifies the ConstraintBuilder by pushing an All operator on the stack.
+        /// Modifies the ConstraintBuilder by pushing an All operator on the
+        /// stack.
         /// </summary>
         public ConstraintBuilder All
         {
@@ -386,7 +381,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Modifies the ConstraintBuilder by pushing a Some operator on the stack.
+        /// Modifies the ConstraintBuilder by pushing a Some operator on the
+        /// stack.
         /// </summary>
         public ConstraintBuilder Some
         {
@@ -398,7 +394,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Modifies the constraint builder by pushing All and Not operators on the stack
+        /// Modifies the constraint builder by pushing All and Not operators on
+        /// the stack
         /// </summary>
         public ConstraintBuilder None
         {
@@ -410,8 +407,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Modifies the ConstraintBuilder by pushing a Prop operator on the
-        /// ops stack and the name of the property on the opnds stack.
+        /// Modifies the ConstraintBuilder by pushing a Prop operator on the ops
+        /// stack and the name of the property on the opnds stack.
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
@@ -427,8 +424,8 @@ namespace Ensurance.Constraints
         #region Helper Methods
 
         /// <summary>
-        /// Resolve a constraint that has been recognized by applying
-        /// any pending operators and returning the resulting Constraint.
+        /// Resolve a constraint that has been recognized by applying any
+        /// pending operators and returning the resulting Constraint.
         /// </summary>
         /// <returns>A constraint that incorporates all pending operators</returns>
         private Constraint Resolve( Constraint constraint )

@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -41,14 +40,16 @@ namespace Ensurance.MessageWriters
     public class StackTraceWriter : TextMessageWriter
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StackTraceWriter"/> class.
+        /// Initializes a new instance of the <see cref="StackTraceWriter"/>
+        /// class.
         /// </summary>
         public StackTraceWriter()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StackTraceWriter"/> class.
+        /// Initializes a new instance of the <see cref="StackTraceWriter"/>
+        /// class.
         /// </summary>
         /// <param name="textWriter">The textWriter.</param>
         public StackTraceWriter( TextWriter textWriter ) : base( textWriter )
@@ -59,12 +60,12 @@ namespace Ensurance.MessageWriters
         /// Handles an Ensurance failure for the given constraint. Implementors
         /// should always call
         /// <code>
-        /// if( successor != null)
-        /// {
+        /// if( successor != null) {
         ///     successor.Handle( constraint, message, args );
         /// }
         /// </code>
-        /// So that the downstream handler can have a chance to process the failure.
+        /// So that the downstream handler can have a chance to process the
+        /// failure.
         /// </summary>
         /// <param name="constraint">The constraint.</param>
         /// <param name="message">The message.</param>
@@ -96,7 +97,8 @@ namespace Ensurance.MessageWriters
                 currentFrame++;
                 StackFrame stackFrame = stackTrace.GetFrame( currentFrame );
                 typeName = stackFrame.GetMethod().ReflectedType.FullName;
-                // Once we have found a method that is not within the calling type we break;
+                // Once we have found a method that is not within the calling
+                // type we break;
             } while ( typeName.Contains( "Ensurance." ) ||
                       typeName.Contains( "System." ) ||
                       typeName.Contains( "Microsoft." ) );

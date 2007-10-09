@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -29,18 +28,17 @@ using Ensurance.MessageWriters;
 namespace Ensurance.Constraints
 {
     /// <summary>
-    /// The Constraint class is the base of all built-in or
-    /// user-defined constraints in NUnit. It provides the operator
-    /// overloads used to combine constraints.
+    /// The Constraint class is the base of all built-in or user-defined
+    /// constraints in NUnit. It provides the operator overloads used to combine
+    /// constraints.
     /// </summary>
     public abstract class Constraint
     {
         #region UnsetObject Class
 
         /// <summary>
-        /// Class used to detect any derived constraints
-        /// that fail to set the actual value in their
-        /// Matches override.
+        /// Class used to detect any derived constraints that fail to set the
+        /// actual value in their Matches override.
         /// </summary>
         private class UnsetObject
         {
@@ -55,8 +53,8 @@ namespace Ensurance.Constraints
         #region Static and Instance Fields
 
         /// <summary>
-        /// Static UnsetObject used to detect derived constraints
-        /// failing to set the actual value.
+        /// Static UnsetObject used to detect derived constraints failing to set
+        /// the actual value.
         /// </summary>
         protected static readonly object UNSET = new UnsetObject();
 
@@ -71,8 +69,8 @@ namespace Ensurance.Constraints
         private bool _caseInsensitive;
 
         /// <summary>
-        /// If true, arrays will be treated as collections, allowing
-        /// those of different dimensions to be compared
+        /// If true, arrays will be treated as collections, allowing those of
+        /// different dimensions to be compared
         /// </summary>
         private bool _compareAsCollection;
 
@@ -82,8 +80,8 @@ namespace Ensurance.Constraints
         private IComparer _compareWith;
 
         /// <summary>
-        /// If non-zero, equality comparisons within the specified 
-        /// tolerance will succeed.
+        /// If non-zero, equality comparisons within the specified tolerance
+        /// will succeed.
         /// </summary>
         private object _tolerance;
 
@@ -104,8 +102,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Flag the constraint to compare arrays as collections
-        /// and return self.
+        /// Flag the constraint to compare arrays as collections and return
+        /// self.
         /// </summary>
         public Constraint AsCollection
         {
@@ -140,8 +138,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// If true, arrays will be treated as collections, allowing
-        /// those of different dimensions to be compared
+        /// If true, arrays will be treated as collections, allowing those of
+        /// different dimensions to be compared
         /// </summary>
         protected internal bool CompareAsCollection
         {
@@ -159,8 +157,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// If non-zero, equality comparisons within the specified 
-        /// tolerance will succeed.
+        /// If non-zero, equality comparisons within the specified tolerance
+        /// will succeed.
         /// </summary>
         protected internal object Tolerance
         {
@@ -196,13 +194,13 @@ namespace Ensurance.Constraints
         #region Public Methods
 
         /// <summary>
-        /// Write the failure message to the MessageWriter provided
-        /// as an argument. The default implementation simply passes
-        /// the constraint and the actual value to the writer, which
-        /// then displays the constraint description and the value.
+        /// Write the failure message to the MessageWriter provided as an
+        /// argument. The default implementation simply passes the constraint
+        /// and the actual value to the writer, which then displays the
+        /// constraint description and the value.
         /// 
-        /// Constraints that need to provide additional details,
-        /// such as where the error occured can override this.
+        /// Constraints that need to provide additional details, such as where
+        /// the error occured can override this.
         /// </summary>
         /// <param name="writer">The MessageWriter on which to display the message</param>
         public virtual void WriteMessageTo( MessageWriter writer )
@@ -229,9 +227,8 @@ namespace Ensurance.Constraints
 
         /// <summary>
         /// Write the actual value for a failing constraint test to a
-        /// MessageWriter. The default implementation simply writes
-        /// the raw value of actual, leaving it to the writer to
-        /// perform any formatting.
+        /// MessageWriter. The default implementation simply writes the raw
+        /// value of actual, leaving it to the writer to perform any formatting.
         /// </summary>
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public virtual void WriteActualValueTo( MessageWriter writer )
@@ -266,8 +263,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// This operator creates a constraint that is satisfied if either 
-        /// of the argument constraints is satisfied.
+        /// This operator creates a constraint that is satisfied if either of
+        /// the argument constraints is satisfied.
         /// </summary>
         public static Constraint operator |( Constraint left, Constraint right )
         {
@@ -275,8 +272,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// This operator creates a constraint that is satisfied if either 
-        /// of the argument constraints is satisfied.
+        /// This operator creates a constraint that is satisfied if either of
+        /// the argument constraints is satisfied.
         /// </summary>
         public static Constraint BitwiseOr( Constraint left, Constraint right )
         {
@@ -284,8 +281,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// This operator creates a constraint that is satisfied if the 
-        /// argument constraint is not satisfied.
+        /// This operator creates a constraint that is satisfied if the argument
+        /// constraint is not satisfied.
         /// </summary>
         public static Constraint operator !( Constraint m )
         {
@@ -293,8 +290,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// This operator creates a constraint that is satisfied if the 
-        /// argument constraint is not satisfied.
+        /// This operator creates a constraint that is satisfied if the argument
+        /// constraint is not satisfied.
         /// </summary>
         public static Constraint LogicalNot( Constraint m )
         {

@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -27,15 +26,15 @@ using Ensurance.Constraints;
 namespace Ensurance.SyntaxHelpers
 {
     /// <summary>
-    /// The Text class is a helper class with properties and methods
-    /// that supply a number of constraints used with strings.
+    /// The Text class is a helper class with properties and methods that supply
+    /// a number of constraints used with strings.
     /// </summary>
     public class Text
     {
         /// <summary>
-        /// Text.All returns a ConstraintBuilder, which will apply
-        /// the following constraint to all members of a collection,
-        /// succeeding if all of them succeed.
+        /// Text.All returns a ConstraintBuilder, which will apply the following
+        /// constraint to all members of a collection, succeeding if all of them
+        /// succeed.
         /// </summary>
         public static ConstraintBuilder All
         {
@@ -43,8 +42,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// Contains returns a constraint that succeeds if the actual
-        /// value contains the substring supplied as an argument.
+        /// Contains returns a constraint that succeeds if the actual value
+        /// contains the substring supplied as an argument.
         /// </summary>
         public static Constraint Contains( string substring )
         {
@@ -52,8 +51,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// DoesNotContain returns a constraint that fails if the actual
-        /// value contains the substring supplied as an argument.
+        /// DoesNotContain returns a constraint that fails if the actual value
+        /// contains the substring supplied as an argument.
         /// </summary>
         public static Constraint DoesNotContain( string substring )
         {
@@ -61,8 +60,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// StartsWith returns a constraint that succeeds if the actual
-        /// value starts with the substring supplied as an argument.
+        /// StartsWith returns a constraint that succeeds if the actual value
+        /// starts with the substring supplied as an argument.
         /// </summary>
         public static Constraint StartsWith( string substring )
         {
@@ -70,8 +69,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// DoesNotStartWith returns a constraint that fails if the actual
-        /// value starts with the substring supplied as an argument.
+        /// DoesNotStartWith returns a constraint that fails if the actual value
+        /// starts with the substring supplied as an argument.
         /// </summary>
         public static Constraint DoesNotStartWith( string substring )
         {
@@ -79,8 +78,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// EndsWith returns a constraint that succeeds if the actual
-        /// value ends with the substring supplied as an argument.
+        /// EndsWith returns a constraint that succeeds if the actual value ends
+        /// with the substring supplied as an argument.
         /// </summary>
         public static Constraint EndsWith( string substring )
         {
@@ -88,8 +87,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// DoesNotEndWith returns a constraint that fails if the actual
-        /// value ends with the substring supplied as an argument.
+        /// DoesNotEndWith returns a constraint that fails if the actual value
+        /// ends with the substring supplied as an argument.
         /// </summary>
         public static Constraint DoesNotEndWith( string substring )
         {
@@ -97,8 +96,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// Matches returns a constraint that succeeds if the actual
-        /// value matches the pattern supplied as an argument.
+        /// Matches returns a constraint that succeeds if the actual value
+        /// matches the pattern supplied as an argument.
         /// </summary>
         /// <param name="pattern"></param>
         /// <returns></returns>
@@ -108,8 +107,8 @@ namespace Ensurance.SyntaxHelpers
         }
 
         /// <summary>
-        /// DoesNotMatch returns a constraint that failss if the actual
-        /// value matches the pattern supplied as an argument.
+        /// DoesNotMatch returns a constraint that failss if the actual value
+        /// matches the pattern supplied as an argument.
         /// </summary>
         /// <param name="pattern"></param>
         /// <returns></returns>

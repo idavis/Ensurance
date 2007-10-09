@@ -1,23 +1,22 @@
 #region Copyright & License
 
 //
-// Author: Ian Davis <ian.f.davis@gmail.com>
-// Copyright (c) 2007, Ian Davs
+// Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
 //
-// Portions of this software were developed for NUnit.
-// See NOTICE.txt for more information. 
+// Portions of this software were developed for NUnit. See NOTICE.txt for more
+// information. 
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
 //
 
 #endregion
@@ -33,8 +32,8 @@ using Ensurance.Properties;
 namespace Ensurance.Constraints
 {
     /// <summary>
-    /// EqualConstraint is able to compare an actual value with the
-    /// expected value provided in its constructor.
+    /// EqualConstraint is able to compare an actual value with the expected
+    /// value provided in its constructor.
     /// </summary>
     public class EqualConstraint : Constraint
     {
@@ -47,7 +46,8 @@ namespace Ensurance.Constraints
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EqualConstraint"/> class.
+        /// Initializes a new instance of the <see cref="EqualConstraint"/>
+        /// class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
         public EqualConstraint( object expected )
@@ -73,8 +73,8 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Write a failure message. Overridden to provide custom 
-        /// failure messages for EqualConstraint.
+        /// Write a failure message. Overridden to provide custom failure
+        /// messages for EqualConstraint.
         /// </summary>
         /// <param name="writer">The MessageWriter to write to</param>
         public override void WriteMessageTo( MessageWriter writer )
@@ -306,7 +306,8 @@ namespace Ensurance.Constraints
         #region DisplayCollectionDifferences
 
         /// <summary>
-        /// Display the failure information for two collections that did not match.
+        /// Display the failure information for two collections that did not
+        /// match.
         /// </summary>
         /// <param name="writer">The MessageWriter on which to display</param>
         /// <param name="expected">The expected collection.</param>
@@ -344,8 +345,8 @@ namespace Ensurance.Constraints
 
         /// <summary>
         /// Displays a single line showing the types and sizes of the expected
-        /// and actual collections or arrays. If both are identical, the value is 
-        /// only shown once.
+        /// and actual collections or arrays. If both are identical, the value
+        /// is only shown once.
         /// </summary>
         /// <param name="writer">The MessageWriter on which to display</param>
         /// <param name="expected">The expected collection or array</param>
