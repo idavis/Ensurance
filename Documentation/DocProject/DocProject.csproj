@@ -42,7 +42,7 @@
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Sandcastle_ProduceHelp2x="True" Sandcastle_ProduceHelp1x="True" BuildEngineProviderName="Sandcastle" Sandcastle_PresentationName="Visual Studio 2005" IsDocProject="true" ProcessComponentTypeName="DocProject.BuildProcess" DocumentationScope="PublicOnly" DocProjectExternalUI.SelectedConfiguration="Release" />
+      <UserProperties DocumentationScope="PublicOnly" ProcessComponentTypeName="DocProject.BuildProcess" IsDocProject="true" Sandcastle_PresentationName="Visual Studio 2005" BuildEngineProviderName="Sandcastle" Sandcastle_ProduceHelp1x="True" Sandcastle_ProduceHelp2x="True" />
     </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
@@ -187,6 +187,18 @@
     <Content Include="Help\Styles\Presentation.css" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Help\DocProject.hhc" />
+    <None Include="Help\DocProject.hhk" />
+    <None Include="Help\DocProject.hhp" />
+    <None Include="Help\DocProject.HxC" />
+    <None Include="Help\DocProject.HxT" />
+    <None Include="Help\files.HxF" />
+    <None Include="Help\index_a.HxK" />
+    <None Include="Help\index_b.HxK" />
+    <None Include="Help\index_f.HxK" />
+    <None Include="Help\index_k.HxK" />
+    <None Include="Help\index_n.HxK" />
+    <None Include="Help\index_s.HxK" />
     <None Include="Help\Presentation\Shared\configuration\xamlSyntax.config" />
     <None Include="Help\Presentation\Shared\copyHavana.bat" />
     <None Include="Help\Presentation\Shared\HxsTemplate\template.HxF" />
