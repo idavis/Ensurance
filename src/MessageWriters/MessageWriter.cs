@@ -302,181 +302,343 @@ namespace Ensurance.MessageWriters
             _textWriter.Flush();
         }
 
+        /// <summary>
+        /// Synchronizeds the specified writer.
+        /// </summary>
+        /// <param name="writer">The writer.</param>
+        /// <returns></returns>
         public virtual TextWriter Synchronized( TextWriter writer )
         {
             return TextWriter.Synchronized( writer );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( char value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified buffer.
+        /// </summary>
+        /// <param name="buffer">The buffer.</param>
         public virtual void Write( Char[] buffer )
         {
             _textWriter.Write( buffer );
         }
 
+        /// <summary>
+        /// Writes the specified buffer.
+        /// </summary>
+        /// <param name="buffer">The buffer.</param>
+        /// <param name="index">The index.</param>
+        /// <param name="count">The count.</param>
         public virtual void Write( Char[] buffer, int index, int count )
         {
             _textWriter.Write( buffer, index, count );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">if set to <c>true</c> [value].</param>
         public virtual void Write( bool value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( int value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( uint value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( long value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( ulong value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( float value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( double value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( decimal value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( string value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void Write( object value )
         {
             _textWriter.Write( value );
         }
 
+        /// <summary>
+        /// Writes the specified format.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="arg0">The arg0.</param>
         public virtual void Write( string format, object arg0 )
         {
             _textWriter.Write( format, arg0 );
         }
 
+        /// <summary>
+        /// Writes the specified format.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="arg0">The arg0.</param>
+        /// <param name="arg1">The arg1.</param>
         public virtual void Write( string format, object arg0, object arg1 )
         {
             _textWriter.Write( format, arg0, arg1 );
         }
 
+        /// <summary>
+        /// Writes the specified format.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="arg0">The arg0.</param>
+        /// <param name="arg1">The arg1.</param>
+        /// <param name="arg2">The arg2.</param>
         public virtual void Write( string format, object arg0, object arg1, object arg2 )
         {
             _textWriter.Write( format, arg0, arg1, arg2 );
         }
 
+        /// <summary>
+        /// Writes the specified format.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="arg">The arg.</param>
         public virtual void Write( string format, Object[] arg )
         {
             _textWriter.Write( format, arg );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
         public void WriteLine()
         {
             _textWriter.WriteLine();
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( char value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="buffer">The buffer.</param>
         public virtual void WriteLine( Char[] buffer )
         {
             _textWriter.WriteLine( buffer );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="buffer">The buffer.</param>
+        /// <param name="index">The index.</param>
+        /// <param name="count">The count.</param>
         public virtual void WriteLine( Char[] buffer, int index, int count )
         {
             _textWriter.WriteLine( buffer, index, count );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">if set to <c>true</c> [value].</param>
         public virtual void WriteLine( bool value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( int value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( uint value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( long value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( ulong value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( float value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( double value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( decimal value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( string value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="value">The value.</param>
         public virtual void WriteLine( object value )
         {
             _textWriter.WriteLine( value );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="arg0">The arg0.</param>
         public virtual void WriteLine( string format, object arg0 )
         {
             _textWriter.WriteLine( format, arg0 );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="arg0">The arg0.</param>
+        /// <param name="arg1">The arg1.</param>
         public virtual void WriteLine( string format, object arg0, object arg1 )
         {
             _textWriter.WriteLine( format, arg0, arg1 );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="arg0">The arg0.</param>
+        /// <param name="arg1">The arg1.</param>
+        /// <param name="arg2">The arg2.</param>
         public virtual void WriteLine( string format, object arg0, object arg1, object arg2 )
         {
             _textWriter.WriteLine( format, arg0, arg1, arg2 );
         }
 
+        /// <summary>
+        /// Writes the line.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="arg">The arg.</param>
         public virtual void WriteLine( string format, Object[] arg )
         {
             _textWriter.WriteLine( format, arg );

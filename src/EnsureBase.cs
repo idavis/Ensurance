@@ -2916,6 +2916,9 @@ namespace Ensurance
 
         #region FileEnsure
 
+        /// <summary>
+        /// 
+        /// </summary>
         public class Files
         {
             #region AreEqual
@@ -3213,6 +3216,9 @@ namespace Ensurance
 
         #region StringEnsure
 
+        /// <summary>
+        /// 
+        /// </summary>
         public class Strings
         {
             #region Contains

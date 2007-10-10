@@ -33,7 +33,7 @@ namespace Ensurance
     /// </summary>
     /// <typeparam name="T"></typeparam>
 #if !DEBUG
-    [DebuggerNonUserCode]
+    [System.Diagnostics.DebuggerNonUserCode]
 #endif
 
     public class EnsuranceHandlerContainer<T> : EnsureBase<EnsuranceHandlerContainer<T>>, IEnsuranceHandler where T : IEnsuranceHandler, new()

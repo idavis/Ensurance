@@ -25,8 +25,15 @@ using System;
 
 namespace Ensurance.ResponsibilityChainLinks.Logging
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class EnsuranceLoggerBase : IEnsuranceLogger
     {
+        /// <summary>
+        /// We want all logging to be done from the <see cref="Ensure"/> class
+        /// to maintain uniformity.
+        /// </summary>
         protected static readonly Type _type = typeof (Ensure);
         private LogSeverity _defaultLogSeverity;
 

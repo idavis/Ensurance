@@ -23,12 +23,31 @@
 
 namespace Ensurance.ResponsibilityChainLinks.Logging
 {
+    /// <summary>
+    /// Specifies the level to which the <see cref="IEnsuranceLogger"/> instance
+    /// will log at.
+    /// </summary>
     public enum LogSeverity
     {
+        /// <summary>
+        /// 
+        /// </summary>
         Debug = 0,
+        /// <summary>
+        /// 
+        /// </summary>
         Info,
+        /// <summary>
+        /// 
+        /// </summary>
         Warn,
+        /// <summary>
+        /// 
+        /// </summary>
         Error,
+        /// <summary>
+        /// 
+        /// </summary>
         Fatal
     }
 }

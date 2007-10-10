@@ -35,7 +35,7 @@ namespace Ensurance
     /// 
     /// </summary>
 #if !DEBUG
-    [DebuggerNonUserCode]
+    [System.Diagnostics.DebuggerNonUserCode]
 #endif
 
     public partial class Ensure : EnsureBase<Ensure>, IEnsuranceHandler
@@ -160,7 +160,7 @@ namespace Ensurance
         /// 
         /// </summary>
 #if !DEBUG
-        [DebuggerNonUserCode]
+        [System.Diagnostics.DebuggerNonUserCode]
 #endif
 
         public partial class With

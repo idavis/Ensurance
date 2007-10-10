@@ -23,6 +23,9 @@
 
 namespace Ensurance.ResponsibilityChainLinks.Logging
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IEnsuranceLogger
     {
         /// <summary>
