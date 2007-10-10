@@ -1,4 +1,4 @@
-ï»¿#region Copyright & License
+#region Copyright & License
 
 //
 // Author: Ian Davis <ian.f.davis@gmail.com> Copyright (c) 2007, Ian Davs
@@ -21,6 +21,7 @@
 
 #endregion
 
+using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -28,10 +29,26 @@ using System.Runtime.InteropServices;
 // of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly : AssemblyTitle( "Ensurance" )]
-[assembly : AssemblyDescription( "" )]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Ensurance")]
+[assembly: AssemblyCopyright("Copyright ©  2007")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
 
-// The following GUID is for the ID of the typelib if this project is exposed to
-// COM
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
 
-[assembly : Guid( "5f541070-a35a-4fd3-9dee-704581d0e839" )]
+[assembly: ComVisible(false)]
+[assembly: CLSCompliant(false)]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version Minor Version Build Number Revision
+//
+// You can specify all the values or you can default the Revision and Build
+// Numbers by using the '*' as shown below:
+
+[assembly: AssemblyVersion("0.4.*.*")]
+[assembly: AssemblyFileVersion("0.4.*.*")]
