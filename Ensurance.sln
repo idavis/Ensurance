@@ -2,22 +2,62 @@
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensurance", "src\Ensurance.csproj", "{DDC32C1C-7E92-4342-B1A2-817E1130950C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95D8FD5D-BA9A-4DF7-817F-7D77EFC2901B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 	ProjectSection(SolutionItems) = preProject
 		Ensurance.vsmdi = Ensurance.vsmdi
 		localtestrun.testrunconfig = localtestrun.testrunconfig
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensurance.Tests", "Tests\Ensurance.Tests.csproj", "{B3B84184-3F68-4EAB-ADE4-4B29323AA225}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{3305C892-6414-49E7-93D0-80D76897B0B4}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatingCustomEnsuranceClasses", "samples\CreatingCustomEnsuranceClasses\CreatingCustomEnsuranceClasses.csproj", "{C311DA05-DD13-4CD6-A0FD-05E5870F901A}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendingFluentInterface", "samples\ExtendingFluentInterface\ExtendingFluentInterface.csproj", "{371B822D-251D-48E5-8086-EC3090F55ED6}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBed", "samples\TestBed\TestBed.csproj", "{98A0ED29-9138-4581-9CAA-D17FB057B8AA}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{867EDA6D-7C8F-4309-B476-0EC561327749}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocProject", "Documentation\DocProject\DocProject.csproj", "{56AB3FE0-E3BA-48AD-8193-6D783D962635}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -66,6 +106,14 @@ Global
 		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Shipping|Any CPU.ActiveCfg = Release|Any CPU
 		{98A0ED29-9138-4581-9CAA-D17FB057B8AA}.Shipping|Any CPU.Build.0 = Release|Any CPU
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635}.Code Analysis|Any CPU.ActiveCfg = Release|Any CPU
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635}.Code Analysis|Any CPU.Build.0 = Release|Any CPU
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635}.Shipping|Any CPU.ActiveCfg = Release|Any CPU
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635}.Shipping|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +122,6 @@ Global
 		{C311DA05-DD13-4CD6-A0FD-05E5870F901A} = {3305C892-6414-49E7-93D0-80D76897B0B4}
 		{371B822D-251D-48E5-8086-EC3090F55ED6} = {3305C892-6414-49E7-93D0-80D76897B0B4}
 		{98A0ED29-9138-4581-9CAA-D17FB057B8AA} = {3305C892-6414-49E7-93D0-80D76897B0B4}
+		{56AB3FE0-E3BA-48AD-8193-6D783D962635} = {867EDA6D-7C8F-4309-B476-0EC561327749}
 	EndGlobalSection
 EndGlobal
