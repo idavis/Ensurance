@@ -1,0 +1,16 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=DocProject.chm
+Contents file=DocProject.hhc
+Index file=DocProject.hhk
+Default Topic=html/23c7c06d-15a4-caa9-3ebf-b6013c3588aa.htm
+Full-text search=Yes
+Language=0x409 English (United States)
+[FILES]
+icons\*.gif
+art\*.gif
+media\*.gif
+scripts\*.js
+styles\*.css
+html\*.htm
+[INFOTYPES]

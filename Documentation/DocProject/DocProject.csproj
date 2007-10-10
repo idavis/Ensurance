@@ -42,7 +42,7 @@
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties DocumentationScope="PublicOnly" ProcessComponentTypeName="DocProject.BuildProcess" IsDocProject="true" Sandcastle_PresentationName="Visual Studio 2005" BuildEngineProviderName="Sandcastle" Sandcastle_ProduceHelp1x="True" Sandcastle_ProduceHelp2x="True" />
+      <UserProperties Sandcastle_ProduceHelp2x="True" Sandcastle_ProduceHelp1x="True" BuildEngineProviderName="Sandcastle" Sandcastle_PresentationName="Visual Studio 2005" IsDocProject="true" ProcessComponentTypeName="DocProject.BuildProcess" DocumentationScope="PublicOnly" DocProjectExternalUI.SelectedConfiguration="Release" />
     </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
