@@ -38,6 +38,7 @@ namespace Ensurance.MessageWriters
 #if !DEBUG
     [System.Diagnostics.DebuggerNonUserCode]
 #endif
+
     public class TextMessageWriter : MessageWriter
     {
         #region Message Formats and Constants
@@ -359,6 +360,10 @@ namespace Ensurance.MessageWriters
             TextWriter.Write( " >" );
         }
 
+        /// <summary>
+        /// Writes the array.
+        /// </summary>
+        /// <param name="array">The array.</param>
         private void WriteArray( Array array )
         {
             if ( array.Length == 0 )
@@ -409,6 +414,10 @@ namespace Ensurance.MessageWriters
             }
         }
 
+        /// <summary>
+        /// Writes the string.
+        /// </summary>
+        /// <param name="s">The s.</param>
         private void WriteString( string s )
         {
             if ( string.IsNullOrEmpty( s ) )
@@ -421,11 +430,19 @@ namespace Ensurance.MessageWriters
             }
         }
 
+        /// <summary>
+        /// Writes the char.
+        /// </summary>
+        /// <param name="c">The c.</param>
         private void WriteChar( char c )
         {
             TextWriter.Write( Fmt_Char, c );
         }
 
+        /// <summary>
+        /// Writes the double.
+        /// </summary>
+        /// <param name="d">The d.</param>
         private void WriteDouble( double d )
         {
             if ( double.IsNaN( d ) || double.IsInfinity( d ) )
@@ -447,6 +464,10 @@ namespace Ensurance.MessageWriters
             }
         }
 
+        /// <summary>
+        /// Writes the float.
+        /// </summary>
+        /// <param name="f">The f.</param>
         private void WriteFloat( float f )
         {
             if ( float.IsNaN( f ) || float.IsInfinity( f ) )
@@ -468,11 +489,19 @@ namespace Ensurance.MessageWriters
             }
         }
 
+        /// <summary>
+        /// Writes the decimal.
+        /// </summary>
+        /// <param name="d">The d.</param>
         private void WriteDecimal( Decimal d )
         {
             TextWriter.Write( d.ToString( "G29", CultureInfo.InvariantCulture ) + "m" );
         }
 
+        /// <summary>
+        /// Writes the date time.
+        /// </summary>
+        /// <param name="dt">The dt.</param>
         private void WriteDateTime( DateTime dt )
         {
             TextWriter.Write( dt.ToString( Fmt_DateTime, CultureInfo.InvariantCulture ) );

@@ -81,12 +81,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write the constraint description to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
 
             writer.WritePredicate( "Property \"" + _name + "\"" );
@@ -98,12 +99,13 @@ namespace Ensurance.Constraints
         /// MessageWriter. The default implementation simply writes the raw
         /// value of actual, leaving it to the writer to perform any formatting.
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public override void WriteActualValueTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
 
             if ( _propertyExists )

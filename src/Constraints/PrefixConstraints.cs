@@ -53,6 +53,7 @@ namespace Ensurance.Constraints
         /// <summary>
         /// The base constraint
         /// </summary>
+        /// <value>The base constraint.</value>
         protected internal Constraint BaseConstraint
         {
             get { return _baseConstraint; }
@@ -105,7 +106,9 @@ namespace Ensurance.Constraints
         /// Test whether the constraint is satisfied by a given value
         /// </summary>
         /// <param name="actual">The value to be tested</param>
-        /// <returns>True for if the base constraint fails, false if it succeeds</returns>
+        /// <returns>
+        /// True for if the base constraint fails, false if it succeeds
+        /// </returns>
         public override bool Matches( object actual )
         {
             Actual = actual;
@@ -116,12 +119,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write the constraint description to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "not" );
             BaseConstraint.WriteDescriptionTo( writer );
@@ -160,8 +164,9 @@ namespace Ensurance.Constraints
         /// Apply the item constraint to each item in the collection, failing if
         /// any item fails.
         /// </summary>
-        /// <param name="actual"></param>
-        /// <returns></returns>
+        /// <param name="actual">The value to be tested</param>
+        /// <returns>True for success, false for failure</returns>
+        /// <exception cref="ArgumentException">if actual is not an ICollection</exception>
         public override bool Matches( object actual )
         {
             Actual = actual;
@@ -188,12 +193,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a description of this constraint to a MessageWriter
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "all items" );
             BaseConstraint.WriteDescriptionTo( writer );
@@ -222,8 +228,9 @@ namespace Ensurance.Constraints
         /// Apply the item constraint to each item in the collection, failing if
         /// any item fails.
         /// </summary>
-        /// <param name="actual"></param>
-        /// <returns></returns>
+        /// <param name="actual">The value to be tested</param>
+        /// <returns>True for success, false for failure</returns>
+        /// <exception cref="ArgumentException">if actual is not an ICollection</exception>
         public override bool Matches( object actual )
         {
             Actual = actual;
@@ -232,7 +239,7 @@ namespace Ensurance.Constraints
 
             if ( !( actual is ICollection ) )
             {
-                throw new ArgumentException( Resources.ValueMustBeCollection, "actual");
+                throw new ArgumentException( Resources.ValueMustBeCollection, "actual" );
             }
 
             foreach (object item in (ICollection) actual)
@@ -249,12 +256,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a description of this constraint to a MessageWriter
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
 
             writer.WritePredicate( "some item" );
@@ -284,8 +292,9 @@ namespace Ensurance.Constraints
         /// Apply the item constraint to each item in the collection, failing if
         /// any item fails.
         /// </summary>
-        /// <param name="actual"></param>
-        /// <returns></returns>
+        /// <param name="actual">The value to be tested</param>
+        /// <returns>True for success, false for failure</returns>
+        /// <exception cref="ArgumentException">if actual is not an ICollection</exception>
         public override bool Matches( object actual )
         {
             Actual = actual;
@@ -294,7 +303,7 @@ namespace Ensurance.Constraints
 
             if ( !( actual is ICollection ) )
             {
-                throw new ArgumentException( Resources.ValueMustBeCollection, "actual");
+                throw new ArgumentException( Resources.ValueMustBeCollection, "actual" );
             }
 
             foreach (object item in (ICollection) actual)
@@ -311,12 +320,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a description of this constraint to a MessageWriter
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "no item" );
             BaseConstraint.WriteDescriptionTo( writer );

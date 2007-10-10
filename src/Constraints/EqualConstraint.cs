@@ -87,11 +87,12 @@ namespace Ensurance.Constraints
         /// Write description of this constraint
         /// </summary>
         /// <param name="writer">The MessageWriter to write to</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WriteExpectedValue( _expected );
 
@@ -107,6 +108,13 @@ namespace Ensurance.Constraints
             }
         }
 
+        /// <summary>
+        /// Displays the differences.
+        /// </summary>
+        /// <param name="writer">The writer.</param>
+        /// <param name="expected">The expected.</param>
+        /// <param name="actual">The actual.</param>
+        /// <param name="depth">The depth.</param>
         private void DisplayDifferences( MessageWriter writer, object expected, object actual, int depth )
         {
             if ( expected is string && actual is string )
@@ -135,6 +143,12 @@ namespace Ensurance.Constraints
 
         #region ObjectsEqual
 
+        /// <summary>
+        /// Determines whether two objects are equal.
+        /// </summary>
+        /// <param name="expected">The expected value.</param>
+        /// <param name="actual">The actual value.</param>
+        /// <returns></returns>
         private bool ObjectsEqual( object expected, object actual )
         {
             if ( expected == null && actual == null )
@@ -206,6 +220,9 @@ namespace Ensurance.Constraints
             return CollectionsEqual( expected, actual );
         }
 
+        /// <summary>
+        /// Helper method to compare two collections
+        /// </summary>
         private bool CollectionsEqual( ICollection expected, ICollection actual )
         {
             IEnumerator expectedEnum = expected.GetEnumerator();
@@ -229,6 +246,9 @@ namespace Ensurance.Constraints
             return false;
         }
 
+        /// <summary>
+        /// Helper method to compare two streams
+        /// </summary>
         private bool StreamsEqual( Stream expected, Stream actual )
         {
             if ( expected.Length != actual.Length )
@@ -268,6 +288,12 @@ namespace Ensurance.Constraints
 
         #region DisplayStringDifferences
 
+        /// <summary>
+        /// Displays the string differences.
+        /// </summary>
+        /// <param name="writer">The writer.</param>
+        /// <param name="expected">The expected.</param>
+        /// <param name="actual">The actual.</param>
         private void DisplayStringDifferences( MessageWriter writer, string expected, string actual )
         {
             int mismatch = MsgUtils.FindMismatchPosition( expected, actual, 0, CaseInsensitive );
@@ -288,6 +314,13 @@ namespace Ensurance.Constraints
 
         #region DisplayStreamDifferences
 
+        /// <summary>
+        /// Displays the stream differences.
+        /// </summary>
+        /// <param name="writer">The writer.</param>
+        /// <param name="expected">The expected.</param>
+        /// <param name="actual">The actual.</param>
+        /// <param name="depth">The depth.</param>
         private void DisplayStreamDifferences( MessageWriter writer, Stream expected, Stream actual, int depth )
         {
             if ( expected.Length == actual.Length )
@@ -420,6 +453,12 @@ namespace Ensurance.Constraints
             }
         }
 
+        /// <summary>
+        /// Gets the value from collection.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         private static object GetValueFromCollection( ICollection collection, int index )
         {
             Array array = collection as Array;

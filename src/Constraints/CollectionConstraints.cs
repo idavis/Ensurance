@@ -43,6 +43,7 @@ namespace Ensurance.Constraints
         /// </summary>
         /// <param name="actual">The value to be tested</param>
         /// <returns>True for success, false for failure</returns>
+        /// <exception cref="ArgumentException">if actual is not an ICollection</exception>
         public override bool Matches( object actual )
         {
             Actual = actual;
@@ -50,7 +51,7 @@ namespace Ensurance.Constraints
             ICollection collection = actual as ICollection;
             if ( collection == null )
             {
-                throw new ArgumentException( Resources.ValueMustBeCollection, "actual");
+                throw new ArgumentException( Resources.ValueMustBeCollection, "actual" );
             }
 
             return doMatch( collection );
@@ -107,11 +108,11 @@ namespace Ensurance.Constraints
                 }
 
                 object val = null;
-                if (_tallyDictionary.ContainsKey(obj))
+                if ( _tallyDictionary.ContainsKey( obj ) )
                 {
                     val = _tallyDictionary[obj];
                 }
-                
+
                 return val == null ? 0 : (int) val;
             }
 
@@ -121,9 +122,9 @@ namespace Ensurance.Constraints
                 {
                     obj = NULL;
                 }
-                if (!_tallyDictionary.ContainsKey(obj))
+                if ( !_tallyDictionary.ContainsKey( obj ) )
                 {
-                    _tallyDictionary.Add(obj, tally);
+                    _tallyDictionary.Add( obj, tally );
                 }
                 else
                 {
@@ -202,12 +203,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a description of this constraint to a MessageWriter
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
 
             writer.Write( "all items unique" );
@@ -256,12 +258,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a descripton of the constraint to a MessageWriter
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "collection containing" );
             writer.WriteExpectedValue( _expected );
@@ -292,7 +295,7 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Test whether two collections are equivalent
         /// </summary>
-        /// <param name="actual"></param>
+        /// <param name="actual">The actual.</param>
         /// <returns></returns>
         protected override bool doMatch( ICollection actual )
         {
@@ -312,12 +315,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a description of this constraint to a MessageWriter
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "equivalent to" );
             writer.WriteExpectedValue( _expected );
@@ -349,7 +353,7 @@ namespace Ensurance.Constraints
         /// Test whether the actual collection is a subset of the expected
         /// collection provided.
         /// </summary>
-        /// <param name="actual"></param>
+        /// <param name="actual">The actual.</param>
         /// <returns></returns>
         protected override bool doMatch( ICollection actual )
         {
@@ -359,12 +363,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a description of this constraint to a MessageWriter
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "subset of" );
             writer.WriteExpectedValue( _expected );

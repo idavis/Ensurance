@@ -52,11 +52,12 @@ namespace Ensurance.Constraints
         /// Write the constraint description to a MessageWriter
         /// </summary>
         /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.Write( "<empty>" );
         }

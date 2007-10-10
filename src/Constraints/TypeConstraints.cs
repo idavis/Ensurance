@@ -60,12 +60,13 @@ namespace Ensurance.Constraints
         /// MessageWriter. TypeCOnstraints override this method to write the
         /// name of the type.
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public override void WriteActualValueTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
 
             writer.WriteActualValue( Actual == null ? null : Actual.GetType() );
@@ -100,12 +101,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write the description of this constraint to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WriteExpectedValue( ExpectedType );
         }
@@ -139,12 +141,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a description of this constraint to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "instance of" );
             writer.WriteExpectedValue( ExpectedType );
@@ -179,12 +182,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write a description of this constraint to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer"></param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "Type assignable from" );
             writer.WriteExpectedValue( ExpectedType );

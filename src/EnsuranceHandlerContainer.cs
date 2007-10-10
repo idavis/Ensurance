@@ -23,7 +23,6 @@
 #endregion
 
 using System.ComponentModel;
-using System.Diagnostics;
 using Ensurance.Constraints;
 using Ensurance.Properties;
 
@@ -36,6 +35,7 @@ namespace Ensurance
 #if !DEBUG
     [DebuggerNonUserCode]
 #endif
+
     public class EnsuranceHandlerContainer<T> : EnsureBase<EnsuranceHandlerContainer<T>>, IEnsuranceHandler where T : IEnsuranceHandler, new()
     {
         private static readonly T _handler = new T();
@@ -64,6 +64,7 @@ namespace Ensurance
         /// </code>
         /// So that the downstream handler can have a chance to process the failure.
         /// </summary>
+        /// <exception cref="EnsuranceException">Always</exception>
         /// <param name="constraint">The constraint.</param>
         /// <param name="message">The message.</param>
         /// <param name="args">The args.</param>

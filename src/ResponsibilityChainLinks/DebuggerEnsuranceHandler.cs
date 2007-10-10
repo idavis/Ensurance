@@ -26,9 +26,13 @@ using Ensurance.Constraints;
 
 namespace Ensurance.ResponsibilityChainLinks
 {
+    /// <summary>
+    /// Triggers the debugger in the user code.
+    /// </summary>
 #if !DEBUG
     [DebuggerNonUserCode]
 #endif
+
     public class DebuggerEnsuranceHandler : IEnsuranceResponsibilityChainLink
     {
         private IEnsuranceResponsibilityChainLink _successor;

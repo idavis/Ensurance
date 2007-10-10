@@ -47,6 +47,10 @@ namespace Ensurance.Constraints
             _expected = expected;
         }
 
+        /// <summary>
+        /// Gets or sets the real constraint.
+        /// </summary>
+        /// <value>The real constraint.</value>
         private Constraint RealConstraint
         {
             get

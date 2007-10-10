@@ -68,6 +68,7 @@ namespace Ensurance
         /// The Equals method throws an EnsuranceException. This is done to make
         /// sure there is no mistake by calling this function.
         /// </summary>
+        /// <exception cref="EnsuranceException">Always</exception>
         /// <param name="a"></param>
         /// <param name="b"></param>
         [EditorBrowsable( EditorBrowsableState.Never )]
@@ -81,6 +82,7 @@ namespace Ensurance
         /// This implementation makes sure there is no mistake in calling this
         /// function.
         /// </summary>
+        /// <exception cref="EnsuranceException">Always</exception>
         /// <param name="a"></param>
         /// <param name="b"></param>
         public new static void ReferenceEquals( object a, object b )
@@ -2063,6 +2065,7 @@ namespace Ensurance
         /// arguments that are passed in. This is used by the other Assert
         /// functions. 
         /// </summary>
+        /// <exception cref="EnsuranceException">Always</exception>
         /// <param name="message">The message to initialize the <see cref="EnsuranceException"/> with.</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         public static void Fail( string message, params object[] args )
@@ -2083,6 +2086,7 @@ namespace Ensurance
         /// Throws an <see cref="EnsuranceException"/> with the message that is 
         /// passed in. This is used by the other Assert functions. 
         /// </summary>
+        /// <exception cref="EnsuranceException">Always</exception>
         /// <param name="message">The message to initialize the <see cref="EnsuranceException"/> with.</param>
         public static void Fail( string message )
         {
@@ -2093,6 +2097,7 @@ namespace Ensurance
         /// Throws an <see cref="EnsuranceException"/>. This is used by the
         /// other Assert functions. 
         /// </summary>
+        /// <exception cref="EnsuranceException">Always</exception>
         public static void Fail()
         {
             Fail( string.Empty, null );

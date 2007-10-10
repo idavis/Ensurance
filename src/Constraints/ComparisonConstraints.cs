@@ -70,7 +70,7 @@ namespace Ensurance.Constraints
         {
             _expected = value;
             _lessThanReturnsOK = ltOK;
-            EqualReturnsOK = eqOK;
+            _equalReturnsOK = eqOK;
             _greaterThanReturnsOK = gtOK;
             _predicate = predicate;
         }
@@ -128,11 +128,12 @@ namespace Ensurance.Constraints
         /// Write the constraint description to a MessageWriter
         /// </summary>
         /// <param name="writer">The writer on which the description is displayed</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( _predicate );
             writer.WriteExpectedValue( _expected );

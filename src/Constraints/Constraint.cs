@@ -202,12 +202,13 @@ namespace Ensurance.Constraints
         /// Constraints that need to provide additional details, such as where
         /// the error occured can override this.
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The MessageWriter on which to display the message</param>
         public virtual void WriteMessageTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.DisplayDifferences( this );
         }
@@ -230,12 +231,13 @@ namespace Ensurance.Constraints
         /// MessageWriter. The default implementation simply writes the raw
         /// value of actual, leaving it to the writer to perform any formatting.
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the actual value is displayed</param>
         public virtual void WriteActualValueTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WriteActualValue( _actual );
         }
@@ -259,7 +261,7 @@ namespace Ensurance.Constraints
         /// </summary>
         public static Constraint BitwiseAnd( Constraint left, Constraint right )
         {
-            return new AndConstraint(left, right);
+            return new AndConstraint( left, right );
         }
 
         /// <summary>

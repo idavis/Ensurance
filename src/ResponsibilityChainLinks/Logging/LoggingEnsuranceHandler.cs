@@ -28,9 +28,13 @@ using Ensurance.MessageWriters;
 
 namespace Ensurance.ResponsibilityChainLinks.Logging
 {
+    /// <summary>
+    /// 
+    /// </summary>
 #if !DEBUG
     [System.Diagnostics.DebuggerNonUserCode]
 #endif
+
     public class LoggingEnsuranceHandler : IEnsuranceResponsibilityChainLink
     {
         private IEnsuranceLogger _logger;
@@ -58,6 +62,7 @@ namespace Ensurance.ResponsibilityChainLinks.Logging
         /// Initializes a new instance of the <see
         /// cref="LoggingEnsuranceHandler"/> class.
         /// </summary>
+        /// <exception cref="ArgumentNullException">if logger is null</exception>
         /// <param name="logger">The logger.</param>
         /// <param name="logSeverity">The log severity.</param>
         public LoggingEnsuranceHandler( IEnsuranceLogger logger, LogSeverity logSeverity )

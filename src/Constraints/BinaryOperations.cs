@@ -87,7 +87,7 @@ namespace Ensurance.Constraints
         }
 
         /// <summary>
-        /// Apply both member constraints to an actual value, succeeding 
+        /// Apply both member constraints to an actual value, succeeding
         /// succeeding only if both of them succeed.
         /// </summary>
         /// <param name="actual">The actual value</param>
@@ -102,11 +102,12 @@ namespace Ensurance.Constraints
         /// Write a description for this contraint to a MessageWriter
         /// </summary>
         /// <param name="writer">The MessageWriter to receive the description</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             Left.WriteDescriptionTo( writer );
             writer.WriteConnector( "and" );
@@ -144,11 +145,12 @@ namespace Ensurance.Constraints
         /// Write a description for this contraint to a MessageWriter
         /// </summary>
         /// <param name="writer">The MessageWriter to receive the description</param>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             Left.WriteDescriptionTo( writer );
             writer.WriteConnector( "or" );

@@ -163,6 +163,13 @@ namespace Ensurance.Constraints
 
         #region Numeric Equality
 
+        /// <summary>
+        /// Verifies that two objects are equal.
+        /// </summary>
+        /// <param name="expected">The expected value</param>
+        /// <param name="actual">The actual value</param>
+        /// <param name="tolerance">The tolerance.</param>
+        /// <returns></returns>
         public static bool AreEqual( object expected, object actual, object tolerance )
         {
             CultureInfo currenCulture = CultureInfo.CurrentCulture;
@@ -194,6 +201,13 @@ namespace Ensurance.Constraints
             return AreEqual( Convert.ToInt32( expected, currenCulture ), Convert.ToInt32( actual, currenCulture ), Convert.ToInt32( tolerance, currenCulture ) );
         }
 
+        /// <summary>
+        /// Verifies that two doubles are equal.
+        /// </summary>
+        /// <param name="expected">The expected value</param>
+        /// <param name="actual">The actual value</param>
+        /// <param name="tolerance">The tolerance.</param>
+        /// <returns></returns>
         private static bool AreEqual( double expected, double actual, double tolerance )
         {
             if ( double.IsNaN( expected ) && double.IsNaN( actual ) )
@@ -216,6 +230,13 @@ namespace Ensurance.Constraints
             return expected.Equals( actual );
         }
 
+        /// <summary>
+        /// Verifies that two decimals are equal.
+        /// </summary>
+        /// <param name="expected">The expected value</param>
+        /// <param name="actual">The actual value</param>
+        /// <param name="tolerance">The tolerance.</param>
+        /// <returns></returns>
         private static bool AreEqual( decimal expected, decimal actual, decimal tolerance )
         {
             if ( tolerance > 0m )
@@ -226,6 +247,13 @@ namespace Ensurance.Constraints
             return expected.Equals( actual );
         }
 
+        /// <summary>
+        /// Verifies that two ulongs are equal.
+        /// </summary>
+        /// <param name="expected">The expected value</param>
+        /// <param name="actual">The actual value</param>
+        /// <param name="tolerance">The tolerance.</param>
+        /// <returns></returns>
         private static bool AreEqual( ulong expected, ulong actual, ulong tolerance )
         {
             if ( tolerance > 0ul )
@@ -237,6 +265,13 @@ namespace Ensurance.Constraints
             return expected.Equals( actual );
         }
 
+        /// <summary>
+        /// Verifies that two longs are equal.
+        /// </summary>
+        /// <param name="expected">The expected value</param>
+        /// <param name="actual">The actual value</param>
+        /// <param name="tolerance">The tolerance.</param>
+        /// <returns></returns>
         private static bool AreEqual( long expected, long actual, long tolerance )
         {
             if ( tolerance > 0L )
@@ -247,6 +282,13 @@ namespace Ensurance.Constraints
             return expected.Equals( actual );
         }
 
+        /// <summary>
+        /// Verifies that two uints are equal.
+        /// </summary>
+        /// <param name="expected">The expected value</param>
+        /// <param name="actual">The actual value</param>
+        /// <param name="tolerance">The tolerance.</param>
+        /// <returns></returns>
         private static bool AreEqual( uint expected, uint actual, uint tolerance )
         {
             if ( tolerance > 0 )
@@ -258,6 +300,13 @@ namespace Ensurance.Constraints
             return expected.Equals( actual );
         }
 
+        /// <summary>
+        /// Verifies that two ints are equal.
+        /// </summary>
+        /// <param name="expected">The expected value</param>
+        /// <param name="actual">The actual value</param>
+        /// <param name="tolerance">The tolerance.</param>
+        /// <returns></returns>
         private static bool AreEqual( int expected, int actual, int tolerance )
         {
             if ( tolerance > 0 )
@@ -272,16 +321,23 @@ namespace Ensurance.Constraints
 
         #region Numeric Comparisons 
 
+        /// <summary>
+        /// Compares the expected value against the actual value.
+        /// </summary>
+        /// <param name="expected">The expected value.</param>
+        /// <param name="actual">The actual value.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">if expected or actual is null</exception>
         public static int Compare( IComparable expected, object actual )
         {
             if ( expected == null )
             {
-                throw new ArgumentException( Resources.CannotCompareUsingNullReference, "expected");
+                throw new ArgumentException( Resources.CannotCompareUsingNullReference, "expected" );
             }
 
             if ( actual == null )
             {
-                throw new ArgumentException( Resources.CannotCompareToNullReference, "actual");
+                throw new ArgumentException( Resources.CannotCompareToNullReference, "actual" );
             }
 
             if ( IsNumericType( expected ) && IsNumericType( actual ) )

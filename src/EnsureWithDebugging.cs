@@ -33,9 +33,13 @@ namespace Ensurance
         {
             #region Nested type: Debugging
 
+            /// <summary>
+            /// 
+            /// </summary>
 #if !DEBUG
             [System.Diagnostics.DebuggerNonUserCode]
 #endif
+
             public partial class Debugging : EnsuranceHandlerContainer<DebuggerEnsuranceHandler>
             {
             }

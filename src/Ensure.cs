@@ -24,11 +24,10 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using Ensurance.Constraints;
+using Ensurance.Properties;
 using Ensurance.ResponsibilityChainLinks;
 using Ensurance.SyntaxHelpers;
-using Ensurance.Properties;
 
 namespace Ensurance
 {
@@ -38,6 +37,7 @@ namespace Ensurance
 #if !DEBUG
     [DebuggerNonUserCode]
 #endif
+
     public partial class Ensure : EnsureBase<Ensure>, IEnsuranceHandler
     {
         #region Constructors
@@ -77,8 +77,6 @@ namespace Ensurance
         /// <param name="handlersList">The handlers.</param>
         public static void SetEnsuranceHandlers( IList<IEnsuranceResponsibilityChainLink> handlersList )
         {
-            That( handlersList, Is.Not.Null );
-            That( handlersList.Count, Is.GreaterThan( 0 ) );
             ProcessEnsuranceHandlers( handlersList );
         }
 
@@ -88,7 +86,6 @@ namespace Ensurance
         /// <param name="handlersList">The handlers list.</param>
         public static void SetEnsuranceHandlers( params IEnsuranceResponsibilityChainLink[] handlersList )
         {
-            That( handlersList.Length, Is.GreaterThan( 0 ) );
             ProcessEnsuranceHandlers( handlersList );
         }
 
@@ -98,6 +95,8 @@ namespace Ensurance
         /// <param name="handlersList">The handlers list.</param>
         public static void ProcessEnsuranceHandlers( IList<IEnsuranceResponsibilityChainLink> handlersList )
         {
+            That( handlersList, Is.Not.Null );
+            That( handlersList.Count, Is.GreaterThan( 0 ) );
             _handler = handlersList[0];
             IEnsuranceResponsibilityChainLink current = _handler;
             for (int i = 1; i < handlersList.Count; i++)
@@ -122,6 +121,7 @@ namespace Ensurance
         /// </code>
         /// So that the downstream handler can have a chance to process the failure.
         /// </summary>
+        /// <exception cref="EnsuranceException">Always</exception>
         /// <param name="constraint">The constraint.</param>
         /// <param name="message">The message.</param>
         /// <param name="args">The args.</param>
@@ -154,11 +154,14 @@ namespace Ensurance
 
         #region Extensions
 
+        #region Nested type: With
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if !DEBUG
         [DebuggerNonUserCode]
 #endif
-
-            #region Nested type: With
 
         public partial class With
         {

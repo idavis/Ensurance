@@ -32,6 +32,9 @@ using log4net.Config;
 
 namespace Ensurance.ResponsibilityChainLinks.Logging
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Log4NetEnsuranceLogger : EnsuranceLoggerBase
     {
         private static readonly ILog _logger;

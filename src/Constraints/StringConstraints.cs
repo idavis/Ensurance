@@ -73,12 +73,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write the constraint description to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
 
             writer.WritePredicate( "String containing" );
@@ -113,8 +114,8 @@ namespace Ensurance.Constraints
         /// a template method, which calls the IsMatch method of the derived
         /// class.
         /// </summary>
-        /// <param name="actual"></param>
-        /// <returns></returns>
+        /// <param name="actual">The value to be tested</param>
+        /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
             Actual = actual;
@@ -137,12 +138,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write the constraint description to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
 
             writer.WritePredicate( "String starting with" );
@@ -177,8 +179,8 @@ namespace Ensurance.Constraints
         /// a template method, which calls the IsMatch method of the derived
         /// class.
         /// </summary>
-        /// <param name="actual"></param>
-        /// <returns></returns>
+        /// <param name="actual">The value to be tested</param>
+        /// <returns>True for success, false for failure</returns>
         public override bool Matches( object actual )
         {
             Actual = actual;
@@ -202,12 +204,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write the constraint description to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
             writer.WritePredicate( "String ending with" );
             writer.WriteExpectedValue( _expected );
@@ -254,12 +257,13 @@ namespace Ensurance.Constraints
         /// <summary>
         /// Write the constraint description to a MessageWriter
         /// </summary>
+        /// <exception cref="ArgumentNullException">if the message writer is null.</exception>
         /// <param name="writer">The writer on which the description is displayed</param>
         public override void WriteDescriptionTo( MessageWriter writer )
         {
-            if (writer == null)
+            if ( writer == null )
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException( "writer" );
             }
 
             writer.WritePredicate( "String matching" );

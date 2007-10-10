@@ -29,7 +29,8 @@ using Ensurance.MessageWriters;
 namespace Ensurance.ResponsibilityChainLinks
 {
     /// <summary>
-    /// 
+    /// Throws an <see cref="EnsuranceException"/> with a message based on the
+    /// constraint that failed.
     /// </summary>
     public class ExceptionEnsuranceHandler : TextMessageWriter
     {
@@ -45,6 +46,7 @@ namespace Ensurance.ResponsibilityChainLinks
         /// So that the downstream handler can have a chance to process the
         /// failure.
         /// </summary>
+        /// <exception cref="EnsuranceException">Always</exception>
         /// <param name="constraint">The constraint.</param>
         /// <param name="message">The message.</param>
         /// <param name="args">The args.</param>

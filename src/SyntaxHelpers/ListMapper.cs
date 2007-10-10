@@ -34,7 +34,7 @@ namespace Ensurance.SyntaxHelpers
     /// </summary>
     public class ListMapper
     {
-        private ICollection original;
+        private ICollection _original;
 
         /// <summary>
         /// Construct a ListMapper based on a collection
@@ -42,7 +42,7 @@ namespace Ensurance.SyntaxHelpers
         /// <param name="original">The collection to be transformed</param>
         public ListMapper( ICollection original )
         {
-            this.original = original;
+            _original = original;
         }
 
         /// <summary>
@@ -50,10 +50,11 @@ namespace Ensurance.SyntaxHelpers
         /// </summary>
         /// <param name="name">The collection of property values</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentException">if property is null</exception>
         public ICollection Property( string name )
         {
             ArrayList propList = new ArrayList();
-            foreach (object item in original)
+            foreach (object item in _original)
             {
                 PropertyInfo property = item.GetType().GetProperty( name,
                                                                     BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance );
