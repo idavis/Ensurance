@@ -82,6 +82,9 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Attributes\ConstraintAttribute.cs" />
+    <Compile Include="Attributes\IsAttributes.cs" />
+    <Compile Include="Attributes\IsNotAttributes.cs" />
     <Compile Include="Ensure.cs" />
     <Compile Include="EnsureBase.cs" />
     <Compile Include="EnsuranceException.cs" />

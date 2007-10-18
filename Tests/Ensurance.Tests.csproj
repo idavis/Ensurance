@@ -46,6 +46,7 @@
     <Compile Include="ArrayEqualsFailureMessageFixture.cs" />
     <Compile Include="ArrayEqualsFixture.cs" />
     <Compile Include="ArrayNotEqualFixture.cs" />
+    <Compile Include="Attributes\IsAttributeTests.cs" />
     <Compile Include="CollectionAdapter.cs" />
     <Compile Include="CollectionAssertTest.cs" />
     <Compile Include="ConditionAssertTests.cs" />

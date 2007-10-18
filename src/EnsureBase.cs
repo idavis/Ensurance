@@ -24,11 +24,13 @@
 using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using Ensurance.Attributes;
 using Ensurance.Constraints;
-using Ensurance.SyntaxHelpers;
+using Is=Ensurance.SyntaxHelpers.Is;
 
 namespace Ensurance
 {
@@ -3972,6 +3974,30 @@ namespace Ensurance
         }
 
         #endregion
+
+        #endregion
+
+        #region Attribute Helpers
+
+        /// <summary>
+        /// Verifies the arguments for the current method if they 
+        /// have constraint attributes applied.
+        /// </summary>
+        /// <param name="vals">The vals.</param>
+        public static void VerifyArguments( params object[] vals )
+        {
+            StackTrace stackTrace = new StackTrace( 1 );
+            StackFrame stackFrame = stackTrace.GetFrame( 0 );
+            ParameterInfo[] parameters = stackFrame.GetMethod().GetParameters();
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                ParameterInfo parameterInfo = parameters[i];
+                foreach (ConstraintAttribute constraintAttribute in parameterInfo.GetCustomAttributes( typeof (ConstraintAttribute), true ))
+                {
+                    That( vals[i], constraintAttribute.Constraint );
+                }
+            }
+        }
 
         #endregion
     }
