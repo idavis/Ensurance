@@ -25,6 +25,7 @@ using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -82,11 +83,11 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
 
-            writer.WritePredicate( "String containing" );
+            writer.WritePredicate( Resources.StringContaining );
             writer.WriteExpectedValue( _expected );
             if ( CaseInsensitive )
             {
-                writer.WriteModifier( "ignoring case" );
+                writer.WriteModifier( Resources.IgnoringCase );
             }
         }
     }
@@ -147,11 +148,11 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
 
-            writer.WritePredicate( "String starting with" );
+            writer.WritePredicate( Resources.StringStartingWith );
             writer.WriteExpectedValue( MsgUtils.ClipString( _expected, writer.MaxLineLength - 40, 0 ) );
             if ( CaseInsensitive )
             {
-                writer.WriteModifier( "ignoring case" );
+                writer.WriteModifier( Resources.IgnoringCase );
             }
         }
     }
@@ -212,11 +213,11 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "String ending with" );
+            writer.WritePredicate( Resources.StringEndingWith );
             writer.WriteExpectedValue( _expected );
             if ( CaseInsensitive )
             {
-                writer.WriteModifier( "ignoring case" );
+                writer.WriteModifier( Resources.IgnoringCase );
             }
         }
     }
@@ -266,11 +267,11 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
 
-            writer.WritePredicate( "String matching" );
+            writer.WritePredicate( Resources.StringMatching );
             writer.WriteExpectedValue( _pattern );
             if ( CaseInsensitive )
             {
-                writer.WriteModifier( "ignoring case" );
+                writer.WriteModifier( Resources.IgnoringCase );
             }
         }
     }

@@ -23,6 +23,7 @@
 
 using System;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -68,7 +69,7 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
 
-            writer.WritePredicate( "same as" );
+            writer.WritePredicate( Resources.SameAs );
             writer.WriteExpectedValue( _expected );
         }
     }

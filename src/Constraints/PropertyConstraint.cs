@@ -24,6 +24,7 @@
 using System;
 using System.Reflection;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -90,7 +91,7 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
 
-            writer.WritePredicate( "Property \"" + _name + "\"" );
+            writer.WritePredicate( string.Format( Resources.PropertyName_1, _name ) );
             BaseConstraint.WriteDescriptionTo( writer );
         }
 

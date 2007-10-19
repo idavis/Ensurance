@@ -212,7 +212,7 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
 
-            writer.Write( "all items unique" );
+            writer.Write( Resources.AllItemsUnique );
         }
     }
 
@@ -266,7 +266,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "collection containing" );
+            writer.WritePredicate( Resources.CollectionContaining );
             writer.WriteExpectedValue( _expected );
         }
     }
@@ -323,7 +323,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "equivalent to" );
+            writer.WritePredicate( Resources.EquivalentTo );
             writer.WriteExpectedValue( _expected );
         }
     }
@@ -371,7 +371,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "subset of" );
+            writer.WritePredicate( Resources.SubsetOf );
             writer.WriteExpectedValue( _expected );
         }
     }

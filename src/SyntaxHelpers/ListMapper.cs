@@ -25,6 +25,7 @@ using System;
 using System.Collections;
 using System.Globalization;
 using System.Reflection;
+using Ensurance.Properties;
 
 namespace Ensurance.SyntaxHelpers
 {
@@ -61,7 +62,7 @@ namespace Ensurance.SyntaxHelpers
                 if ( property == null )
                 {
                     throw new ArgumentException( string.Format( CultureInfo.CurrentCulture,
-                                                                "{0} does not have a {1} property", item, name ) );
+                                                                Resources.DoesNotHaveProperty_2, item, name ) );
                 }
 
                 propList.Add( property.GetValue( item, null ) );

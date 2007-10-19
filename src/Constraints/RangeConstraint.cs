@@ -23,6 +23,7 @@
 
 using System;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -115,9 +116,9 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
 
-            writer.WritePredicate( "between" );
+            writer.WritePredicate( Resources.Between );
             writer.WriteExpectedValue( _low );
-            writer.WriteConnector( "and" );
+            writer.WriteConnector( Resources.And );
             writer.WriteExpectedValue( _high );
         }
     }

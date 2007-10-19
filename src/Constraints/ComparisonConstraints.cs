@@ -23,6 +23,7 @@
 
 using System;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -151,7 +152,8 @@ namespace Ensurance.Constraints
         /// cref="GreaterThanConstraint"/> class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
-        public GreaterThanConstraint( IComparable expected ) : base( expected, false, false, true, "greater than" )
+        public GreaterThanConstraint( IComparable expected )
+            : base( expected, false, false, true, Resources.GreaterThan )
         {
         }
     }
@@ -167,7 +169,8 @@ namespace Ensurance.Constraints
         /// cref="GreaterThanOrEqualConstraint"/> class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
-        public GreaterThanOrEqualConstraint( IComparable expected ) : base( expected, false, true, true, "greater than or equal to" )
+        public GreaterThanOrEqualConstraint( IComparable expected )
+            : base( expected, false, true, true, Resources.GreaterThanOrEqualTo )
         {
         }
     }
@@ -182,7 +185,8 @@ namespace Ensurance.Constraints
         /// class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
-        public LessThanConstraint( IComparable expected ) : base( expected, true, false, false, "less than" )
+        public LessThanConstraint( IComparable expected )
+            : base( expected, true, false, false, Resources.LessThan )
         {
         }
     }
@@ -198,7 +202,8 @@ namespace Ensurance.Constraints
         /// cref="LessThanOrEqualConstraint"/> class.
         /// </summary>
         /// <param name="expected">The expected value.</param>
-        public LessThanOrEqualConstraint( IComparable expected ) : base( expected, true, true, false, "less than or equal to" )
+        public LessThanOrEqualConstraint( IComparable expected )
+            : base( expected, true, true, false, Resources.LessThanOrEqualTo )
         {
         }
     }

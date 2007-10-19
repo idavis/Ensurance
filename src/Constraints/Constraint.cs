@@ -24,6 +24,7 @@
 using System;
 using System.Collections;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -44,7 +45,7 @@ namespace Ensurance.Constraints
         {
             public override string ToString()
             {
-                return "UNSET";
+                return Resources.UNSET;
             }
         }
 

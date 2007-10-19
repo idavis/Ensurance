@@ -117,11 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllItems" xml:space="preserve">
+    <value>all items</value>
+  </data>
+  <data name="AllItemsUnique" xml:space="preserve">
+    <value>all items unique</value>
+  </data>
+  <data name="And" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="Between" xml:space="preserve">
+    <value>between</value>
+  </data>
   <data name="CannotCompareToNullReference" xml:space="preserve">
     <value>Cannot compare to null reference</value>
   </data>
   <data name="CannotCompareUsingNullReference" xml:space="preserve">
     <value>Cannot compare using a null reference</value>
+  </data>
+  <data name="CollectionContaining" xml:space="preserve">
+    <value>collection containing</value>
   </data>
   <data name="CollectionType_1" xml:space="preserve">
     <value>Expected and actual are both {0}</value>
@@ -166,8 +181,101 @@
   &lt;/log4net&gt;
 &lt;/configuration&gt;</value>
   </data>
+  <data name="DoesNotHaveProperty_2" xml:space="preserve">
+    <value>{0} does not have a {1} property</value>
+  </data>
+  <data name="Ellipsis" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>&lt;empty&gt;</value>
+  </data>
+  <data name="EquivalentTo" xml:space="preserve">
+    <value>equivalent to</value>
+  </data>
+  <data name="Extra" xml:space="preserve">
+    <value>Extra</value>
+  </data>
+  <data name="Format_Char" xml:space="preserve">
+    <value>'{0}'</value>
+  </data>
+  <data name="Format_Connector" xml:space="preserve">
+    <value> {0} </value>
+  </data>
+  <data name="Format_DateTime" xml:space="preserve">
+    <value>yyyy-MM-dd HH:mm:ss.fff</value>
+  </data>
+  <data name="Format_Default" xml:space="preserve">
+    <value>&lt;{0}&gt;</value>
+  </data>
+  <data name="Format_EmptyCollection" xml:space="preserve">
+    <value>&lt;empty&gt;</value>
+  </data>
+  <data name="Format_EmptyString" xml:space="preserve">
+    <value>&lt;string.Empty&gt;</value>
+  </data>
+  <data name="Format_Modifier" xml:space="preserve">
+    <value>, {0}</value>
+  </data>
+  <data name="Format_Null" xml:space="preserve">
+    <value>null</value>
+  </data>
+  <data name="Format_Predicate" xml:space="preserve">
+    <value>{0} </value>
+  </data>
+  <data name="Format_String" xml:space="preserve">
+    <value>"{0}"</value>
+  </data>
+  <data name="Format_ValueType" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="GreaterThan" xml:space="preserve">
+    <value>greater than</value>
+  </data>
+  <data name="GreaterThanOrEqualTo" xml:space="preserve">
+    <value>greater than or equal to</value>
+  </data>
   <data name="IEnsuranceHandlerDoNotUse" xml:space="preserve">
     <value>IEnsuranceHandler.Handle should not be used.</value>
+  </data>
+  <data name="IgnoringCase" xml:space="preserve">
+    <value>ignoring case</value>
+  </data>
+  <data name="InstanceOf" xml:space="preserve">
+    <value>instance of</value>
+  </data>
+  <data name="LessThan" xml:space="preserve">
+    <value>less than</value>
+  </data>
+  <data name="LessThanOrEqualTo" xml:space="preserve">
+    <value>less than or equal to</value>
+  </data>
+  <data name="Missing" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="NoItem" xml:space="preserve">
+    <value>no item</value>
+  </data>
+  <data name="Not" xml:space="preserve">
+    <value>not</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>or</value>
+  </data>
+  <data name="PrefixActual" xml:space="preserve">
+    <value>  But was:  </value>
+  </data>
+  <data name="PrefixExpected" xml:space="preserve">
+    <value>  Expected: </value>
+  </data>
+  <data name="PropertyName_1" xml:space="preserve">
+    <value>Property \"{0}\"</value>
+  </data>
+  <data name="SameAs" xml:space="preserve">
+    <value>same as</value>
+  </data>
+  <data name="SomeItem" xml:space="preserve">
+    <value>some item</value>
   </data>
   <data name="StreamsDiffer_1" xml:space="preserve">
     <value>Stream lengths are both {0}. Streams differ at offset {1}.</value>
@@ -175,11 +283,32 @@
   <data name="StreamsDiffer_2" xml:space="preserve">
     <value>Expected Stream length {0} but was {1}.</value>
   </data>
+  <data name="StringContaining" xml:space="preserve">
+    <value>String containing</value>
+  </data>
+  <data name="StringEndingWith" xml:space="preserve">
+    <value>String ending with</value>
+  </data>
+  <data name="StringMatching" xml:space="preserve">
+    <value>String matching</value>
+  </data>
   <data name="StringsDiffer_1" xml:space="preserve">
     <value>String lengths are both {0}. Strings differ at index {1}.</value>
   </data>
   <data name="StringsDiffer_2" xml:space="preserve">
     <value>Expected string length {0} but was {1}. Strings differ at index {2}.</value>
+  </data>
+  <data name="StringStartingWith" xml:space="preserve">
+    <value>String starting with</value>
+  </data>
+  <data name="SubsetOf" xml:space="preserve">
+    <value>subset of</value>
+  </data>
+  <data name="TypeAssignableFrom" xml:space="preserve">
+    <value>Type assignable from</value>
+  </data>
+  <data name="UNSET" xml:space="preserve">
+    <value>UNSET</value>
   </data>
   <data name="ValueMustBeCollection" xml:space="preserve">
     <value>The actual value must be a collection</value>
@@ -189,5 +318,8 @@
   </data>
   <data name="ValuesDiffer_2" xml:space="preserve">
     <value>Values differ at expected index {0}, actual index {1}</value>
+  </data>
+  <data name="WithElements_1" xml:space="preserve">
+    <value> with {0} elements</value>
   </data>
 </root>

@@ -24,6 +24,7 @@
 using System;
 using System.Collections;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -59,7 +60,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.Write( "<empty>" );
+            writer.Write( Resources.Empty );
         }
     }
 }

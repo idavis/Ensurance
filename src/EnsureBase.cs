@@ -126,7 +126,7 @@ namespace Ensurance
         /// <param name="condition">The evaluated condition</param>
         public static void IsTrue( bool condition )
         {
-            IsTrue( condition, null, null );
+            IsTrue( condition, string.Empty, null );
         }
 
         #endregion
@@ -428,7 +428,7 @@ namespace Ensurance
         /// <param name="actual">The object under examination</param>
         public static void IsAssignableFrom( Type expected, object actual )
         {
-            IsAssignableFrom( expected, actual, "" );
+            IsAssignableFrom( expected, actual, string.Empty );
         }
 
         /// <summary>
@@ -465,7 +465,7 @@ namespace Ensurance
         /// <param name="actual">The object under examination</param>
         public static void IsNotAssignableFrom( Type expected, object actual )
         {
-            IsNotAssignableFrom( expected, actual, "" );
+            IsNotAssignableFrom( expected, actual, string.Empty );
         }
 
         /// <summary>
@@ -579,8 +579,7 @@ namespace Ensurance
         /// <param name="actual">The actual value</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void AreEqual( int expected,
-                                     int actual, string message, params object[] args )
+        public static void AreEqual( int expected, int actual, string message, params object[] args )
         {
             That( actual, Is.EqualTo( expected ), message, args );
         }
@@ -620,8 +619,7 @@ namespace Ensurance
         /// <param name="actual">The actual value</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void AreEqual( long expected,
-                                     long actual, string message, params object[] args )
+        public static void AreEqual( long expected, long actual, string message, params object[] args )
         {
             That( actual, Is.EqualTo( expected ), message, args );
         }
@@ -662,8 +660,7 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void AreEqual( uint expected,
-                                     uint actual, string message, params object[] args )
+        public static void AreEqual( uint expected, uint actual, string message, params object[] args )
         {
             That( actual, Is.EqualTo( expected ), message, args );
         }
@@ -706,8 +703,7 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void AreEqual( ulong expected,
-                                     ulong actual, string message, params object[] args )
+        public static void AreEqual( ulong expected, ulong actual, string message, params object[] args )
         {
             That( actual, Is.EqualTo( expected ), message, args );
         }
@@ -749,8 +745,7 @@ namespace Ensurance
         /// <param name="actual">The actual value</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void AreEqual( decimal expected,
-                                     decimal actual, string message, params object[] args )
+        public static void AreEqual( decimal expected, decimal actual, string message, params object[] args )
         {
             That( actual, Is.EqualTo( expected ), message, args );
         }
@@ -793,8 +788,7 @@ namespace Ensurance
         /// the expected and the actual</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void AreEqual( double expected,
-                                     double actual, double delta, string message, params object[] args )
+        public static void AreEqual( double expected, double actual, double delta, string message, params object[] args )
         {
             if ( double.IsNaN( expected ) || double.IsInfinity( expected ) )
             {
@@ -816,8 +810,7 @@ namespace Ensurance
         /// <param name="delta">The maximum acceptable difference between the
         /// the expected and the actual</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void AreEqual( double expected,
-                                     double actual, double delta, string message )
+        public static void AreEqual( double expected, double actual, double delta, string message )
         {
             AreEqual( expected, actual, delta, message, null );
         }
@@ -851,8 +844,7 @@ namespace Ensurance
         /// the expected and the actual</param>
         /// <param name="message">The message displayed upon failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void AreEqual( float expected,
-                                     float actual, float delta, string message, params object[] args )
+        public static void AreEqual( float expected, float actual, float delta, string message, params object[] args )
         {
             if ( float.IsNaN( expected ) || float.IsInfinity( expected ) )
             {
@@ -1366,8 +1358,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( int lhs,
-                                    int rhs, string message, params object[] args )
+        public static void Greater( int lhs, int rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThan( rhs ), message, args );
         }
@@ -1408,8 +1399,7 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void Greater( uint lhs,
-                                    uint rhs, string message, params object[] args )
+        public static void Greater( uint lhs, uint rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThan( rhs ), message, args );
         }
@@ -1451,8 +1441,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( long lhs,
-                                    long rhs, string message, params object[] args )
+        public static void Greater( long lhs, long rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThan( rhs ), message, args );
         }
@@ -1493,8 +1482,7 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void Greater( ulong lhs,
-                                    ulong rhs, string message, params object[] args )
+        public static void Greater( ulong lhs, ulong rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThan( rhs ), message, args );
         }
@@ -1536,8 +1524,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( decimal lhs,
-                                    decimal rhs, string message, params object[] args )
+        public static void Greater( decimal lhs, decimal rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThan( rhs ), message, args );
         }
@@ -1577,8 +1564,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( double lhs,
-                                    double rhs, string message, params object[] args )
+        public static void Greater( double lhs, double rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThan( rhs ), message, args );
         }
@@ -1590,8 +1576,7 @@ namespace Ensurance
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void Greater( double lhs,
-                                    double rhs, string message )
+        public static void Greater( double lhs, double rhs, string message )
         {
             Greater( lhs, rhs, message, null );
         }
@@ -1619,8 +1604,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( float lhs,
-                                    float rhs, string message, params object[] args )
+        public static void Greater( float lhs, float rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThan( rhs ), message, args );
         }
@@ -1660,8 +1644,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Greater( IComparable lhs,
-                                    IComparable rhs, string message, params object[] args )
+        public static void Greater( IComparable lhs, IComparable rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThan( rhs ), message, args );
         }
@@ -2144,7 +2127,7 @@ namespace Ensurance
         {
             if ( constraint == null )
             {
-                throw new ArgumentNullException( "constraint", "The constraint must not be null" );
+                throw new ArgumentNullException( "constraint" );
             }
 
             if ( !constraint.Matches( actual ) )
@@ -2197,7 +2180,7 @@ namespace Ensurance
         /// <param name="condition">The evaluated condition</param>
         public static void That( bool condition )
         {
-            That( condition, Is.True, null, null );
+            That( condition, Is.True, string.Empty, null );
         }
 
         #endregion
@@ -2215,8 +2198,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( int lhs,
-                                           int rhs, string message, params object[] args )
+        public static void GreaterOrEqual( int lhs, int rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
@@ -2260,8 +2242,7 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void GreaterOrEqual( uint lhs,
-                                           uint rhs, string message, params object[] args )
+        public static void GreaterOrEqual( uint lhs, uint rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
@@ -2306,8 +2287,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( long lhs,
-                                           long rhs, string message, params object[] args )
+        public static void GreaterOrEqual( long lhs, long rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
@@ -2351,8 +2331,7 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
         [CLSCompliant( false )]
-        public static void GreaterOrEqual( ulong lhs,
-                                           ulong rhs, string message, params object[] args )
+        public static void GreaterOrEqual( ulong lhs, ulong rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
@@ -2397,8 +2376,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( decimal lhs,
-                                           decimal rhs, string message, params object[] args )
+        public static void GreaterOrEqual( decimal lhs, decimal rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
@@ -2441,8 +2419,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( double lhs,
-                                           double rhs, string message, params object[] args )
+        public static void GreaterOrEqual( double lhs, double rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
@@ -2455,8 +2432,7 @@ namespace Ensurance
         /// <param name="lhs">The first value, expected to be greater</param>
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
-        public static void GreaterOrEqual( double lhs,
-                                           double rhs, string message )
+        public static void GreaterOrEqual( double lhs, double rhs, string message )
         {
             GreaterOrEqual( lhs, rhs, message, null );
         }
@@ -2486,8 +2462,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( float lhs,
-                                           float rhs, string message, params object[] args )
+        public static void GreaterOrEqual( float lhs, float rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
@@ -2529,8 +2504,7 @@ namespace Ensurance
         /// <param name="rhs">The second value, expected to be less</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void GreaterOrEqual( IComparable lhs,
-                                           IComparable rhs, string message, params object[] args )
+        public static void GreaterOrEqual( IComparable lhs, IComparable rhs, string message, params object[] args )
         {
             That( lhs, Is.GreaterThanOrEqualTo( rhs ), message, args );
         }
@@ -3540,7 +3514,6 @@ namespace Ensurance
         /// <param name="actual">The second ICollection of objects to be considered</param>
         public static void AreEqual( ICollection expected, ICollection actual )
         {
-            //AreEqual(expected, actual, null, string.Empty, null);
             That( actual, new EqualConstraint( expected ) );
         }
 
@@ -3566,7 +3539,6 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         public static void AreEqual( ICollection expected, ICollection actual, string message )
         {
-            //AreEqual(expected, actual, null, message, null);
             That( actual, new EqualConstraint( expected ), message );
         }
 
@@ -3594,7 +3566,6 @@ namespace Ensurance
         /// <param name="args">Arguments to be used in formatting the message</param>
         public static void AreEqual( ICollection expected, ICollection actual, string message, params object[] args )
         {
-            //AreEqual(expected, actual, null, message, args);
             That( actual, new EqualConstraint( expected ), message, args );
         }
 
@@ -3687,8 +3658,6 @@ namespace Ensurance
         /// <param name="message">The message that will be displayed on failure</param>
         public static void AreNotEqual( ICollection expected, ICollection actual, string message )
         {
-            //AreNotEqual(expected, actual, null, message, null);
-            //EnsureBase<T>.AreNotEqual( expected, actual, message );
             That( actual, new NotConstraint( new EqualConstraint( expected ) ), message );
         }
 
@@ -3714,8 +3683,6 @@ namespace Ensurance
         /// <param name="args">Arguments to be used in formatting the message</param>
         public static void AreNotEqual( ICollection expected, ICollection actual, string message, params object[] args )
         {
-            //AreNotEqual(expected, actual, null, message, args);
-            //EnsureBase<T>.AreNotEqual( expected, actual, message, args );
             That( actual, new NotConstraint( new EqualConstraint( expected ) ), message, args );
         }
 
@@ -3901,7 +3868,7 @@ namespace Ensurance
         {
             if ( predicate == null )
             {
-                throw new ArgumentNullException( "predicate", "The predicate must not be null" );
+                throw new ArgumentNullException( "predicate" );
             }
             That( predicate( input ), Is.True, message, args );
         }
@@ -3945,7 +3912,7 @@ namespace Ensurance
         {
             if ( predicate == null )
             {
-                throw new ArgumentNullException( "predicate", "The predicate must not be null" );
+                throw new ArgumentNullException( "predicate" );
             }
             That( predicate( input ), Is.False, message, args );
         }

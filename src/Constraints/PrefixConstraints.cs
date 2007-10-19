@@ -127,7 +127,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "not" );
+            writer.WritePredicate( Resources.Not );
             BaseConstraint.WriteDescriptionTo( writer );
         }
 
@@ -201,7 +201,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "all items" );
+            writer.WritePredicate( Resources.AllItems );
             BaseConstraint.WriteDescriptionTo( writer );
         }
     }
@@ -265,7 +265,7 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
 
-            writer.WritePredicate( "some item" );
+            writer.WritePredicate( Resources.SomeItem );
             BaseConstraint.WriteDescriptionTo( writer );
         }
     }
@@ -328,7 +328,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "no item" );
+            writer.WritePredicate( Resources.NoItem );
             BaseConstraint.WriteDescriptionTo( writer );
         }
     }

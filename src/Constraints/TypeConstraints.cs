@@ -23,6 +23,7 @@
 
 using System;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -149,7 +150,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "instance of" );
+            writer.WritePredicate( Resources.InstanceOf );
             writer.WriteExpectedValue( ExpectedType );
         }
     }
@@ -190,7 +191,7 @@ namespace Ensurance.Constraints
             {
                 throw new ArgumentNullException( "writer" );
             }
-            writer.WritePredicate( "Type assignable from" );
+            writer.WritePredicate( Resources.TypeAssignableFrom );
             writer.WriteExpectedValue( ExpectedType );
         }
     }

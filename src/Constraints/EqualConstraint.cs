@@ -104,7 +104,7 @@ namespace Ensurance.Constraints
 
             if ( CaseInsensitive )
             {
-                writer.WriteModifier( "ignoring case" );
+                writer.WriteModifier( Resources.IgnoringCase );
             }
         }
 
@@ -275,7 +275,6 @@ namespace Ensurance.Constraints
                     if ( bufferExpected[count] != bufferActual[count] )
                     {
                         _failurePoints.Insert( 0, readByte + count );
-                        //FailureMessage.WriteLine("\tIndex : {0}", readByte + count);
                         return false;
                     }
                 }
@@ -365,12 +364,12 @@ namespace Ensurance.Constraints
                 }
                 else if ( expected.Count < actual.Count )
                 {
-                    writer.Write( "  Extra:    " );
+                    writer.Write( string.Format( "  {0}:    ", Resources.Extra ) );
                     writer.WriteCollectionElements( actual, failurePoint, 3 );
                 }
                 else
                 {
-                    writer.Write( "  Missing:  " );
+                    writer.Write(string.Format( "  {0}:  ", Resources.Missing ));
                     writer.WriteCollectionElements( expected, failurePoint, 3 );
                 }
             }
@@ -390,13 +389,13 @@ namespace Ensurance.Constraints
             string sExpected = MsgUtils.GetTypeRepresentation( expected );
             if ( !( expected is Array ) )
             {
-                sExpected += string.Format( CultureInfo.CurrentCulture, " with {0} elements", expected.Count );
+                sExpected += string.Format( CultureInfo.CurrentCulture, Resources.WithElements_1, expected.Count );
             }
 
             string sActual = MsgUtils.GetTypeRepresentation( actual );
             if ( !( actual is Array ) )
             {
-                sActual += string.Format( CultureInfo.CurrentCulture, " with {0} elements", expected.Count );
+                sActual += string.Format( CultureInfo.CurrentCulture, Resources.WithElements_1, expected.Count );
             }
 
             if ( sExpected == sActual )
@@ -448,8 +447,10 @@ namespace Ensurance.Constraints
             else
             {
                 int[] actualIndices = MsgUtils.GetArrayIndicesFromCollectionIndex( actual, failurePoint );
-                writer.WriteMessageLine( indent, Resources.ValuesDiffer_2,
-                                         MsgUtils.GetArrayIndicesAsString( expectedIndices ), MsgUtils.GetArrayIndicesAsString( actualIndices ) );
+                writer.WriteMessageLine( indent,
+                                         Resources.ValuesDiffer_2,
+                                         MsgUtils.GetArrayIndicesAsString( expectedIndices ),
+                                         MsgUtils.GetArrayIndicesAsString( actualIndices ) );
             }
         }
 

@@ -26,6 +26,7 @@ using System.Collections;
 using System.Globalization;
 using System.IO;
 using Ensurance.Constraints;
+using Ensurance.Properties;
 
 namespace Ensurance.MessageWriters
 {
@@ -43,31 +44,17 @@ namespace Ensurance.MessageWriters
     {
         #region Message Formats and Constants
 
-        private const string Fmt_Char = "'{0}'";
-        private const string Fmt_Connector = " {0} ";
-        private const string Fmt_DateTime = "yyyy-MM-dd HH:mm:ss.fff";
-        private const string Fmt_Default = "<{0}>";
-        private const string Fmt_EmptyCollection = "<empty>";
-        private const string Fmt_EmptyString = "<string.Empty>";
-        //private const string Fmt_Label = "{0}";
-        private const string Fmt_Modifier = ", {0}";
-
-        private const string Fmt_Null = "null";
-        private const string Fmt_Predicate = "{0} ";
-
-        private const string Fmt_String = "\"{0}\"";
-        private const string Fmt_ValueType = "{0}";
         private const int MAX_LINE_LENGTH = 78;
 
         /// <summary>
         /// Prefix used for the actual value line of a message
         /// </summary>
-        public const string Pfx_Actual = "  But was:  ";
+        public static readonly string Pfx_Actual = Resources.PrefixActual;
 
         /// <summary>
         /// Prefix used for the expected value line of a message
         /// </summary>
-        public const string Pfx_Expected = "  Expected: ";
+        public static readonly string Pfx_Expected = Resources.PrefixExpected;
 
         /// <summary>
         /// Length of a message prefix
@@ -199,7 +186,7 @@ namespace Ensurance.MessageWriters
             WriteExpectedValue( expected );
             if ( ignoreCase )
             {
-                WriteModifier( "ignoring case" );
+                WriteModifier( Resources.IgnoringCase );
             }
             TextWriter.WriteLine();
             WriteActualLine( actual );
@@ -220,7 +207,7 @@ namespace Ensurance.MessageWriters
         /// <param name="connector">The connector.</param>
         public override void WriteConnector( string connector )
         {
-            TextWriter.Write( Fmt_Connector, connector );
+            TextWriter.Write( Resources.Format_Connector, connector );
         }
 
         /// <summary>
@@ -229,13 +216,8 @@ namespace Ensurance.MessageWriters
         /// <param name="predicate">The predicate.</param>
         public override void WritePredicate( string predicate )
         {
-            TextWriter.Write( Fmt_Predicate, predicate );
+            TextWriter.Write( Resources.Format_Predicate, predicate );
         }
-
-        //public override void WriteLabel(string label)
-        //{
-        //    Write(Fmt_Label, label);
-        //}
 
         /// <summary>
         /// Write the text for a modifier.
@@ -243,7 +225,7 @@ namespace Ensurance.MessageWriters
         /// <param name="modifier">The modifier.</param>
         public override void WriteModifier( string modifier )
         {
-            TextWriter.Write( Fmt_Modifier, modifier );
+            TextWriter.Write( Resources.Format_Modifier, modifier );
         }
 
 
@@ -273,7 +255,7 @@ namespace Ensurance.MessageWriters
         {
             if ( val == null )
             {
-                TextWriter.Write( Fmt_Null );
+                TextWriter.Write( Resources.Format_Null );
             }
             else if ( val.GetType().IsArray )
             {
@@ -309,11 +291,11 @@ namespace Ensurance.MessageWriters
             }
             else if ( val.GetType().IsValueType )
             {
-                TextWriter.Write( Fmt_ValueType, val );
+                TextWriter.Write( Resources.Format_ValueType, val );
             }
             else
             {
-                TextWriter.Write( Fmt_Default, val );
+                TextWriter.Write( Resources.Format_Default, val );
             }
         }
 
@@ -328,7 +310,7 @@ namespace Ensurance.MessageWriters
         {
             if ( collection.Count == 0 )
             {
-                TextWriter.Write( Fmt_EmptyCollection );
+                TextWriter.Write( Resources.Format_EmptyCollection );
                 return;
             }
 
@@ -368,7 +350,7 @@ namespace Ensurance.MessageWriters
         {
             if ( array.Length == 0 )
             {
-                TextWriter.Write( Fmt_EmptyCollection );
+                TextWriter.Write( Resources.Format_EmptyCollection );
                 return;
             }
 
@@ -422,11 +404,11 @@ namespace Ensurance.MessageWriters
         {
             if ( string.IsNullOrEmpty( s ) )
             {
-                TextWriter.Write( Fmt_EmptyString );
+                TextWriter.Write( Resources.Format_EmptyString );
             }
             else
             {
-                TextWriter.Write( Fmt_String, s );
+                TextWriter.Write( Resources.Format_String, s );
             }
         }
 
@@ -436,7 +418,7 @@ namespace Ensurance.MessageWriters
         /// <param name="c">The c.</param>
         private void WriteChar( char c )
         {
-            TextWriter.Write( Fmt_Char, c );
+            TextWriter.Write( Resources.Format_Char, c );
         }
 
         /// <summary>
@@ -504,7 +486,7 @@ namespace Ensurance.MessageWriters
         /// <param name="dt">The dt.</param>
         private void WriteDateTime( DateTime dt )
         {
-            TextWriter.Write( dt.ToString( Fmt_DateTime, CultureInfo.InvariantCulture ) );
+            TextWriter.Write( dt.ToString( Resources.Format_DateTime, CultureInfo.InvariantCulture ) );
         }
 
         #endregion

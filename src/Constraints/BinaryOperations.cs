@@ -23,6 +23,7 @@
 
 using System;
 using Ensurance.MessageWriters;
+using Ensurance.Properties;
 
 namespace Ensurance.Constraints
 {
@@ -110,7 +111,7 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
             Left.WriteDescriptionTo( writer );
-            writer.WriteConnector( "and" );
+            writer.WriteConnector( Resources.And );
             Right.WriteDescriptionTo( writer );
         }
     }
@@ -153,7 +154,7 @@ namespace Ensurance.Constraints
                 throw new ArgumentNullException( "writer" );
             }
             Left.WriteDescriptionTo( writer );
-            writer.WriteConnector( "or" );
+            writer.WriteConnector( Resources.Or );
             Right.WriteDescriptionTo( writer );
         }
     }

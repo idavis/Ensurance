@@ -25,6 +25,7 @@ using System;
 using System.Collections;
 using System.Globalization;
 using System.Text;
+using Ensurance.Properties;
 
 namespace Ensurance
 {
@@ -33,7 +34,7 @@ namespace Ensurance
     /// </summary>
     public class MsgUtils
     {
-        private const string ELLIPSIS = "...";
+        private static readonly string ELLIPSIS = Resources.Ellipsis;
 
         /// <summary>
         /// Returns the representation of a type as used in NUnitLite. This is
